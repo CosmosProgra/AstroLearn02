@@ -37,10 +37,10 @@ bool Ingresar::init()
 	// add a label shows "Hello World"
 	// create and initialize a label
 
-	auto label = LabelTTF::create("Comenzar aventura", "Arial", 24);
+	auto label = LabelTTF::create("Participa en esta gran aventura", "Cooper Black", 24);
 
 	// position the label on the center of the screen
-	label->setPosition(Point(origin.x + visibleSize.width * 0.5f, origin.y + visibleSize.height * .64f));
+	label->setPosition(Point(origin.x + visibleSize.width * 0.5f, origin.y + visibleSize.height * .80f));
 
 	// add the label as a child to this layer
 	this->addChild(label, 1);
@@ -71,23 +71,31 @@ void Ingresar::createMenu()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
-	/*// Boton de la casita, para retornar al menu del juego, ubicado en la esquina superior izquierda
-	auto buttonHome = MenuItemImage::create("boton_aceptar.png", CC_CALLBACK_1(Ingresar::returnGameMenu, this));
-	buttonHome->setPosition(Point(origin.x + buttonHome->getContentSize().width / 2.0f + 5.0f, origin.y + visibleSize.height - buttonHome->getContentSize().height / 2.0f - 5.0f));
-	auto buttonHomeMenu = Menu::create(buttonHome, NULL);
-	buttonHomeMenu->setPosition(Point::ZERO);
-	this->addChild(buttonHomeMenu, 2);*/
-
-	// Boton registrarse
-	auto buttonatras = MenuItemImage::create("boton_atras.png", "boton_atras.png", CC_CALLBACK_1(Ingresar::returnGameMenu, this));
-	buttonatras->setPosition(Point(visibleSize.width / 2, origin.y + visibleSize.height * 0.57f));	auto buttonAwardsMenu = Menu::create(buttonatras, NULL);
+	// Boton para regresar a la pantalla principal, ubicado en la parte central de la pantalla.
+	auto buttonAtras = MenuItemImage::create("boton_atras.png", "boton_atras.png", CC_CALLBACK_1(Ingresar::returnGameMenu, this));
+	buttonAtras->setPosition(Point(visibleSize.width / 2, origin.y + visibleSize.height * 0.45f));	auto buttonAwardsMenu = Menu::create(buttonAtras, NULL);
 	buttonAwardsMenu->setPosition(Point::ZERO);
 	this->addChild(buttonAwardsMenu, 2);
+
+	// Boton para continuar con la selección de la misión, ubicado en la parte central junto al boton 'Atras'.
+	auto buttonAceptar = MenuItemImage::create("boton_aceptar.png", "boton_aceptar.png", CC_CALLBACK_1(Ingresar::levels, this));
+	buttonAceptar->setPosition(Point(visibleSize.width / 2 + buttonAtras->getContentSize().width*1.2f, origin.y + visibleSize.height * 0.45f));
+	auto buttonHomeMenu = Menu::create(buttonAceptar, NULL);
+	buttonHomeMenu->setPosition(Point::ZERO);
+	this->addChild(buttonHomeMenu, 2);
+
 }
 
 #include "HelloWorldScene.h"
+#include "Ingresar.h"
+
 void Ingresar::returnGameMenu(Ref* pSender)
 {
 	auto newScene = HelloWorld::createScene();
 	Director::getInstance()->replaceScene(CCTransitionMoveInR::create(0.75f, newScene));
+}
+
+void Ingresar::levels(Ref* pSender)
+{
+
 }

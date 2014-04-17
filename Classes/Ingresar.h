@@ -15,6 +15,9 @@ public:
 	/// Se invoca cuando el jugador presiona el boton 'regresar al inicio'
 	void returnGameMenu(cocos2d::Ref* pSender);
 
+	///Se invoca cuando el jugador presiona 'Aceptar' y se dirige a la pantalla de los niveles.
+	void levels(cocos2d::Ref* pSender);
+
 	// implement the "static create()" method manually
 	CREATE_FUNC(Ingresar);
 
