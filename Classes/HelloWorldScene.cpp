@@ -94,11 +94,14 @@ void HelloWorld::Iniciarsesion(Ref* pSender)
 	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
 }
 
+
+#include "Registrarse.h"
 void HelloWorld::registrarusuario(Ref *pSender)
 {
+	auto newScene = Registrarse::createScene();
+	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
+
 }
-
-
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
