@@ -34,17 +34,7 @@ bool Ingresar::init()
 	/////////////////////////////
 	// 3. add your codes below...
 
-	// add a label shows "Hello World"
-	// create and initialize a label
-
-	auto label = LabelTTF::create("Participa en esta gran aventura", "Cooper Black", 24);
-
-	// position the label on the center of the screen
-	label->setPosition(Point(origin.x + visibleSize.width * 0.5f, origin.y + visibleSize.height * .80f));
-
-	// add the label as a child to this layer
-	this->addChild(label, 1);
-
+	
 	// Crear el fondo del menu del juego
 	auto sprite = Sprite::create("iniciarsesion.jpg");
 
