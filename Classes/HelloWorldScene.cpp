@@ -1,4 +1,5 @@
 #include "HelloWorldScene.h"
+#include <SimpleAudioEngine.h>
 
 USING_NS_CC;
 
@@ -59,10 +60,10 @@ bool HelloWorld::init()
     this->addChild(sprite, 0);
 	createGameMenu();
 
-/*	// Reproducir la musica del menu principal
+	// Reproducir la musica del menu principal
 	auto sound = CocosDenshion::SimpleAudioEngine::getInstance();
 	sound->stopBackgroundMusic();
-	sound->playBackgroundMusic("Music/cancion1.mp3", true);*/
+	sound->playBackgroundMusic("Music/cancion4.mp3", true);
     return true;
 }
 
@@ -73,7 +74,7 @@ void HelloWorld::createGameMenu()
 
 	// Boton ingresar
 	auto buttoningresar = MenuItemImage::create("boton_ingresar.png", "boton_ingresar.png", CC_CALLBACK_1(HelloWorld::Iniciarsesion, this));
-	buttoningresar->setPosition(Point(visibleSize.width / 2, origin.y + visibleSize.height * 0.57f));
+	buttoningresar->setPosition(Point(visibleSize.width / 2, origin.y + visibleSize.height * 0.33f));
 	auto buttonStartMenu = Menu::create(buttoningresar, NULL);
 	buttonStartMenu->setPosition(Point::ZERO);
 	this->addChild(buttonStartMenu, 2);
