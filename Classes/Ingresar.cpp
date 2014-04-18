@@ -63,7 +63,7 @@ void Ingresar::createMenu()
 
 	// Boton para regresar a la pantalla principal, ubicado en la parte central de la pantalla.
 	auto buttonAtras = MenuItemImage::create("boton_atras.png", "boton_atras.png", CC_CALLBACK_1(Ingresar::returnGameMenu, this));
-	buttonAtras->setPosition(Point(visibleSize.width / 2, origin.y + visibleSize.height * 0.45f));	auto buttonAwardsMenu = Menu::create(buttonAtras, NULL);
+	buttonAtras->setPosition(Point(visibleSize.width / 14.5, origin.y + visibleSize.height * 0.06f));	auto buttonAwardsMenu = Menu::create(buttonAtras, NULL);
 	buttonAwardsMenu->setPosition(Point::ZERO);
 	this->addChild(buttonAwardsMenu, 2);
 
