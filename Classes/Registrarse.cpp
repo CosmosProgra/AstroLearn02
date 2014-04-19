@@ -72,7 +72,7 @@ void Registrarse::createMenu()
     Point origin = Director::getInstance()->getVisibleOrigin();
 
 	// Boton para regresar a la pantalla principal, ubicado en la parte central de la pantalla.
-	auto buttonAtras = MenuItemImage::create("boton_atras.png", "boton_atras.png", CC_CALLBACK_1(Registrarse::returnGameMenu, this));
+	auto buttonAtras = MenuItemImage::create("boton_atras.png", "botonatras_down.png", CC_CALLBACK_1(Registrarse::returnGameMenu, this));
 	buttonAtras->setPosition(Point(visibleSize.width / 14.5, origin.y + visibleSize.height * 0.06f));
 	auto buttonHomeMenu = Menu::create(buttonAtras, NULL);
 	buttonHomeMenu->setPosition(Point::ZERO);
@@ -83,7 +83,7 @@ void Registrarse::createMenu()
 	// Boton para ir a la pantalla de juego. 
 	// El iniciarJuego lo hice solo por poner algo, hagale los cambios necesarios
 
-	auto buttonAceptar = MenuItemImage::create("boton_aceptar.png", "boton_aceptar.png", CC_CALLBACK_1(Registrarse::iniciarJuego, this));
+	auto buttonAceptar = MenuItemImage::create("boton_aceptar.png", "botonaceptar_down.png", CC_CALLBACK_1(Registrarse::iniciarJuego, this));
 	buttonAceptar->setPosition(Point(visibleSize.width / 1.4 + buttonAtras->getContentSize().width*1.63f, origin.y + visibleSize.height * 0.40f));
 	auto buttonJuego = Menu::create(buttonAceptar, NULL);
 	buttonJuego->setPosition(Point::ZERO);

@@ -73,14 +73,14 @@ void HelloWorld::createGameMenu()
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
 	// Boton ingresar
-	auto buttoningresar = MenuItemImage::create("boton_ingresar.png", "boton_ingresar.png", CC_CALLBACK_1(HelloWorld::Iniciarsesion, this));
+	auto buttoningresar = MenuItemImage::create("boton_ingresar.png", "botoningresar_down.png", CC_CALLBACK_1(HelloWorld::Iniciarsesion, this));
 	buttoningresar->setPosition(Point(visibleSize.width / 2, origin.y + visibleSize.height * 0.33f));
 	auto buttonStartMenu = Menu::create(buttoningresar, NULL);
 	buttonStartMenu->setPosition(Point::ZERO);
 	this->addChild(buttonStartMenu, 2);
 
 	// Boton registrarse
-	auto buttonregistrarse = MenuItemImage::create("boton_registrarse.png", "boton_registrarse.png", CC_CALLBACK_1(HelloWorld::registrarusuario, this));
+	auto buttonregistrarse = MenuItemImage::create("boton_registrarse.png", "botonregistrarse_down.png", CC_CALLBACK_1(HelloWorld::registrarusuario, this));
 	buttonregistrarse->setPosition(Point(buttoningresar->getPositionX(), buttoningresar->getPositionY() - buttoningresar->getContentSize().height - 10));
 	auto buttonAwardsMenu = Menu::create(buttonregistrarse, NULL);
 	buttonAwardsMenu->setPosition(Point::ZERO);
