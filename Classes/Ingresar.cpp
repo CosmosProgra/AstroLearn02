@@ -62,13 +62,13 @@ void Ingresar::createMenu()
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
 	// Boton para regresar a la pantalla principal, ubicado en la parte central de la pantalla.
-	auto buttonAtras = MenuItemImage::create("boton_atras.png", "boton_atras.png", CC_CALLBACK_1(Ingresar::returnGameMenu, this));
+	auto buttonAtras = MenuItemImage::create("boton_atras.png", "botonatras_down.png", CC_CALLBACK_1(Ingresar::returnGameMenu, this));
 	buttonAtras->setPosition(Point(visibleSize.width / 14.5, origin.y + visibleSize.height * 0.06f));	auto buttonAwardsMenu = Menu::create(buttonAtras, NULL);
 	buttonAwardsMenu->setPosition(Point::ZERO);
 	this->addChild(buttonAwardsMenu, 2);
 
 	// Boton para continuar con la selección de la misión, ubicado en la parte central junto al boton 'Atras'.
-	auto buttonAceptar = MenuItemImage::create("boton_aceptar.png", "boton_aceptar.png", CC_CALLBACK_1(Ingresar::levels, this));
+	auto buttonAceptar = MenuItemImage::create("boton_aceptar.png", "botonaceptar_down.png", CC_CALLBACK_1(Ingresar::levels, this));
 	buttonAceptar->setPosition(Point(visibleSize.width / 2 + buttonAtras->getContentSize().width*1.2f, origin.y + visibleSize.height * 0.45f));
 	auto buttonHomeMenu = Menu::create(buttonAceptar, NULL);
 	buttonHomeMenu->setPosition(Point::ZERO);
