@@ -3,20 +3,23 @@
 
 USING_NS_CC;
 
+///Constructor de la clase AppDelegate
 AppDelegate::AppDelegate() {
 
 }
 
+///Destructor de la clase AppDelegate
 AppDelegate::~AppDelegate() 
 {
 }
 
+///Metodo que se ejecuta cuando la aplicacion termino de cargarse
 bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLView::create("AstroLearn");
+        glview = GLView::create("AstroLearn"); /*!< Titulo de la ventana principal */ 
         director->setOpenGLView(glview);
     }
 
