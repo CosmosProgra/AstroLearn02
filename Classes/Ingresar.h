@@ -1,28 +1,33 @@
 #ifndef Ingresar_h
 #define Ingresar_h
 
-#include "cocos2d.h"
+#include "cocos2d.h" 
+
+/**
+	Clase ingresar. Se utiliza para generar la pantalla con la que el usuario accesa a su cuenta.
+*/
 
 class Ingresar : public cocos2d::Layer
 {
+	
 public:
-	// there's no 'id' in cpp, so we recommend returning the class instance pointer
+	/// Metodo para crear la escena donde se generará la pantalla.
 	static cocos2d::Scene* createScene();
 
-	// Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
+	/// Retorna un booleano, se usa para generar los elementos que conforman la pantalla.
 	virtual bool init();
 
-	/// Se invoca cuando el jugador presiona el boton 'regresar al inicio'
+	/// Se invoca cuando el jugador presiona el boton 'regresar al inicio' y se dirige a la pantalla principal.
 	void returnGameMenu(cocos2d::Ref* pSender);
 
 	///Se invoca cuando el jugador presiona 'Aceptar' y se dirige a la pantalla de los niveles.
 	void levels(cocos2d::Ref* pSender);
 
-	// implement the "static create()" method manually
+	/// Implementa the "static create()" método manual.
 	CREATE_FUNC(Ingresar);
 
 private:
-	/// Crea las opciones del menu, como el icono para regresar al menu del juego
+	/// Crea los botones necesarios para enlazar la pantalla con otras.
 	void createMenu();
 };
 

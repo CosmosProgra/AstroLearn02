@@ -18,7 +18,6 @@ public:
 	/// Se invoca cuando el jugador presiona el boton registrarse
 	void registrarusuario(cocos2d::Ref* pSender);
 
-	
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
