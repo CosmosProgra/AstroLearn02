@@ -3,16 +3,15 @@
 
 #include "cocos2d.h" /*!< Inclusion de cocos2d para poder utilizar sus metodos */
 
-/**
-	Clase ingresar. Se utiliza para generar la pantalla con la que el usuario accesa a su cuenta.
-*/
 
-class Ingresar : public cocos2d::Layer
+/// Clase ingresar. Se utiliza para generar la pantalla con la que el usuario accesa a su cuenta.
+
+class Ingresar : public cocos2d::Layer /*!< Hereda de Layer. */ 
 {
 	
 public:
 	
-	/// Metodo para crear la escena, muestra los botones para ir a la pantalla principal y a la que contiene los niveles.
+	// Metodo para crear la escena de la pantalla para ingresar.
 	static cocos2d::Scene* createScene();
 
 	/// Retorna un booleano, se usa para generar los elementos que conforman la pantalla.
@@ -24,7 +23,7 @@ public:
 	///Se invoca cuando el jugador presiona 'Aceptar' y se dirige a la pantalla de los niveles.
 	void levels(cocos2d::Ref* pSender);
 
-	/// Implementa the "static create()" método manual.
+	/// Implementa the "static create()" metodo manual.
 	CREATE_FUNC(Ingresar);
 
 private:
