@@ -1,18 +1,9 @@
 # AstroLearn#
 
-###Equipo de trabajo:###
-Cosmos
-
-* Gaudy Blanco Meneses
-* Luis Leandro Jimenéz
-* Jose Eduardo Picado Salas
-<span style="background:yellow">[Muevan los detalles del equipo de trabajo al README.md]</span>
-
-***
 ### Ilustración
 
 ![Alt Text](inicio.jpg "Posible escenario")
-<span style="background:yellow">[Qué imagen va aquí?]</span>
+
 
 ### Descripción
 
@@ -33,7 +24,7 @@ Adelante con esta aventura, muchos éxitos.
 * Productos similares: Existen productos en la tienda Play de Google para Android. Estos son minijuegos para niños que desarrollan principalmente temáticas sobre los planetas, pero no desarrollan una historia, o bien información sobre planetas en forma de enciclopedia <span style="background:yellow">[No es claro si esos juegos presentan o no información enciclopédica]</span>. Entre estos están:
 	* [Conhecendo o sistema solar](https://play.google.com/store/apps/details?id=air.cienciasjogoConhecendoSistemaSolar)
 	* [Solar System 3D](https://play.google.com/store/apps/details?id=stevesk.apps.solarsystem)
-	* Earth or Not Earth https://play.google.com/store/apps/details?id=org.cosmoquest.earthnotearth
+	* [Earth or Not Earth](https://play.google.com/store/apps/details?id=org.cosmoquest.earthnotearth)
 
 <span style="background:yellow">[Utilizar los enlaces como se hizo con los dos primeros anteriores] [Buscar también referencias en la tienda de Apple]</span>
 ***
