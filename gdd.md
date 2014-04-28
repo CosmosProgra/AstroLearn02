@@ -1,14 +1,5 @@
 # AstroLearn#
 
-###Equipo de trabajo:###
-Cosmos
-
-* Gaudy Blanco Meneses
-* Luis Leandro Jimenéz
-* Jose Eduardo Picado Salas
-<span style="background:yellow">[Muevan los detalles del equipo de trabajo al README.md]</span>
-
-***
 ### Ilustración
 
 ![Alt Text](inicio.jpg "Posible escenario")
