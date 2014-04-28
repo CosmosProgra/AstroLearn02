@@ -1,8 +1,8 @@
 #include "Registrarse.h"
 #include <SimpleAudioEngine.h>
 
-USING_NS_CC;
-
+USING_NS_CC; /*!< Se incluye el espacio de nombres de cocos */ 
+ 
 Scene* Registrarse::createScene()
 {
     // 'scene' is an autorelease object
@@ -45,20 +45,20 @@ bool Registrarse::init()
     // add the label as a child to this layer
     //this->addChild(label, 1);
 
-    // Crear el fondo del menu del juego
+
+
+    /// Crea el fondo de la pantalla del menu "Registrarse" del juego
     auto sprite = Sprite::create("registrarse.jpg");
 
-    // position the sprite on the center of the screen
+    /// Posiciona el sprite (fondo de pantalla) para que quede centralizado en la pantalla
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
-    // add the sprite as a child to this layer
+    /// Hace visible el fondo de pantalla
     this->addChild(sprite, 0);
 	
 	createMenu();
     
-	// Reproducir la musica de la seleccion del nivel: quiza sea mejor dejar la misma del menu
-	// principal y cambiarla cuando se haya iniciado el nivel. Se deja aqui por propositos
-	// ilustrativos
+	/// Se utiliza para reproducir la musica cuando se cambia a esta pantalla (registrarse).
 	auto sound = CocosDenshion::SimpleAudioEngine::getInstance();
 	sound->stopBackgroundMusic();
 	sound->playBackgroundMusic("Music/cancion4.mp3", true);
@@ -68,44 +68,62 @@ bool Registrarse::init()
 
 void Registrarse::createMenu()
 {
+
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
 
-	// Boton para regresar a la pantalla principal, ubicado en la parte central de la pantalla.
+	
+	/// Se crea el boton (buttonAtras) para retroceder al menu principal.	
+	
+	/// Se utilizan imagenes, las cuales son diferentes, para darle efecto cuando el botón es presionado.
+	/// Se hace el llamado al metodo "returnGameMenu" el cual le da la funcionalidad al botón.
 	auto buttonAtras = MenuItemImage::create("boton_atras.png", "botonatras_down.png", CC_CALLBACK_1(Registrarse::returnGameMenu, this));
+	
+	/// Posiciona el boton en la esquina inferior izquierda de la pantalla.
 	buttonAtras->setPosition(Point(visibleSize.width / 14.5, origin.y + visibleSize.height * 0.06f));
+
+	/// Crea el botón
 	auto buttonHomeMenu = Menu::create(buttonAtras, NULL);
 	buttonHomeMenu->setPosition(Point::ZERO);
+
+	/// Agrega el boton atras en la pantalla.
 	this->addChild(buttonHomeMenu, 2);
+	
 
 
-	//////
-	// Boton para ir a la pantalla de juego. 
-	// El iniciarJuego lo hice solo por poner algo, hagale los cambios necesarios
+	/// Se crea el boton aceptar (buttonAceptar) para continuar a la pantalla de juego.
 
+	/// Se utilizan imagenes, las cuales son diferentes, para darle efecto cuando el botón es presionado.
+	/// Se hace el llamado al metodo "iniciarJuego" el cual le da la funcionalidad al botón una vez sea implementado.
 	auto buttonAceptar = MenuItemImage::create("boton_aceptar.png", "botonaceptar_down.png", CC_CALLBACK_1(Registrarse::iniciarJuego, this));
+	
+	/// Posiciona el boton en la esquina inferior izquierda de la pantalla.
 	buttonAceptar->setPosition(Point(visibleSize.width / 1.4 + buttonAtras->getContentSize().width*1.63f, origin.y + visibleSize.height * 0.40f));
+	
+	/// Crea el botón
 	auto buttonJuego = Menu::create(buttonAceptar, NULL);
 	buttonJuego->setPosition(Point::ZERO);
-	this->addChild(buttonJuego, 2);
 
-
-
-
-	
+	/// Agrega el boton atras en la pantalla.
+	this->addChild(buttonJuego, 2);	
 }
 
 
-#include "HelloWorldScene.h"
+#include "HelloWorldScene.h" /*!< Inclusion de la biblioteca HelloWorldScene.h */
 
+/// Metodo que es invocado al ser presionado el boton atras.
 void Registrarse::returnGameMenu(Ref* pSender)
 {
+
+	/// Crea la escena del menu principal
 	auto newScene = HelloWorld::createScene();
+	/// Reemplaza la escena actual por la del menu principal. Tambien se le asigna una animación a la transcición de pantalla.
 	Director::getInstance()->replaceScene(CCTransitionSlideInL::create(0.75f, newScene));
 }
 
 
+/// Metodo para cambiar la pantalla por la del juego.
 void Registrarse::iniciarJuego(Ref* pSender)
 {
-	
+
 }
