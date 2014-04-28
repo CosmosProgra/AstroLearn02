@@ -24,10 +24,9 @@ Adelante con esta aventura, muchos éxitos.
 
 * Plataforma de destino: Windows y Android.
 * Audiencia: Ideado para adolescentes de 12 a 17 años. Estas edades permiten desarrollar un juego con una historia extensa, lo cual es necesario para ciertos temas de astronomía.
-* Productos similares: Existen productos en la tienda Play de Google para Android. Estos son minijuegos para niños que desarrollan principalmente temáticas sobre los planetas, pero no desarrollan una historia, o bien información sobre planetas en forma de enciclopedia <span style="background:yellow">[No es claro si esos juegos presentan o no información enciclopédica]</span>. Entre estos están:
-	* [Conhecendo o sistema solar](https://play.google.com/store/apps/details?id=air.cienciasjogoConhecendoSistemaSolar)
-	* [Solar System 3D](https://play.google.com/store/apps/details?id=stevesk.apps.solarsystem)
-	* [Earth or Not Earth](https://play.google.com/store/apps/details?id=org.cosmoquest.earthnotearth)
+* Productos similares: Existen productos en la tienda Play de Google para Android. Estos son minijuegos para niños que desarrollan principalmente temáticas sobre los planetas, pero no desarrollan una historia, o bien información sobre planetas en forma de enciclopedia. Entre estos están:
+	* [Conhecendo o sistema solar](https://play.google.com/store/apps/details?id=air.cienciasjogoConhecendoSistemaSolar) : En este programa se presentan imágenes de los planetas para conocer su orden en el sistema solar.
+	* [Solar System 3D](https://play.google.com/store/apps/details?id=stevesk.apps.solarsystem) : Se describen los planetas y se preswnta información en forma de enciclopedia.) : Se presenta información y datos sobre la Tierra en forma de enciclopedia. 
 
 <span style="background:yellow">[Utilizar los enlaces como se hizo con los dos primeros anteriores] [Buscar también referencias en la tienda de Apple]</span>
 ***
