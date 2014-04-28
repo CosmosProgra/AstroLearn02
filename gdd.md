@@ -16,13 +16,10 @@ Cosmos
 
 ### Descripción
 
-AstroLearn es un juego educativo que busca enseñar varios conocimientos importantes sobre el sistema solar. Deberás recorrer los planetas para cumplir una serie de misiones que fueron asignadas desde la Estación Espacial Internacional.<span style="background:yellow">[Por qué la estación espacial internacional asignó misiones]</span>
+AstroLearn es un juego educativo que busca enseñar varios conocimientos importantes sobre el sistema solar. Deberás recorrer los planetas para cumplir una serie de misiones que fueron asignadas desde la Estación Espacial Internacional, ya que, será utilizada por la NASA( Administración Nacional de Aeronáutica y el Espacio ) para brindarte los objetivos que debes cumplir y que la comunidad internacional está necesitando para sus investigaciones.
 
-Además, tendrás que capturar cierta cantidad de estrellas durante el camino, pero para eso, enfrentaras distintas situaciones que caracterizan a los planetas. Prominencias, tormentas de arena, entre otros. <span style="background:yellow">[Por qué estrellas? son más grandes que cualquier planeta. No es mejor tanques de oxígeno, enfriadores de traje, calefactores o herramientas que necesita para terminar el recorrido en ese planeta? Más adelante se menciona algo en el gameplay]</span>
 
-Además, tendrás que capturar cierta cantidad de estrellas durante el camino pero para eso enfrentaras distintas situaciones que caracterizan a los planetas: prominencias, tormentas de arena, entre otros.<span style="background:yellow">[Párrafo reiterado]</span>
-
-Los datos recolectados servirán para realizar investigaciones que necesitan los científicos para proteger a la tierra.<span style="background:yellow">[Protegerla de qué?]</span>
+Además, tendrás que capturar cierta cantidad de llaves maya para obtener información y otros elementos como tanques de oxígeno, enfriadores de traje, calefactores o herramientas que necesita para terminar el recorrido en ese planeta  durante el camino, pero para eso, enfrentaras distintas situaciones que caracterizan a los planetas. Prominencias, tormentas de arena, entre otros.
 
 Adelante con esta aventura, muchos éxitos.
 
@@ -95,12 +92,12 @@ El juego presenta ocho niveles, cada nivel tendrá una misión por cumplir y una
 
 ######Mercurio
 
-En Mercurio deberás estudiar la superficie y poder determinar el impacto de las radiaciones solares, para eso deberás saltar grandes cráteres que posee dicho planeta. Contarás con el traje espacial que te permite saltar una gran distancia pero en poco tiempo, además, el traje contiene un sistema de enfriamiento que tendrás que pasar por las altas temperaturas. También debes tener cuidado de las emisiones que vienen desde el sol. Debes recolectar una muestra de la superficie antes que ya no encuentres más tanques de oxígeno y botellas de combustible. Ya que el traje dejará de funcionar y no podrás completar la misión. <span style="background:yellow">[Se infiere que cada misión tiene un tiempo máximo para completarla. En este caso está limitado por la duración del traje. Si es así, explicitarlo en el documento]</span>
+En Mercurio deberás estudiar la superficie y poder determinar el impacto de las radiaciones solares, para eso deberás saltar grandes cráteres que posee dicho planeta. Contarás con el traje espacial que te permite saltar una gran distancia pero en poco tiempo, además, el traje contiene un sistema de enfriamiento que tendrás que pasar por las altas temperaturas. También debes tener cuidado de las emisiones que vienen desde el sol. Debes recolectar una muestra de la superficie antes que ya no encuentres más tanques de oxígeno y botellas de combustible. Ya que el traje dejará de funcionar y no podrás completar la misión, por eso, debes estar pendiente de la estabilidad de tu traje y tu salud, mediante las barras de color que te indicarán cuanto te queda
 
 
 ######Venus
 
-En Venus deberás fortalecer la sonda que han enviado a Venus <span style="background:yellow">[Cómo se llama esta sonda? indicarlo, le da más profesionalismo a la historia y mejor a la hora de implementar el juego]</span>, pero lamentablemente solo cuentas con dos horas para poder hacerlo antes que el calor la dañe. Tendrás que enfrentar una superficie rocosa, con cráteres y unas nubes densas. Además de una lluvia de ácido sulfúrico. Pero ten cuidado porque se han registrado estallidos de rayos atmosféricos que harán más complicada la misión. Recuerda que debes recolectar los tanques de combustible y oxígeno necesarios para poder recorrer el planeta.
+Deberás fortalecer la sonda que han enviado a Venus llamada Messenger, pero lamentablemente solo cuentas con dos horas para poder hacerlo antes que el calor la dañe. Tendrás que enfrentar una superficie rocosa, con cráteres y unas nubes densas. Además de una lluvia de ácido sulfúrico. Pero ten cuidado porque se han registrado estallidos de rayos atmosféricos que harán más complicada la misión. Recuerda que debes recolectar los tanques de combustible y oxígeno necesarios para poder recorrer el planeta.
 
 ######Tierra
 
@@ -117,7 +114,7 @@ En esta misión tendrás que luchar contra las condiciones hostiles de Júpiter,
 
 ######Saturno
 
-<del>Este planeta</del>Saturno es gaseoso, por lo tanto, deberás de <span style="background:yellow">["deber de" es una redundancia, basta con "deber"]</span> pasar por una serie de nubes que no durarán mucho tiempo para desaparecer. Tienes que tener en cuenta los vientos rápidos <span style="background:yellow">[Indicar la rapidez media en km/h, eso le da mucho profesionalismo y emoción al relato]</span> que caracterizan a dicho planeta y complicarán tu misión. Tienes que darle mantenimiento a la nave Cassini para poder seguir recolectando información sobre las lunas de Saturno y que podrían brindar más información acerca de cómo era nuestro planeta <span style="background:yellow">[Cuál? La Tierra? como era... ¿hace cuántos años?]</span>. No olvides recolectar los tanques de combustible y las estrellas para que puedas completar la misión.
+Saturno es gaseoso, por lo tanto, deberás  pasar por una serie de nubes que no durarán mucho tiempo para desaparecer. Tenga en cuenta los rápidos viendos de 1.800 km/h, que caracterizan a dicho planeta y complicarán tu misión. Tienes que darle mantenimiento a la nave Cassini para poder seguir recolectando información sobre las lunas de Saturno y que podrían brindar más información acerca de cómo era nuestro planeta en sus inicios. No olvides recolectar los tanques de combustible y las estrellas para que puedas completar la misión.
 
 
 ######Urano
