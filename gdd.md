@@ -25,7 +25,7 @@ Adelante con esta aventura, muchos éxitos.
 	* [Conhecendo o sistema solar](https://play.google.com/store/apps/details?id=air.cienciasjogoConhecendoSistemaSolar) : En este programa se presentan imágenes de los planetas para conocer su orden en el sistema solar.
 	* [Solar System 3D](https://play.google.com/store/apps/details?id=stevesk.apps.solarsystem) : Se describen los planetas y se preswnta información en forma de enciclopedia.) : Se presenta información y datos sobre la Tierra en forma de enciclopedia. 
 
-<span style="background:yellow">[Utilizar los enlaces como se hizo con los dos primeros anteriores] [Buscar también referencias en la tienda de Apple]</span>
+En la App Store no se encontraron referencias a juegos educativos relacionados con astronomía. 
 ***
 
 ### Historia
@@ -54,9 +54,9 @@ Al astronauta se le va a asignar por medio del ISS <span style="background:yello
 
 El usuario va a tener el control de un astronauta. El sexo y apariencia del astronauta dependerá de la decisión tomada por el jugador.
 
-El personaje es un experimentado(a) astronauta que desde su infancia se ha visto atraido por las estrellas y los planetas, y desde entonces siempre ha querido verlas lo más cerca posible, fue en ese momento cuando se dio cuenta que quería convertirse en un astronauta para poder conseguirlo. <del>Ahora que es uno</del>, su objetivo es <span style="background:yellow">[completar su carrera profesional,]</span> aprender más sobre el sistema solar, lograr convertirse en uno de los mejores astronautas y entrar al salón de la fama.
+El personaje es un experimentado(a) astronauta que desde su infancia se ha visto atraído por las estrellas y los planetas y desde entonces siempre ha querido verlas lo más cerca posible, fue en ese momento cuando se dio cuenta que quería convertirse en un astronauta para poder conseguirlo. Ahora que es uno, su objetivo es completar su carrera profesional, aprender más sobre el sistema solar, lograr convertirse en uno de los mejores astronautas y entrar al salón de la fama.
 
-En los diferentes niveles el astronauta puede realizar cinco tipo de movimientos: caminar, retroceder, inclinarse, saltar y correr. <span style="background:yellow">[Se afectan por la gravedad, atmósfera y contexto de los planetas?]</span>
+En los diferentes niveles el astronauta puede realizar cinco tipo de movimientos: caminar, retroceder, inclinarse, saltar y correr, estos se verán afectados por la gravedad, atmósfera y características del planeta en el cual se encuentre. 
 
 ***
 ### Controles###
@@ -78,7 +78,7 @@ Para utilizar el juego en Android se utilizará un emulador de las teclas semeja
 
 ### Gameplay
 
-El juego presenta ocho niveles, cada nivel tendrá una misión por cumplir y una serie de obstáculos característicos del planeta y así poder vincular más la realidad con el juego. De esa manera se pretende que haya un proceso enseñanza-aprendizaje.
+El juego presenta ocho niveles, cada nivel tendrá una misión por cumplir y una serie de obstáculos característicos del planeta y así poder vincular más la realidad con el juego. De esa manera se pretende que haya un proceso enseñanza-aprendizaje. Todas los niveles tienen como característica común la recolección de tanques de oxígeno, combustible, calefactores y enfriadores para el traje que permitirán mantener la estabilidad del traje en las condiciones hostiles de los distintos planetas así como el nivel óptimo de salud del personaje.Además, en los escenarios se podrá encontrar información necesaria para completar la misión en llaves mayas que podrán ser leídas con el sistema computacional que contiene el traje. El motivo de la exploración de los planetas será el aprendizaje que obtendrás, además de la experiencia necesaria para formar parte del prestigioso Salón de la Fama de los astronautas y ser el primer astronauta en lograr visitar todos los planetas del sistema solar. 
 
 ######Mercurio
 
@@ -91,15 +91,15 @@ Deberás fortalecer la sonda que han enviado a Venus llamada Messenger, pero lam
 
 ######Tierra
 
-En <del>esta pantalla</del> <span style="background:yellow">[Usar el nombre del planeta]</span> la Tierra deber<span style="background:yellow">a</span>s <span style="background:yellow">[Cuidar la ortografía]</span> recorrer un escenario con aspectos caracteristicos <span style="background:yellow">[ortografía]</span> de este planeta que lo hacen muy diferente de los demás. Recorrerás montañas, llanuras, edificios y mares e ir recolectando estrellas que aumentarán tu puntuación final y estrellas sabias que te brindarán información sobre la misión que se te asignará en este escenario. La misión aquí será recolectar diversas piezas del telescopio espacial Hubble para reconstruirlo luego de que ha sido parcialmente dañado por un meteorito. Luego de recolectar las piezas, deberás llevarlas y ponerlas en órbita para que sean reensambladas mediante la Estación Espacial Internacional. Pero antes de llegar a la Estación, tendrás que recoger algunas piezas del Hubble en la Luna y superar obstáculos en su terreno rocoso, así como obtener información sobre el Apollo 11. En este escenario, cuando te ubiques en la Tierra, el no portarás tu traje porque puedes respirar normalmente, pero si podrás recoger tanques de oxígeno y combustible para almacenar para las próximas misiones en otros planetas. <span style="background:yellow">[Mejorar la redacción]</span>
+En la Tierra deberás recorrer un escenario con aspectos característicos del planeta que lo hacen muy diferente de los demás. Recorrerás montañas, llanuras, edificios y mares e irás recolectando información almacenada en llaves mayas que aumentarán tu puntuación final y te brindarán información sobre la misión que debes cumplir en este nivel. La misión será recolectar diversas piezas del telescopio espacial Hubble para reconstruirlo luego de que ha sido parcialmente dañado por un meteorito. Luego de recolectar las piezas, deberás llevarlas y ponerlas en órbita para que sean reensambladas mediante la Estación Espacial Internacional. Pero antes de llegar a la Estación, tendrás que recoger algunas piezas del Hubble en la Luna y superar obstáculos en su terreno rocoso, así como obtener información sobre el Apollo 11. En este escenario, cuando te ubiques en la Tierra, no portarás tu traje porque puedes respirar normalmente, pero si podrás recoger tanques de oxígeno y combustible para almacenar para las próximas misiones en otros planetas. 
 
 ######Marte
 
-En este escenario tendrás que superar obstáculos como tormentas de arena, terrenos rocosos, temperaturas bajas en la noche y temperaturas altas en el día <span style="background:yellow">[El recorrido tiene tanto día como noche?]</span>. Podrás observar diversas misiones ubicadas en la superficie como el Curiosity Rover, el Spirit, el Pathfinder y el Opportunity. Tu objetivo <del>en este escenario además de recolectar estrellas, combustible y tanques de oxígeno así como obtener información de las estrellas sabias,</del> <span style="background:yellow">[Eso es un medio no un fin. Además es constante, en cada misión indiferentemente del planeta, hay que hacer eso. Es bueno indicarlo en el párrafo al iniciar esta sección de "Gameplay"]</span> será recolectar rocas específicas de la superficie de Marte, encontrar a la misión Spirit que ha perdido contacto con la NASA desde el 2010, y repararla a partir de las partes que se encuentren de él. <span style="background:yellow">[No se dice cómo se repara una estación/misión. Basta con llegar a ella portando en una mochila sus partes? son necesarias herramientas?]</span>
+En este escenario tendrás que superar obstáculos como tormentas de arena, terrenos rocosos, temperaturas bajas en la noche y temperaturas altas en el día, ya que recorrerás el planeta cuando se este dando la transición del día a la noche. Podrás observar diversas misiones ubicadas en la superficie como el Curiosity Rover, el Spirit, el Pathfinder y el Opportunity. Tu objetivo será recolectar rocas específicas de la superficie de Marte para su ánalisis en la Tierra, además de encontrar a la misión Spirit que ha perdido contacto con la NASA desde el 2010 y recuperarla para que sea reparada por los ingenieros de la NASA al final del juego.
 
 ######Júpiter
 
-En esta misión tendrás que luchar contra las condiciones hostiles de Júpiter, un planeta sin superficie rocosa, alta concentración de gases y una gran tormenta en la gran mancha roja. <del>Esta será una pantalla cronometrada <span style="background:yellow">[aparentemente todas lo son]</span> en la que tendrás que recoger todas las estrellas, combustible y tanques de oxígeno posibles así como</del> Debes obtener información de las sondas Galileo y Cassini para reportar a la NASA su estado actual. Deberás almacenar todos los datos obtenidos de las sondas y enviarlos a la NASA antes de que acabe el tiempo. <span style="background:yellow">[¿Cómo se envían datos a la agencia? ¿No bastaría con reparar el mecanismo de comunicación que presuntamente estaría averiado en ellas? No suena racional que la agencia envíe una sonda que no retroalimente información y luego tenga que enviar astronautas a recoger los registros: la información electromagnética viaja mucho más rápido y segura que cualquier ser humano]</span>
+En esta misión tendrás que luchar contra las condiciones hostiles de Júpiter, un planeta sin superficie rocosa, con alta concentración de gases y una gran tormenta en la gran mancha roja. Esta será una pantalla cronométrada, a diferencia de las demás en las cuales podrás mantenerte jugando mientras tengas una condición de salud óptima y suficiente combustible, en la que tendrás que obtener información de las sondas Galileo y Cassini para reportar a la NASA su estado actual. Deberás almacenar todos los datos obtenidos de las sondas y enviarlos a la NASA antes de que acabe el tiempo mediante la reparación del sistema de comunicación que tienen estas sondas. 
 
 
 ######Saturno
@@ -111,7 +111,6 @@ Saturno es gaseoso, por lo tanto, deberás  pasar por una serie de nubes que no 
 En esta misión tendrás que lidiar con el extraño eje de rotación del planeta, por lo que en lugar de avanzar horizontalmente, deberás hacerlo verticalmente, para esto utilizarás un traje especial que te permitirá impulsarte.
 Los fuertes vientos también estarán presentes.En esta misión los tanques de combustible son primordiales para poder completarla.
 
-	FALTA MOTIVO DE EXPLORACION
 
 <span style="background:yellow">[Falta además en cada planeta tropicalizar mejor la misión, el escenario y los obstáculos. Que sea algo realmente cercano a la realidad. Creo que es fácil, cada planeta tiene sus curiosidades, anécdotas y misterios]</span>
 
@@ -121,6 +120,5 @@ Tu objetivo será recolectar muestras de la atmosfera <span style="background:ye
 
 ---
 
-El personaje no hará ninguna proeza debido a que se requiere un ambiente realista. Además, algo distintivo del juego es que habrá ciertos elementos que le brindarán información al usuario para que pueda ampliar su conocimiento. <span style="background:yellow">[Es mejor hacer una lista, aunque sea tentativa de estos elementos, la información que brindan y en qué ayudan al jugador a superar las misiones]</span>
 
 
