@@ -3,6 +3,7 @@
 
 #include "cocos2d.h" /*!< Inclusion de cocos2d para poder utilizar sus metodos */
 
+/// Crea la pantalla para registrarse.
 class Registrarse : public cocos2d::Layer /*!< Hereda de Layer. */ 
 {
 public:
