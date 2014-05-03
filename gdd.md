@@ -45,7 +45,7 @@ El desarrollo del juego se centra en un personaje, el cual es un astronauta, sel
 
 En cada nivel se debe enfrentar a los obstáculos característicos de cada planeta (formaciones rocosas, tormentas de arena, expulsiones de gas, montes, etc...) y debe ir recogiendo estrellas ubicadas a lo largo de la pantalla. Existen varios tipos de estrellas: estrellas para aumentar la puntuación, estrellas sabias que proveen información al jugador y estrellas que dan más vidas al jugador.
 
-Al astronauta se le va a asignar por medio del ISS <span style="background:yellow">[qué es esto?]</span> una misión distinta en cada planeta, principalmente para recuperar algún instrumento científico desarrollado por humanos e instalado en el planeta (Curiosity Rover, Messenger, Venus Express, Cassini, Soyuz, Sonda Galileo, Voyager 1 y 2, Telescopio Espacial Hubble) <span style="background:yellow">[Es bueno indicar en qué nivel/planeta se recupera cada uno, y mejor aún si existe una relación lógica entre el instrumento y el planeta, ya que el juego es educativo]</span> o cerca del planeta en algunos casos. Si el astronauta logra avanzar y resolver la misión en los 8 niveles habrá completado el juego y será premiado con el ingreso al salón de la fama de los astronautas en la NASA <span style="background:yellow">[Sugerencia: Es mejor no involucrar a la NASA, no se tiene el visto bueno de ellos para usar su nombre. Mejor inventarse una agencia ficticia. La historia del juego se encarga de dejar claro lo prestigiosa que es]</span>.
+Al astronauta se le va a asignar una misión distinta en cada planeta, principalmente para recuperar algún instrumento científico desarrollado por humanos e instalado en el planeta (Curiosity Rover[Marte], Messenger[Venus], Cassini[Jupiter], Sonda Galileo[Jupiter], Voyager 1 [Saturno], Telescopio Espacial Hubble[Tierra]) o cerca del planeta en algunos casos. Si el astronauta logra avanzar y resolver la misión en los 8 niveles habrá completado el juego y será premiado con el ingreso al salón de la fama de los astronautas en la Agencia Espacial de Costa Rica.
 
 ***
 
@@ -90,7 +90,7 @@ Deberás fortalecer la sonda que han enviado a Venus llamada Messenger, pero lam
 
 ######Tierra
 
-En la Tierra deberás recorrer un escenario con aspectos característicos del planeta que lo hacen muy diferente de los demás. Recorrerás montañas, llanuras, edificios y mares e irás recolectando información almacenada en llaves mayas que aumentarán tu puntuación final y te brindarán información sobre la misión que debes cumplir en este nivel. La misión será recolectar diversas piezas del telescopio espacial Hubble para reconstruirlo luego de que ha sido parcialmente dañado por un meteorito. Luego de recolectar las piezas, deberás llevarlas y ponerlas en órbita para que sean reensambladas mediante la Estación Espacial Internacional. Pero antes de llegar a la Estación, tendrás que recoger algunas piezas del Hubble en la Luna y superar obstáculos en su terreno rocoso, así como obtener información sobre el Apollo 11. En este escenario, cuando te ubiques en la Tierra, no portarás tu traje porque puedes respirar normalmente, pero si podrás recoger tanques de oxígeno y combustible para almacenar para las próximas misiones en otros planetas. 
+En la Tierra deberás recorrer un escenario con aspectos característicos del planeta que lo hacen muy diferente de los demás. Recorrerás montañas, llanuras, edificios y mares e irás recolectando información almacenada en llaves mayas que aumentarán tu puntuación final y te brindarán información sobre la misión que debes cumplir en este nivel. La misión será recolectar diversas piezas del telescopio espacial Hubble para reconstruirlo luego de que ha sido parcialmente dañado por un meteorito. Luego de recolectar las piezas, deberás llevarlas y ponerlas en órbita para que sean reensambladas mediante la Estación Espacial Internacional. Pero antes de llegar a la Estación, tendrás que recoger algunas piezas del Hubble en la Luna y superar obstáculos en su terreno rocoso, así como obtener información sobre el Apollo 11. En este escenario, cuando te ubiques en la Tierra, no portarás tu traje porque puedes respirar normalmente, pero si podrás recoger tanques de oxígeno y combustible para almacenar para las próximas misiones en otros planetas.
 
 ######Marte
 
@@ -103,19 +103,18 @@ En esta misión tendrás que luchar contra las condiciones hostiles de Júpiter,
 
 ######Saturno
 
-Saturno es gaseoso, por lo tanto, deberás  pasar por una serie de nubes que no durarán mucho tiempo para desaparecer. Tenga en cuenta los rápidos viendos de 1.800 km/h, que caracterizan a dicho planeta y complicarán tu misión. Tienes que darle mantenimiento a la nave Cassini para poder seguir recolectando información sobre las lunas de Saturno y que podrían brindar más información acerca de cómo era nuestro planeta en sus inicios. No olvides recolectar los tanques de combustible y las estrellas para que puedas completar la misión.
+Saturno es gaseoso, por lo tanto, deberás  pasar por una serie de nubes que no durarán mucho tiempo para desaparecer. Tenga en cuenta los rápidos viendos de 1.800 km/h, que caracterizan a dicho planeta y complicarán tu misión. Tienes que darle mantenimiento a la naves Voyager 1 para poder seguir recolectando información sobre las lunas de Saturno y que podrían brindar más información acerca de cómo era nuestro planeta en sus inicios. No olvides recolectar los tanques de combustible y las estrellas para que puedas completar la misión.
 
 
 ######Urano
 En esta misión tendrás que lidiar con el extraño eje de rotación del planeta, por lo que en lugar de avanzar horizontalmente, deberás hacerlo verticalmente, para esto utilizarás un traje especial que te permitirá impulsarte.
-Los fuertes vientos también estarán presentes.En esta misión los tanques de combustible son primordiales para poder completarla.
+Los fuertes vientos también estarán presentes. El planeta tampoco tiene superficie rocosa, por lo que para movilizarte deberás pasar de nuevo por las nubes que desaparecen al poco tiempo de ser pisadas. En esta misión los tanques de combustible son primordiales para poder completarla.
 
-
-<span style="background:yellow">[Falta además en cada planeta tropicalizar mejor la misión, el escenario y los obstáculos. Que sea algo realmente cercano a la realidad. Creo que es fácil, cada planeta tiene sus curiosidades, anécdotas y misterios]</span>
 
 ######Neptuno
-Al igual que con los anteriores planetas gaseosos, tendrás que lidiar con los fuertes vientos de este, pero cuidado, los vientos en Neptuno son hasta tres veces más fuertes que en los vientos de Jupiter <span style="background:yellow">[ortografía]</span>.
-Tu objetivo será recolectar muestras de la atmosfera <span style="background:yellow">[ortografía]</span> de Neptuno para que estas puedan ser utilizadas por la NASA para descubrir el misterioso componente que le da el color azul al planeta. No olvides recolectar las estrellas, combustible y tanques de oxigeno para poder finalizar la misión <span style="background:yellow">[Aquí los obstáculos podrían ser vientos más rápidos con grandes gotas de lluvia. Muy acorde para el último nivel: el de mayor dificultad. Los tanques de oxígeno podrían ser insuficientes, por lo que el jugador debe llevar de reserva. Si no los dispone, podría tener que ir a recogerlos a la Tierra (repetir la misión 3), ...]</span>.
+Al igual que con los anteriores planetas gaseosos, y tendrás que lidiar con los fuertes vientos de este, pero cuidado, los vientos en Neptuno son hasta tres veces más fuertes que en los vientos de Júpiter. Dentro de los obstáculos se encuentran las manchas oscuras; en el juego estas consistiran en vientos más fuertes de lo habitual, por lo que el jugador tendrá que inclinarse para evitar irse con los vientos.
+Tu objetivo será recolectar muestras de la atmósfera de Neptuno para que estas puedan ser utilizadas por la NASA para descubrir el misterioso componente que le da el característico color azul al planeta. No olvides recolectar las estrellas, combustible y tanques de oxigeno para poder finalizar la misión.
+
 
 ---
 
