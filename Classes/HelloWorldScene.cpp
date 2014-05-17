@@ -76,6 +76,41 @@ bool HelloWorld::init()
 	///Agrega la estrella
 	this->addChild(estrella, 1);
 
+	animateSprite(estrella);
+
+	// Reproducir la musica del menu principal
+	auto sound = CocosDenshion::SimpleAudioEngine::getInstance();
+	sound->stopBackgroundMusic();
+	sound->playBackgroundMusic("Music/cancion4.mp3", true);
+    return true;
+}
+
+
+void HelloWorld::display(const std::string& filename)
+
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Point origin = Director::getInstance()->getVisibleOrigin();
+
+	auto label = LabelTTF::create("CatchMe", filename , 72);
+
+	// position the label on the center of the screen
+	label->setPosition(Point(origin.x + visibleSize.width,
+							origin.y + visibleSize.height/2));
+
+	this-> addChild(label,1);
+
+	MoveTo* mover = MoveTo::create(2.5f, Point(origin.x, visibleSize.height/2 + origin.y) );
+
+	auto repeatAnimation = RepeatForever::create(mover);
+
+	label->runAction(repeatAnimation);
+
+}
+
+
+void HelloWorld::animateSprite(Node *child) 
+{
 	/// Crea un movimiento rotativo
 	RotateBy* rotar = RotateBy::create(2.5f, 220.0f, 220.0f);
 	
@@ -83,13 +118,8 @@ bool HelloWorld::init()
 	auto repeatAnimation = RepeatForever::create(rotar);
 
 	/// Hace que la estrella realize la acción de rotar.
-	estrella->runAction(repeatAnimation);
+	child->runAction(repeatAnimation);
 
-	// Reproducir la musica del menu principal
-	auto sound = CocosDenshion::SimpleAudioEngine::getInstance();
-	sound->stopBackgroundMusic();
-	sound->playBackgroundMusic("Music/cancion4.mp3", true);
-    return true;
 }
 
 ///Metodo que coloca los botones del metodo en pantalla y les proporciona funcionalidad
