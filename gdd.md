@@ -81,8 +81,17 @@ El juego presenta ocho niveles, cada nivel tendrá una misión por cumplir y una
 
 ######Mercurio
 
-En Mercurio deberás estudiar la superficie y poder determinar el impacto de las radiaciones solares, para eso deberás saltar grandes cráteres que posee dicho planeta. Contarás con el traje espacial que te permite saltar una gran distancia pero en poco tiempo, además, el traje contiene un sistema de enfriamiento que tendrás que pasar por las altas temperaturas. También debes tener cuidado de las emisiones que vienen desde el sol. Debes recolectar una muestra de la superficie antes que ya no encuentres más tanques de oxígeno y botellas de combustible. Ya que el traje dejará de funcionar y no podrás completar la misión, por eso, debes estar pendiente de la estabilidad de tu traje y tu salud, mediante las barras de color que te indicarán cuanto te queda
+Mercurio es el planeta más cercano a nuestro sol, por eso su temperatura va desde -173 grados Celsius hasta los 179. Su superficie es muy parecida a la que posee la luna. Además, frecuentemente es abatida por asteroides de distintos tamaños que han provocado que se encuentre lleno de cráteres, el más grande de ellos recibe el nombre de Caloris. Uno de los principales objetivos en este planeta es obtener muestras de la composición de la superficie de diferentes zonas, para futuras investigaciones del impacto de las radiaciones solares. Como puedes ver para poder cumplir ese objetivo debes de enfrentar una serie de obstáculos, pero para eso la agencia te dará los siguientes elementos:
 
+* Un traje espacial de la más alta tecnología que posee un sistema de enfriamiento para soportar los cambios de temperatura y unos propulsores para lograr dar grandes saltos. Lamentablemente, estas utilidades necesitan de combustible que se encuentra distribuido a lo largo del trayecto y han sido puestos por una nave enviada para ello.
+
+* También debes de vigilar el nivel del tanque de oxígeno para recargarlo cuando sea necesario. Al igual que los tanques de combustible, se encuentran distribuidos a largo del trayecto.
+
+Por último, recuerda que en cualquier momento te puede impactar un asteroide, para eso puede utilizar los propulsores en caso que sea necesario.
+
+Con tu ayuda, lograremos ampliar los datos que poseemos de nuestro sistema solar. Es un acto peligroso pero eso es lo que implica la vida de un o una astronauta.
+
+Muchos éxitos.
 
 ######Venus
 
