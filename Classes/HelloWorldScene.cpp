@@ -101,7 +101,7 @@ void HelloWorld::createGameMenu()
 
 	/// Creación del boton ingresar
 	///Se coloca la imagen que llevara el boton cuando este y cuando no este oprimido, ademas del metodo que sera invocado cuando el boton sea presionado, el cual llama a la pantalla iniciarsesion
-	auto buttoningresar = MenuItemImage::create("boton_ingresar.png", "botoningresar_down.png", CC_CALLBACK_1(HelloWorld::Iniciarsesion, this));
+	auto buttoningresar = MenuItemImage::create("jugar.png", "jugar.png", CC_CALLBACK_1(HelloWorld::Iniciarsesion, this));
 	///Se le da posicion en pantalla al boton ingresar
 	buttoningresar->setPosition(Point(visibleSize.width / 2, origin.y + visibleSize.height * 0.33f));
 	//Se crea el boton
@@ -109,39 +109,20 @@ void HelloWorld::createGameMenu()
 	buttonStartMenu->setPosition(Point::ZERO);
 	///Se agrega el boton a la capa en la cual se mostrara
 	this->addChild(buttonStartMenu, 2);
-
-	// Creacion del boton registrarse
-	///Se coloca la imagen que llevara el boton cuando este y cuando no este oprimido, ademas del metodo que sera invocado cuando el boton sea presionado, el cual llama a la pantalla registrarusuario
-	auto buttonregistrarse = MenuItemImage::create("boton_registrarse.png", "botonregistrarse_down.png", CC_CALLBACK_1(HelloWorld::registrarusuario, this));
-	///Se le da posicion en pantalla al boton registrarse
-	buttonregistrarse->setPosition(Point(buttoningresar->getPositionX(), buttoningresar->getPositionY() - buttoningresar->getContentSize().height - 10));
-	//Se crea el boton
-	auto buttonAwardsMenu = Menu::create(buttonregistrarse, NULL);
-	buttonAwardsMenu->setPosition(Point::ZERO);
-	///Se agrega el boton registrarse a la capa en la cual se mostrara
-	this->addChild(buttonAwardsMenu, 2);
 }
 
 #include "Ingresar.h" /*!< Inclusion de la biblioteca Ingresar.h */
+#include "login.h" /*!< Inclusion de la biblioteca Ingresar.h */
 ///Metodo que invoca el boton ingresar, abre una nueva pantalla
 void HelloWorld::Iniciarsesion(Ref* pSender)
 {
 	///Crea la escena de ingresar
-	auto newScene = Ingresar::createScene(); 
+//	auto newScene = Ingresar::createScene(); 
+	auto newScene = Login::createScene(); 
 	///Reemplaza la escena actual por la escena de Ingresar
 	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
 }
 
-
-#include "Registrarse.h" /*!< Inclusion de la biblioteca Registrarse.h */
-void HelloWorld::registrarusuario(Ref *pSender)
-{
-	///Crea la escena de Registrarse
-	auto newScene = Registrarse::createScene();
-	///Reemplaza la escena actual por la escena Registrarse
-	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
-
-}
 
 ///Metodo que termina la ejecucion del programa
 void HelloWorld::menuCloseCallback(Ref* pSender)

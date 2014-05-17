@@ -35,7 +35,7 @@ bool Ingresar::init()
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
 	/// Crear el fondo que lleva la pantalla para que usuario pueda acceder.
-	auto sprite = Sprite::create("iniciarsesion.jpg");
+	auto sprite = Sprite::create("jugar.jpg");
 
 	/// Posiciona la imagen en el centro de la pantalla.
 	sprite->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
@@ -74,10 +74,10 @@ void Ingresar::createMenu()
 
 	/// Crea 'buttonAceptar' para poder continuar con la pantalla que contiene los niveles.
 	/// Coloca la imagenes para que el boton 'Aceptar' se vea interactivo.
-	auto buttonAceptar = MenuItemImage::create("boton_aceptar.png", "botonaceptar_down.png", CC_CALLBACK_1(Ingresar::levels, this));
+	auto buttonAceptar = MenuItemImage::create("nuevoavatar.png", "nuevoavatar_down.png", CC_CALLBACK_1(Ingresar::levels, this));
 	
 	/// Se le da posicion el botón 'Atras' cerca del centro de la pantalla
-	buttonAceptar->setPosition(Point(visibleSize.width / 2 + buttonAtras->getContentSize().width*1.2f, origin.y + visibleSize.height * 0.45f));
+	buttonAceptar->setPosition(Point(visibleSize.width / 2 + buttonAtras->getContentSize().width*3.0f, origin.y + visibleSize.height * 0.62f));
 	
 	/// Se crea el boton
 	auto buttonNextPage = Menu::create(buttonAceptar, NULL);
@@ -100,7 +100,12 @@ void Ingresar::returnGameMenu(Ref* pSender)
 	Director::getInstance()->replaceScene(CCTransitionMoveInR::create(0.75f, newScene));
 }
 
+#include "Registrarse.h"
 void Ingresar::levels(Ref* pSender)
 {
-	/// Metodo para dirigir a la pantalla que contiene los niveles.
+	///Crea la escena de ingresar
+	auto newScene = Registrarse::createScene(); 
+	///Reemplaza la escena actual por la escena de nuevo personaje
+	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
+	/// Metodo para dirigir a la pantalla que contiene la creacion de un nuevo personaje
 }

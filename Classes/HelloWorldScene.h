@@ -18,9 +18,6 @@ public:
 	/// Se invoca cuando el jugador presiona el boton ingresar en la pantalla principal
 	void Iniciarsesion(cocos2d::Ref* pSender);
 
-	/// Se invoca cuando el jugador presiona el boton registrarse en la pantalla principal
-	void registrarusuario(cocos2d::Ref* pSender);
-
     
     // a selector callback, metodo que termina el programa
     void menuCloseCallback(cocos2d::Ref* pSender);
