@@ -81,7 +81,7 @@ bool HelloWorld::init()
 	// Reproducir la musica del menu principal
 	auto sound = CocosDenshion::SimpleAudioEngine::getInstance();
 	sound->stopBackgroundMusic();
-	sound->playBackgroundMusic("Music/cancion4.mp3", true);
+	sound->playBackgroundMusic("Music/Thrust Sequence_0.mp3", true);
     return true;
 }
 
