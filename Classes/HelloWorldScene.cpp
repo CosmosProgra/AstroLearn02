@@ -92,7 +92,7 @@ void HelloWorld::display(const std::string& filename)
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
-	auto label = LabelTTF::create("CatchMe", filename , 72);
+    auto label = LabelTTF::create("CatchMe", filename , 72);
 
 	// position the label on the center of the screen
 	label->setPosition(Point(origin.x + visibleSize.width,
@@ -142,7 +142,7 @@ void HelloWorld::createGameMenu()
 }
 
 #include "Ingresar.h" /*!< Inclusion de la biblioteca Ingresar.h */
-#include "login.h" /*!< Inclusion de la biblioteca Ingresar.h */
+#include "Login.h" /*!< Inclusion de la biblioteca Ingresar.h */
 ///Metodo que invoca el boton ingresar, abre una nueva pantalla
 void HelloWorld::Iniciarsesion(Ref* pSender)
 {
