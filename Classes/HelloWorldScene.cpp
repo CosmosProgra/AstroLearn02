@@ -78,6 +78,17 @@ bool HelloWorld::init()
 
 	animateSprite(estrella);
 
+
+	auto label = LabelTTF::create("CatchMe", "fonts/led_display-7.ttf", 7);
+
+	// position the label on the center of the screen
+	label->setPosition(Point(origin.x + visibleSize.width,
+		origin.y + visibleSize.height / 2));
+
+	this->addChild(label, 1);
+
+
+
 	// Reproducir la musica del menu principal
 	auto sound = CocosDenshion::SimpleAudioEngine::getInstance();
 	sound->stopBackgroundMusic();
@@ -86,13 +97,13 @@ bool HelloWorld::init()
 }
 
 
-void HelloWorld::display(const std::string& filename)
+LabelTTF HelloWorld::display(const std::string& filename, std::string nombre)
 
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
-    auto label = LabelTTF::create("CatchMe", filename , 72);
+    auto label = LabelTTF::create(nombre, filename , 72);
 
 	// position the label on the center of the screen
 	label->setPosition(Point(origin.x + visibleSize.width,
@@ -109,7 +120,7 @@ void HelloWorld::display(const std::string& filename)
 }
 
 
-void HelloWorld::animateSprite(Node *child) 
+void HelloWorld::animate(Node *child) 
 {
 	/// Crea un movimiento rotativo
 	RotateBy* rotar = RotateBy::create(2.5f, 220.0f, 220.0f);
