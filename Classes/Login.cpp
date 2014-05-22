@@ -32,7 +32,7 @@ bool Login::init()
     Point origin = Director::getInstance()->getVisibleOrigin();
 
     /// Crea el fondo de la pantalla del menu "Registrarse" del juego
-    auto sprite = Sprite::create("fondoteclado.jpg");
+    auto sprite = Sprite::create("Fondos/fondoteclado.jpg");
 
     /// Posiciona el sprite (fondo de pantalla) para que quede centralizado en la pantalla
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
@@ -61,7 +61,7 @@ void Login::createMenu()
 	
 	/// Se utilizan imagenes, las cuales son diferentes, para darle efecto cuando el botón es presionado.
 	/// Se hace el llamado al metodo "returnGameMenu" el cual le da la funcionalidad al botón.
-	auto buttonAtras = MenuItemImage::create("boton_atras.png", "botonatras_down.png", CC_CALLBACK_1(Login::returnGameMenu, this));
+	auto buttonAtras = MenuItemImage::create("botones/boton_atras.png", "botones/botonatras_down.png", CC_CALLBACK_1(Login::returnGameMenu, this));
 	/// Posiciona el boton en la esquina inferior izquierda de la pantalla.
 	buttonAtras->setPosition(Point(visibleSize.width / 14.5, origin.y + visibleSize.height * 0.06f));
 	/// Crea el botón
@@ -73,7 +73,7 @@ void Login::createMenu()
 	//Botón 1
 	/// Se utilizan imagenes, las cuales son diferentes, para darle efecto cuando el botón es presionado.
 	/// Se hace el llamado al metodo "returnGameMenu" el cual le da la funcionalidad al botón.
-	auto button01 = MenuItemImage::create("/Originales/01.png", "/Pequeños/01.png", CC_CALLBACK_1(Login::returnGameMenu, this));
+	auto button01 = MenuItemImage::create("botones/teclado/01.png", "botones/teclado_down/01.png", CC_CALLBACK_1(Login::returnGameMenu, this));
 	/// Posiciona el boton en la esquina inferior izquierda de la pantalla.
 	button01->setPosition(Point(visibleSize.width / 3.0, origin.y + visibleSize.height * 0.6f));
 	/// Crea el botón
@@ -84,7 +84,7 @@ void Login::createMenu()
 	//Botón 2
 	/// Se utilizan imagenes, las cuales son diferentes, para darle efecto cuando el botón es presionado.
 	/// Se hace el llamado al metodo "returnGameMenu" el cual le da la funcionalidad al botón.
-	auto button02 = MenuItemImage::create("/Originales/02.png", "/Pequeños/02.png", CC_CALLBACK_1(Login::returnGameMenu, this));
+	auto button02 = MenuItemImage::create("botones/teclado/02.png", "botones/teclado_down/02.png", CC_CALLBACK_1(Login::returnGameMenu, this));
 	/// Posiciona el boton en la esquina inferior izquierda de la pantalla.
 	button02->setPosition(Point(visibleSize.width / 2.2, origin.y + visibleSize.height * 0.6f));
 	/// Crea el botón
@@ -95,7 +95,7 @@ void Login::createMenu()
 	//Botón 3
 	/// Se utilizan imagenes, las cuales son diferentes, para darle efecto cuando el botón es presionado.
 	/// Se hace el llamado al metodo "returnGameMenu" el cual le da la funcionalidad al botón.
-	auto button03 = MenuItemImage::create("/Originales/03.png", "/Pequeños/03.png", CC_CALLBACK_1(Login::returnGameMenu, this));
+	auto button03 = MenuItemImage::create("botones/teclado/03.png", "botones/teclado_down/03.png", CC_CALLBACK_1(Login::returnGameMenu, this));
 	/// Posiciona el boton en la esquina inferior izquierda de la pantalla.
 	button03->setPosition(Point(visibleSize.width / 1.741, origin.y + visibleSize.height * 0.6f));
 	/// Crea el botón
@@ -106,7 +106,7 @@ void Login::createMenu()
 	//Botón 4
 	/// Se utilizan imagenes, las cuales son diferentes, para darle efecto cuando el botón es presionado.
 	/// Se hace el llamado al metodo "returnGameMenu" el cual le da la funcionalidad al botón.
-	auto button04 = MenuItemImage::create("/Originales/04.png", "/Pequeños/04.png", CC_CALLBACK_1(Login::returnGameMenu, this));
+	auto button04 = MenuItemImage::create("botones/teclado/04.png", "botones/teclado_down/04.png", CC_CALLBACK_1(Login::returnGameMenu, this));
 	/// Posiciona el boton en la esquina inferior izquierda de la pantalla.
 	button04->setPosition(Point(visibleSize.width / 3.0, origin.y + visibleSize.height * 0.459f));
 	/// Crea el botón

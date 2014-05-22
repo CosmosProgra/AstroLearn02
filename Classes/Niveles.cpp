@@ -32,7 +32,7 @@ bool Niveles::init()
     Point origin = Director::getInstance()->getVisibleOrigin();
 
     /// Crea el fondo de la pantalla del menu "Registrarse" del juego
-    auto sprite = Sprite::create("sistema.jpg");
+    auto sprite = Sprite::create("Fondos/sistema.jpg");
 
     /// Posiciona el sprite (fondo de pantalla) para que quede centralizado en la pantalla
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
@@ -61,7 +61,7 @@ void Niveles::createMenu()
 	
 	/// Se utilizan imagenes, las cuales son diferentes, para darle efecto cuando el botón es presionado.
 	/// Se hace el llamado al metodo "returnGameMenu" el cual le da la funcionalidad al botón.
-	auto buttonAtras = MenuItemImage::create("boton_atras.png", "botonatras_down.png", CC_CALLBACK_1(Niveles::returnGameMenu, this));
+	auto buttonAtras = MenuItemImage::create("botones/boton_atras.png", "botones/botonatras_down.png", CC_CALLBACK_1(Niveles::returnGameMenu, this));
 	
 	/// Posiciona el boton en la esquina inferior izquierda de la pantalla.
 	buttonAtras->setPosition(Point(visibleSize.width / 14.5, origin.y + visibleSize.height * 0.06f));

@@ -31,24 +31,8 @@ bool Registrarse::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
 
-    /////////////////////////////
-    // 3. add your codes below...
-
-    // add a label shows "Hello World"
-    // create and initialize a label
-
-    //auto label = LabelTTF::create("", "Arial", 24);
-
-    // position the label on the center of the screen
-    //label->setPosition(Point(origin.x + visibleSize.width * 0.5f, origin.y + visibleSize.height * .64f));
-
-    // add the label as a child to this layer
-    //this->addChild(label, 1);
-
-
-
     /// Crea el fondo de la pantalla del menu "Registrarse" del juego
-    auto sprite = Sprite::create("registrarse.jpg");
+    auto sprite = Sprite::create("Fondos/registrarse.jpg");
 
     /// Posiciona el sprite (fondo de pantalla) para que quede centralizado en la pantalla
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
@@ -77,7 +61,7 @@ void Registrarse::createMenu()
 	
 	/// Se utilizan imagenes, las cuales son diferentes, para darle efecto cuando el botón es presionado.
 	/// Se hace el llamado al metodo "returnGameMenu" el cual le da la funcionalidad al botón.
-	auto buttonAtras = MenuItemImage::create("boton_atras.png", "botonatras_down.png", CC_CALLBACK_1(Registrarse::returnGameMenu, this));
+	auto buttonAtras = MenuItemImage::create("botones/boton_atras.png", "botones/botonatras_down.png", CC_CALLBACK_1(Registrarse::returnGameMenu, this));
 	
 	/// Posiciona el boton en la esquina inferior izquierda de la pantalla.
 	buttonAtras->setPosition(Point(visibleSize.width / 14.5, origin.y + visibleSize.height * 0.06f));
@@ -95,7 +79,7 @@ void Registrarse::createMenu()
 
 	/// Se utilizan imagenes, las cuales son diferentes, para darle efecto cuando el botón es presionado.
 	/// Se hace el llamado al metodo "iniciarJuego" el cual le da la funcionalidad al botón una vez sea implementado.
-	auto buttonAceptar = MenuItemImage::create("boton_aceptar.png", "botonaceptar_down.png", CC_CALLBACK_1(Registrarse::iniciarJuego, this));
+	auto buttonAceptar = MenuItemImage::create("botones/boton_aceptar.png", "botones/botonaceptar_down.png", CC_CALLBACK_1(Registrarse::iniciarJuego, this));
 	
 	/// Posiciona el boton en la esquina inferior izquierda de la pantalla.
 	buttonAceptar->setPosition(Point(visibleSize.width / 1.4 + buttonAtras->getContentSize().width*1.6f, origin.y + visibleSize.height * 0.50f));

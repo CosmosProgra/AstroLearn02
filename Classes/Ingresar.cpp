@@ -35,7 +35,7 @@ bool Ingresar::init()
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
 	/// Crear el fondo que lleva la pantalla para que usuario pueda acceder.
-	auto sprite = Sprite::create("jugar.jpg");
+	auto sprite = Sprite::create("Fondos/jugar.jpg");
 
 	/// Posiciona la imagen en el centro de la pantalla.
 	sprite->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
@@ -63,7 +63,7 @@ void Ingresar::createMenu()
 
 	/// Se crea el boton 'buttonAtras', para regresar a la pantalla del menu. 
 	/// Se coloca las imaganes para que el botón tenga una ilustracion, ademas, hacer que se vea interactivo
-	auto buttonAtras = MenuItemImage::create("boton_atras.png", "botonatras_down.png", CC_CALLBACK_1(Ingresar::returnGameMenu, this));
+	auto buttonAtras = MenuItemImage::create("botones/boton_atras.png", "botones/botonatras_down.png", CC_CALLBACK_1(Ingresar::returnGameMenu, this));
 	
 	/// Se le da posicion al boton en la esquina inferior izquierda de la pantalla.
 	buttonAtras->setPosition(Point(visibleSize.width / 14.5, origin.y + visibleSize.height * 0.06f));	auto buttonAwardsMenu = Menu::create(buttonAtras, NULL);
@@ -74,7 +74,7 @@ void Ingresar::createMenu()
 
 	/// Crea 'buttonAceptar' para poder continuar con la pantalla que contiene los niveles.
 	/// Coloca la imagenes para que el boton 'Aceptar' se vea interactivo.
-	auto buttonAceptar = MenuItemImage::create("nuevoavatar.png", "nuevoavatar_down.png", CC_CALLBACK_1(Ingresar::levels, this));
+	auto buttonAceptar = MenuItemImage::create("botones/avatar.png", "botones/avatar_down.png", CC_CALLBACK_1(Ingresar::levels, this));
 	
 	/// Se le da posicion el botón 'Atras' cerca del centro de la pantalla
 	buttonAceptar->setPosition(Point(visibleSize.width / 2 + buttonAtras->getContentSize().width*3.0f, origin.y + visibleSize.height * 0.62f));
