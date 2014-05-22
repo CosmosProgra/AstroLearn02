@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include <SimpleAudioEngine.h> /*!< Se incluye la biblioteca para poder colocar sonido de fondo */ 
+#include "Animaciones.h"
 
 USING_NS_CC; /*!< Se incluye el espacio de nombres de cocos */ 
 
@@ -76,8 +77,7 @@ bool HelloWorld::init()
 	///Agrega la estrella
 	this->addChild(estrella, 1);
 
-	animateSprite(estrella);
-
+	Animaciones::rotar(estrella);
 
 	auto label = LabelTTF::create("CatchMe", "fonts/led_display-7.ttf", 7);
 
@@ -96,42 +96,6 @@ bool HelloWorld::init()
     return true;
 }
 
-
-LabelTTF HelloWorld::display(const std::string& filename, std::string nombre)
-
-{
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Point origin = Director::getInstance()->getVisibleOrigin();
-
-    auto label = LabelTTF::create(nombre, filename , 72);
-
-	// position the label on the center of the screen
-	label->setPosition(Point(origin.x + visibleSize.width,
-							origin.y + visibleSize.height/2));
-
-	this-> addChild(label,1);
-
-	MoveTo* mover = MoveTo::create(2.5f, Point(origin.x, visibleSize.height/2 + origin.y) );
-
-	auto repeatAnimation = RepeatForever::create(mover);
-
-	label->runAction(repeatAnimation);
-
-}
-
-
-void HelloWorld::animate(Node *child) 
-{
-	/// Crea un movimiento rotativo
-	RotateBy* rotar = RotateBy::create(2.5f, 220.0f, 220.0f);
-	
-	/// Se usa para repetir la acción rotar por un número de veces ilimitado.
-	auto repeatAnimation = RepeatForever::create(rotar);
-
-	/// Hace que la estrella realize la acción de rotar.
-	child->runAction(repeatAnimation);
-
-}
 
 ///Metodo que coloca los botones del metodo en pantalla y les proporciona funcionalidad
 void HelloWorld::createGameMenu()

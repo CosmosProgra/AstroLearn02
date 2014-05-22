@@ -21,10 +21,6 @@ public:
     
     // a selector callback, metodo que termina el programa
     void menuCloseCallback(cocos2d::Ref* pSender);
-
-	LabelTTF display(const std::string& filename, std::string nombre);
-
-	void animate(cocos2d::Node *child);
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
