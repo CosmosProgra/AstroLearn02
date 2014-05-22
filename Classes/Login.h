@@ -8,17 +8,19 @@ class Login : public cocos2d::Layer /*!< Hereda de Layer. */
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
-	/// Metodo que crea la escena de la pantalla "Registrarse"
+	/// Metodo que crea la escena de la pantalla "Login"
     static cocos2d::Scene* createScene();
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
 
-    /// Se invoca cuando el jugador presiona el boton 'Atras' en la pantalla "Registrarse".
+    /// Se invoca cuando el jugador presiona el boton 'Atras' en la pantalla "Login".
     void returnGameMenu(cocos2d::Ref* pSender);
 
-	/// Se invoca cuando el jugador presiona el boton 'Aceptar' en la pantalla "Registrarse".
-   //	void iniciarJuego(cocos2d::Ref* pSender);
+	/// Se invoca cuando el jugador presiona el boton 'Enter' en la pantalla "Login".
+   	void opciones(cocos2d::Ref* pSender);
+
+	void leerpin();
 
     // implement the "static create()" method manually
     CREATE_FUNC(Login);
