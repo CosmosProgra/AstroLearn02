@@ -74,7 +74,7 @@ void Ingresar::createMenu()
 
 	/// Crea 'buttonAceptar' para poder continuar con la pantalla que contiene los niveles.
 	/// Coloca la imagenes para que el boton 'Aceptar' se vea interactivo.
-	auto buttonAceptar = MenuItemImage::create("botones/avatar.png", "botones/avatar_down.png", CC_CALLBACK_1(Ingresar::levels, this));
+	auto buttonAceptar = MenuItemImage::create("botones/avatar.png", "botones/avatar_down.png", CC_CALLBACK_1(Ingresar::registrar, this));
 	
 	/// Se le da posicion el botón 'Atras' cerca del centro de la pantalla
 	buttonAceptar->setPosition(Point(visibleSize.width / 2 + buttonAtras->getContentSize().width*3.0f, origin.y + visibleSize.height * 0.62f));
@@ -86,10 +86,20 @@ void Ingresar::createMenu()
 	/// Se agrega a la capa correspondiente de la pantalla.
 	this->addChild(buttonNextPage, 2);
 
+
+	////Ejemplo donde luego ira el personaje
+	/// Se crea el boton 'personaje', para regresar a la pantalla del menu. 
+	/// Se coloca las imagenes para que el botón tenga una ilustracion, ademas, hacer que se vea interactivo
+	auto button = MenuItemImage::create("estrella.png", "estrella.png", CC_CALLBACK_1(Ingresar::login, this));
+	/// Se le da posicion al boton 
+	button->setPosition(Point(visibleSize.width / 3.0, origin.y + visibleSize.height * 0.6f));	
+	auto buttonnivel = Menu::create(button, NULL);
+	buttonnivel->setPosition(Point::ZERO);
+	this->addChild(buttonnivel, 2);
+
 }
 
 #include "HelloWorldScene.h" /*!< Inclusion de la biblioteca HelloWorldScene.h */
-#include "Ingresar.h" /*!< Inclusion de la biblioteca Ingresar.h */
 
 void Ingresar::returnGameMenu(Ref* pSender)
 {
@@ -100,12 +110,22 @@ void Ingresar::returnGameMenu(Ref* pSender)
 	Director::getInstance()->replaceScene(CCTransitionMoveInR::create(0.75f, newScene));
 }
 
-#include "Registrarse.h"
-void Ingresar::levels(Ref* pSender)
+#include "Login.h"
+void Ingresar::login(Ref* pSender)
 {
-	///Crea la escena de ingresar
-	auto newScene = Registrarse::createScene(); 
-	///Reemplaza la escena actual por la escena de nuevo personaje
+	///Crea la escena de registrarse
+	auto newScene = Login::createScene(); 
+	///Reemplaza la escena actual por la escena de registrarse
 	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
-	/// Metodo para dirigir a la pantalla que contiene la creacion de un nuevo personaje
+	/// Metodo para dirigir a la pantalla que contiene el registro
+}
+
+#include "Registrarse.h"
+void Ingresar::registrar(Ref* pSender)
+{
+	///Crea la escena de registrarse
+	auto newScene = Registrarse::createScene();
+	///Reemplaza la escena actual por la escena de registrarse
+	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
+	/// Metodo para dirigir a la pantalla que contiene el registro
 }

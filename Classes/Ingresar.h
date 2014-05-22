@@ -20,8 +20,10 @@ public:
 	/// Se invoca cuando el jugador presiona el boton 'Atras' y se dirige a la pantalla principal.
 	void returnGameMenu(cocos2d::Ref* pSender);
 
-	///Se invoca cuando el jugador presiona 'Aceptar' y se dirige a la pantalla de los niveles.
-	void levels(cocos2d::Ref* pSender);
+	///Se invoca cuando el jugador presiona 'Aceptar' y se dirige a la pantalla de login
+	void login(cocos2d::Ref* pSender);
+
+	void registrar(cocos2d::Ref* pSender);
 
 	/// Implementa the "static create()" metodo manual.
 	CREATE_FUNC(Ingresar);
