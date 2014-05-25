@@ -108,7 +108,7 @@
  <objectgroup name="ElementosDeEscenario" width="100" height="100" visible="0">
   <object name="Astronauta" x="306" y="2382" width="112" height="173"/>
  </objectgroup>
- <layer name="Meta" width="100" height="100" visible="0">
+ <layer name="Meta" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJzt1kFuwyAQBVCfIfffJt13keQGdW7Q9DR1pSIhajuQDHTznsQGE+YDdsQ0AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIx0P03TKWi9p/reONVqMznLM1r9X+7z0X7J2DcyZMpyL+f9zL5KUZZS1fV7zsfTP2bg5MGOZoSZPD1s5bgMzlPt8yWrPh9fbnnzc1nlE1Nmr23N90Xmi6jx69rky5qfvvrSvihytebfGpprlO9E6T6vI/5pna0VnqD2T2nH337OpmeuVtUR+Zy31en3rtbV6192ydkeo/S3P2Tv3dEd4L/p7vh/8VZ7NbcB3ymMt9xIAAAAAgCjf0dSrVQ==
   </data>
