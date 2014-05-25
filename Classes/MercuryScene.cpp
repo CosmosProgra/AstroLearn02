@@ -30,7 +30,7 @@ bool MercuryScene::init()
 	{
 		return false;
 	}
-	loadMap("Maps/terrenomercurio.tmx", "bg", "foreground1", "foreground2", "meta", "objetos");
+	loadMap("Maps/Pantallamercurio/terrenomercurio.tmx", "FondoPrincipal", "EscenarioPrincipal", "EscenarioDeFondo", "Meta", "ElementosDeEscenario");
 	cargarfondo();
 	metaCheck(meteorito->getPosition());
 	tileMap->addChild(meteorito, 1);
@@ -44,21 +44,13 @@ bool MercuryScene::init()
 void MercuryScene::cargarfondo()
 {
 	//carga el objeto del mapa
-	auto meteoro = objetos->getObject("Meteorito");
+	auto meteoro = objetos->getObject("astronauta");
 	CCASSERT(!meteoro.empty(), "Meteorito object not found");
 	//saco las coordenadas del objeto en el tilemap
 	//se hace la suma debido al error en cocos2d
 	float x = meteoro["x"].asFloat() + 315;
 	float y = meteoro["y"].asFloat() + 10;
 	//Crea el sprite y lo posiciona
-	meteorito = Sprite::create("Animations/meteorito.png", Rect(0, 0, 64, 64));
+	meteorito = Sprite::create("Maps/personaje.png", Rect(0, 0, 64, 64));
 	meteorito->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
-	//crea la animacion del meteorito
-	auto animation = Animation::create();
-	for (int i = 0; i < 5; ++i)
-		animation->addSpriteFrame(SpriteFrame::create("Animations/meteorito.png", Rect(i * 64, 0, 64, 64)));
-	animation->setDelayPerUnit(0.1333f);
-	auto repeatAnimation = RepeatForever::create(Animate::create(animation));
-	meteorito->runAction(repeatAnimation);
-
 }

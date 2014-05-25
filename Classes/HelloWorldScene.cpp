@@ -117,12 +117,12 @@ void HelloWorld::createGameMenu()
 }
 
 #include "Ingresar.h" /*!< Inclusion de la biblioteca Ingresar.h */ //Original
+#include "MercuryScene.h"
 ///Metodo que invoca el boton ingresar, abre una nueva pantalla
 void HelloWorld::Iniciarsesion(Ref* pSender)
 {
 	///Crea la escena de ingresar
-//	auto newScene = Ingresar::createScene(); 
-	auto newScene = Ingresar::createScene(); 
+	auto newScene = MercuryScene::createScene(); 
 	///Reemplaza la escena actual por la escena de Ingresar
 	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
 }
