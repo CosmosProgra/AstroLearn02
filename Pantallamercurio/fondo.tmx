@@ -106,52 +106,21 @@
   </data>
  </layer>
  <objectgroup name="ElementosDeEsccenario" width="100" height="100">
-  <object name="Roca1" x="107" y="2491" width="77" height="79">
-   <ellipse/>
-  </object>
-  <object name="Roca2" x="149" y="2492" width="61" height="68">
-   <ellipse/>
-  </object>
-  <object name="Roca3" x="192" y="2492" width="53" height="73">
-   <ellipse/>
-  </object>
-  <object name="Roca4" x="201" y="2528" width="83" height="67">
-   <ellipse/>
-  </object>
-  <object name="Roca5" x="841" y="2525" width="84" height="73">
-   <ellipse/>
-  </object>
-  <object name="Roca6" x="912" y="2493" width="105" height="95">
-   <ellipse/>
-  </object>
-  <object name="Roca7" x="1013" y="2523" width="68" height="76">
-   <ellipse/>
-  </object>
-  <object name="Roca8" x="1931" y="2523" width="84" height="79">
-   <ellipse/>
-  </object>
-  <object name="Roca9" x="1993" y="2531" width="93" height="91">
-   <ellipse/>
-  </object>
-  <object name="Roca10" x="2040" y="2488" width="92" height="91">
-   <ellipse/>
-  </object>
-  <object name="Roca11" x="2019" y="2495" width="67" height="72">
-   <ellipse/>
-  </object>
-  <object name="Roca12" x="2607" y="2684" width="71" height="75">
-   <ellipse/>
-  </object>
-  <object name="Roca13" x="2991" y="2488" width="71" height="76">
-   <ellipse/>
-  </object>
-  <object name="Roca14" x="3052" y="2499" width="83" height="95">
-   <ellipse/>
-  </object>
+  <object name="Astronauta" x="306" y="2382" width="112" height="173"/>
  </objectgroup>
  <layer name="Meta" width="100" height="100" visible="0">
   <data encoding="base64" compression="zlib">
-   eJzt1kEOgjAQBVDOwP236A3AG4A3EE8jCxubhhISoTXmvaSbBjq/0800DQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUFLXNs0lWmcJ519PrLFHfN+SWbqo5lbtftkfonU7MGfI0Cfn1+xFmqWUtT6vGZf9KfpuOjBnmmFPnjPkctwLZkj7PGRqP5b9eVnP9vPPUTnHjfeo3YtcP84S+lyrfsiQ1o/fv2SOtBc1+hGUvv8vm99vw3+JZwTqCzNCybmEvKNnH75TYy4BAAAAAHgB3nhhcg==
+   eJzt1kFuwyAQBVCfIfffJt13keQGdW7Q9DR1pSIhajuQDHTznsQGE+YDdsQ0AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIx0P03TKWi9p/reONVqMznLM1r9X+7z0X7J2DcyZMpyL+f9zL5KUZZS1fV7zsfTP2bg5MGOZoSZPD1s5bgMzlPt8yWrPh9fbnnzc1nlE1Nmr23N90Xmi6jx69rky5qfvvrSvihytebfGpprlO9E6T6vI/5pna0VnqD2T2nH337OpmeuVtUR+Zy31en3rtbV6192ydkeo/S3P2Tv3dEd4L/p7vh/8VZ7NbcB3ymMt9xIAAAAAgCjf0dSrVQ==
+  </data>
+ </layer>
+ <layer name="Rocas1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt0TluAjEYhuG5AIM4QAL3vwOBNmuTtWFJmqxN1g7IR50ggcRgKXke6a1mZP+2qwoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANilfquqDtIgDVulp9mNEmded89Rvo3TJE23PFu/zgxpkIb1ZnM1OUeTZ15l3T1n+TZPi+U/9ZZnyHrjNEnTerO5mpyjyTOvsu6ee/m2n7qpt+XZZllvnhbLddubzdXkHE2eeZUSe/6YIWffT93Ua5eb67c5gGYcdqrqKB2nk3Sazjqlp/q/znP3F+kyXaXrdOM9ihnl7sdpkqbpNt15j2Luc/cP6TE9pef04j2Kec3dv6X39JE+05f3AAAAAOCP+gYvu1y+
+  </data>
+ </layer>
+ <layer name="Rocas2" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt0TdOA1EYhdFHaG3kJRD2TCpIBakgrYDQEBtiQzJIxIZYcyU24GJghDhH+qqRnkb3LwUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKjDerOUjbSZtprVvj3cKGUkjaaxNN6o9v2/pNOdr/OtnW7SbcX3mMj+k2kqTaeZGu6x3SplJ+2mvbSfDlq//x+d7tzVV0p36km9fdX+w2z2n0vzaSEt1nCPw2x/lI7TSTpNZzXco9Od+/NtIA2moYrvsZT9l9NKWk1rNdzjPNtfpMt0la5Tu4Z7/OTOf8ldtr9PD+kxPaXnGu7Bt5ds/5re0nv6SJ/uAQAAAAAAwD/wBVrfOjg=
   </data>
  </layer>
 </map>
