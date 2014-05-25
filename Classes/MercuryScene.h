@@ -13,7 +13,7 @@ public:
 	static cocos2d::Scene* createScene();
 
 protected:
-	cocos2d::Sprite* meteorito;
+	cocos2d::Sprite* astronautaSprite;
 
 public:
 	// Metodo Init
