@@ -31,7 +31,7 @@ bool MercuryScene::init()
 		return false;
 	}
 
-	loadMap("maps/Pantallamercurio/terrenomercurio.tmx", "FondoPrincipal", "EscenarioPrincipal", "EscenarioDeFondo", "Meta", "ElementosDeEscenario");
+	loadMap("maps/Pantallamercurio/fondo.tmx", "FondoPrincipal", "bg1", "bg2", "Rocas1", "Rocas2", "Meta", "Objetos");
 
 	cargarfondo();
 	metaCheck(astronautaSprite->getPosition());

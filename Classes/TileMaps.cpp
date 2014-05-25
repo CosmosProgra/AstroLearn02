@@ -129,7 +129,8 @@ std::string TileMaps::metaCheck(Point posicion)
 }
 
 void TileMaps::loadMap(const std::string& mapTmx, const std::string& bgLayerName, const std::string& f1LayerName,
-	const std::string& f2LayerName, const std::string& metaLayerName,
+	const std::string& f2LayerName, const std::string& f3LayerName,
+	const std::string& f4LayerName, const std::string& metaLayerName,
 	const std::string& objectGroupName)
 {
 	tileMap = TMXTiledMap::create(mapTmx);
@@ -141,6 +142,12 @@ void TileMaps::loadMap(const std::string& mapTmx, const std::string& bgLayerName
 	CCAssert(foreground1 != nullptr, "'f1LayerName' not found");
 	foreground2 = tileMap->getLayer(f2LayerName);
 	CCAssert(foreground2 != nullptr, "'f2LayerName' not found");
+
+	foreground3 = tileMap->getLayer(f3LayerName);
+	CCAssert(foreground3 != nullptr, "'f4LayerName' not found");
+	foreground4 = tileMap->getLayer(f4LayerName);
+	CCAssert(foreground4 != nullptr, "'f4LayerName' not found");
+
 	meta = tileMap->getLayer(metaLayerName);
 	CCAssert(meta != nullptr, "'metaLayerNAme' not found");
 	objetos = tileMap->getObjectGroup(objectGroupName);

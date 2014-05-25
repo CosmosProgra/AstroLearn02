@@ -11,6 +11,8 @@ protected:
 	cocos2d::TMXLayer* background;
 	cocos2d::TMXLayer* foreground1;
 	cocos2d::TMXLayer* foreground2;
+	cocos2d::TMXLayer* foreground3;
+	cocos2d::TMXLayer* foreground4;
 	cocos2d::TMXObjectGroup* objetos;
 protected:
 	/**
@@ -55,7 +57,8 @@ protected:
 	* @param objectGroupName el nombre del layer que contiene los objetos del TileMap.
 	*/
 	virtual void loadMap(const std::string& mapTmx, const std::string& bgLayerName, const std::string& f1LayerName
-		, const std::string& f2LayerName, const std::string& metaLayerName
+		, const std::string& f2LayerName, const std::string& f3LayerName
+		, const std::string& f4LayerName, const std::string& metaLayerName
 		, const std::string& objectGroupName);
 };
 
