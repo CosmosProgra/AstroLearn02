@@ -31,7 +31,7 @@ bool Niveles::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
 
-    /// Crea el fondo de la pantalla del menu "Registrarse" del juego
+    /// Crea el fondo de la pantalla de selección de niveles (Sistema Solar)
     auto sprite = Sprite::create("Fondos/sistema.jpg");
 
     /// Posiciona el sprite (fondo de pantalla) para que quede centralizado en la pantalla
@@ -42,7 +42,7 @@ bool Niveles::init()
 	
 	createMenu();
     
-	/// Se utiliza para reproducir la musica cuando se cambia a esta pantalla (registrarse).
+	/// Se utiliza para reproducir la musica cuando se cambia a esta pantalla (niveles).
 	auto sound = CocosDenshion::SimpleAudioEngine::getInstance();
 	sound->stopBackgroundMusic();
 	sound->playBackgroundMusic("Music/cancion4.mp3", true);

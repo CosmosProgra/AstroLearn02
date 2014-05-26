@@ -1,3 +1,5 @@
+// Clase creada para hacer el Main Page de la documentación
+
 /*! \mainpage AstroLearn
  *
  * 

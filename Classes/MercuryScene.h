@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "TileMaps.h"
 
+/// Crea la pantalla del nivel de Mercurio
 class MercuryScene :public TileMaps
 {
 public:
@@ -13,6 +14,7 @@ public:
 	static cocos2d::Scene* createScene();
 
 protected:
+	// Hace referencia al sprite utilizado para personaje del juego (Astronauta)
 	cocos2d::Sprite* astronautaSprite;
 
 public:
@@ -25,6 +27,7 @@ public:
 	CREATE_FUNC(MercuryScene);
 
 protected:
+	/// Metodo para cargar el objeto 'Astronauta' del Tilemap de Mercurio(fondo.tmx)
 	void cargarfondo();
 };
 

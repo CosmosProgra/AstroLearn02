@@ -1,7 +1,7 @@
 #ifndef Animaciones_h
 #define Animaciones_h
 
-///Clase que genera la pantalla principal de AstroLearn
+///Clase para utilizar animaciones
 
 #include "cocos2d.h" /*!< Inclusion de cocos2d para poder utilizar sus metodos */
 
