@@ -17,9 +17,34 @@ public:
     /// Se invoca cuando el jugador presiona el boton 'Atras' en la pantalla "Niveles".
     void returnGameMenu(cocos2d::Ref* pSender);
 
-	//Llamado a la primera pantalla Mercurio
+
+	/////Listado de planetas
+
+	///Llamado a la primera pantalla Mercurio
     void Mercurio(cocos2d::Ref* pSender);
 
+	///Llamado a la primera pantalla Venus
+	void Venus(cocos2d::Ref* pSender);
+
+	///Llamado a la primera pantalla Tierra
+	void Tierra(cocos2d::Ref* pSender);
+
+	///Llamado a la primera pantalla Marte
+	void Marte(cocos2d::Ref* pSender);
+
+	///Llamado a la primera pantalla Jupiter
+	void Jupiter(cocos2d::Ref* pSender);
+
+	///Llamado a la primera pantalla Saturno
+	void Saturno(cocos2d::Ref* pSender);
+
+	///Llamado a la primera pantalla Urano
+	void Urano(cocos2d::Ref* pSender);
+
+	///Llamado a la primera pantalla Neptuno
+	void Neptuno(cocos2d::Ref* pSender);
+
+	
     // implement the "static create()" method manually
     CREATE_FUNC(Niveles);
 

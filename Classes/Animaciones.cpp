@@ -2,6 +2,7 @@
 
  USING_NS_CC;
 
+ 
 void Animaciones::rotar(Node *child)
 {
 	/// Crea un movimiento rotativo
@@ -17,30 +18,21 @@ void Animaciones::rotar(Node *child)
 
 void Animaciones::moverDerecha(cocos2d::Node *child, const Point& position)
 {
-
-
 	MoveTo* mover = MoveTo::create(2.5f, position);
 
 	auto repeatAnimation = RepeatForever::create(mover);
 
-
 	child->runAction(repeatAnimation);
-
-
 }
 
 
 void Animaciones::moverIzquierda(cocos2d::Node *child, const Point& position)
-{
-	
-
+{	
 	MoveTo* mover = MoveTo::create(2.5f,position);
 
 	auto repeatAnimation = RepeatForever::create(mover);
 
-	child->runAction(repeatAnimation);
-	
-
+	child->runAction(repeatAnimation);	
 }
 
 
