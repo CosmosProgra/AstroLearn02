@@ -3,7 +3,7 @@
 
 #include "cocos2d.h" /*!< Inclusion de cocos2d para poder utilizar sus metodos */
 
-/// Crea la pantalla para registrarse.
+/// Crea la pantalla para iniciar sesion (Login) .
 class Login : public cocos2d::Layer /*!< Hereda de Layer. */ 
 {
 public:
@@ -20,13 +20,14 @@ public:
 	/// Se invoca cuando el jugador presiona el boton 'Enter' en la pantalla "Login".
    	void opciones(cocos2d::Ref* pSender);
 
+	/// Metodo para confirmar el pin  ingresado por el jugador
 	void leerpin();
 
     // implement the "static create()" method manually
     CREATE_FUNC(Login);
 
 private:
-	/// Crea los botones que aparecen en la pantalla de Niveles
+	/// Crea los botones que aparecen en la pantalla de "Login"
 	void createMenu();
 };
 

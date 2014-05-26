@@ -20,9 +20,10 @@ public:
 	/// Se invoca cuando el jugador presiona el boton 'Atras' y se dirige a la pantalla principal.
 	void returnGameMenu(cocos2d::Ref* pSender);
 
-	///Se invoca cuando el jugador presiona 'Aceptar' y se dirige a la pantalla de login
+	///Se invoca cuando el jugador presiona 'Aceptar' y se dirige a la pantalla de Login
 	void login(cocos2d::Ref* pSender);
 
+	/// Se invoca cuando el jugador presiona el boton '+' para crear un nuevo avatar(jugador)
 	void registrar(cocos2d::Ref* pSender);
 
 	/// Implementa the "static create()" metodo manual.

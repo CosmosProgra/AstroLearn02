@@ -34,7 +34,7 @@ bool Ingresar::init()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
-	/// Crear el fondo que lleva la pantalla para que usuario pueda acceder.
+	/// Crea el fondo que lleva la pantalla para que usuario pueda acceder.
 	auto sprite = Sprite::create("Fondos/jugar.jpg");
 
 	/// Posiciona la imagen en el centro de la pantalla.
@@ -88,7 +88,7 @@ void Ingresar::createMenu()
 
 
 	////Ejemplo donde luego ira el personaje
-	/// Se crea el boton 'personaje', para regresar a la pantalla del menu. 
+	/// Se crea el boton 'personaje'
 	/// Se coloca las imagenes para que el botón tenga una ilustracion, ademas, hacer que se vea interactivo
 	auto button = MenuItemImage::create("estrella.png", "estrella.png", CC_CALLBACK_1(Ingresar::login, this));
 	/// Se le da posicion al boton 
@@ -113,19 +113,20 @@ void Ingresar::returnGameMenu(Ref* pSender)
 #include "Login.h"
 void Ingresar::login(Ref* pSender)
 {
-	///Crea la escena de registrarse
+	///Crea la escena de iniciar sesion (Login)
 	auto newScene = Login::createScene(); 
-	///Reemplaza la escena actual por la escena de registrarse
+	///Reemplaza la escena actual por la escena de Login
 	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
-	/// Metodo para dirigir a la pantalla que contiene el registro
+	
 }
 
 #include "Registrarse.h"
+/// Metodo para dirigir a la pantalla que contiene el registro
 void Ingresar::registrar(Ref* pSender)
 {
-	///Crea la escena de registrarse
+	///Crea la escena de Registrarse
 	auto newScene = Registrarse::createScene();
-	///Reemplaza la escena actual por la escena de registrarse
+	///Reemplaza la escena actual por la escena de Registrarse
 	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
-	/// Metodo para dirigir a la pantalla que contiene el registro
+	
 }

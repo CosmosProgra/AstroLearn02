@@ -121,7 +121,7 @@ void HelloWorld::createGameMenu()
 ///Metodo que invoca el boton ingresar, abre una nueva pantalla
 void HelloWorld::Iniciarsesion(Ref* pSender)
 {
-	///Crea la escena de ingresar
+	///Crea la escena de Ingresar
 	auto newScene = MercuryScene::createScene(); 
 	///Reemplaza la escena actual por la escena de Ingresar
 	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
