@@ -217,10 +217,9 @@ void Login::createMenu()
 #include "OptionScene.h"
 void Login::opciones(Ref* pSender)
 {
-	///Crea la escena de login
-	//	auto newScene = Ingresar::createScene(); 
+	///Crea la escena de opciones
 	auto newScene = OptionScene::createScene();
-	///Reemplaza la escena actual por la escena de Ingresar
+	///Reemplaza la escena actual por la escena de opciones
 	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
 }
 

@@ -32,7 +32,7 @@ bool Niveles::init()
     Point origin = Director::getInstance()->getVisibleOrigin();
 
     /// Crea el fondo de la pantalla de selección de niveles (Sistema Solar)
-    auto sprite = Sprite::create("Fondos/sistema.jpg");
+    auto sprite = Sprite::create("Fondos/sistemasolar.jpg");
 
     /// Posiciona el sprite (fondo de pantalla) para que quede centralizado en la pantalla
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
@@ -62,18 +62,32 @@ void Niveles::createMenu()
 	/// Se utilizan imagenes, las cuales son diferentes, para darle efecto cuando el botón es presionado.
 	/// Se hace el llamado al metodo "returnGameMenu" el cual le da la funcionalidad al botón.
 	auto buttonAtras = MenuItemImage::create("botones/boton_atras.png", "botones/botonatras_down.png", CC_CALLBACK_1(Niveles::returnGameMenu, this));
-	
 	/// Posiciona el boton en la esquina inferior izquierda de la pantalla.
 	buttonAtras->setPosition(Point(visibleSize.width / 14.5, origin.y + visibleSize.height * 0.06f));
-
 	/// Crea el botón
 	auto buttonHomeMenu = Menu::create(buttonAtras, NULL);
 	buttonHomeMenu->setPosition(Point::ZERO);
-
 	/// Agrega el boton atras en la pantalla.
 	this->addChild(buttonHomeMenu, 2);
+
+	auto buttonMercurio = MenuItemImage::create("botones/planetas/originales/mercurio.png", "botones/planetas/pequenos/mercurio.png", CC_CALLBACK_1(Niveles::Mercurio, this));
+	/// Posiciona el boton en la esquina inferior izquierda de la pantalla.
+	buttonMercurio->setPosition(Point(visibleSize.width / 4.5, origin.y + visibleSize.height * 0.006f));
+	/// Crea el botón
+	auto mercury = Menu::create(buttonMercurio, NULL);
+	mercury->setPosition(Point::ZERO);
+	/// Agrega el boton atras en la pantalla.
+	this->addChild(mercury, 2);
 }
 
+#include "MercuryScene.h"
+void Niveles::Mercurio(Ref* pSender)
+{
+	///Crea la escena de mercurio
+	auto newScene = MercuryScene::createScene();
+	///Reemplaza la escena actual por la escena de mercurio
+	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
+}
 
 #include "HelloWorldScene.h" /*!< Inclusion de la biblioteca HelloWorldScene.h */
 

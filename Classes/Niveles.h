@@ -17,8 +17,8 @@ public:
     /// Se invoca cuando el jugador presiona el boton 'Atras' en la pantalla "Niveles".
     void returnGameMenu(cocos2d::Ref* pSender);
 
-	
-    //	void iniciarJuego(cocos2d::Ref* pSender);
+	//Llamado a la primera pantalla Mercurio
+    void Mercurio(cocos2d::Ref* pSender);
 
     // implement the "static create()" method manually
     CREATE_FUNC(Niveles);
