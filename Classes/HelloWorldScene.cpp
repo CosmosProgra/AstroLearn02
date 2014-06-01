@@ -116,15 +116,13 @@ void HelloWorld::createGameMenu()
 	this->addChild(buttonStartMenu, 2);
 }
 
-//#include "Ingresar.h" /*!< Inclusion de la biblioteca Ingresar.h */ //Original
-#include "Niveles.h" /*!< Inclusion de la biblioteca Ingresar.h */ //Original
 
+#include "Ingresar.h" /*!< Inclusion de la biblioteca Ingresar.h */ //Original
 ///Metodo que invoca el boton ingresar, abre una nueva pantalla
 void HelloWorld::Iniciarsesion(Ref* pSender)
 {
 	///Crea la escena de Ingresar
-	//auto newScene = Ingresar::createScene(); 
-	auto newScene = Niveles::createScene(); 
+	auto newScene = Ingresar::createScene(); 	
 	///Reemplaza la escena actual por la escena de Ingresar
 	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
 }
