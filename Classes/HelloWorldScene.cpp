@@ -78,17 +78,7 @@ bool HelloWorld::init()
 	this->addChild(estrella, 1);
 
 	Animaciones::rotar(estrella);
-
-	auto label = LabelTTF::create("CatchMe", "fonts/led_display-7.ttf", 7);
-
-	// position the label on the center of the screen
-	label->setPosition(Point(origin.x + visibleSize.width,
-		origin.y + visibleSize.height / 2));
-
-	this->addChild(label, 1);
-
-
-
+	
 	// Reproducir la musica del menu principal
 	auto sound = CocosDenshion::SimpleAudioEngine::getInstance();
 	sound->stopBackgroundMusic();

@@ -42,6 +42,12 @@ bool Login::init()
 	
 	createMenu();
     
+
+	auto label = Label::create("LED DISPLAY", "fonts/led_display-7.ttf", 70);
+	// position the label on the center of the screen
+	label->setPosition(Point(visibleSize.width / 2.01, origin.y + visibleSize.height * 0.900f));
+	this->addChild(label, 1);
+
 	/// Se utiliza para reproducir la musica cuando se cambia a esta pantalla (Login).
 	auto sound = CocosDenshion::SimpleAudioEngine::getInstance();
 	sound->stopBackgroundMusic();
