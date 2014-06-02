@@ -20,7 +20,7 @@ Point TileMaps::setPointOfView(Point elemento)
 
 }
 
-void TileMaps::setEventHandlers()
+void TileMaps::setEventHandlers(Node *child)
 {
 	//Create a "one by one" touch event listener (processes one touch at a time)
 	auto listener = EventListenerTouchOneByOne::create();
@@ -65,7 +65,7 @@ void TileMaps::setEventHandlers()
 	//listener1->onKeyReleased = CC_CALLBACK_2(CatchMe::onKeyReleased, this);
 
 	//Add listener
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, tileMap);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, child);
 
 	//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), labelGameTitle);
 	//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), labelGameTitle);

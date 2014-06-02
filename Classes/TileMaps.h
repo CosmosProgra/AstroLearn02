@@ -45,7 +45,7 @@ protected:
 		* @param tileMap es el tileMap en el que se esta trabajando actualmente
 		*
 		*/
-		virtual void setEventHandlers();
+		virtual void setEventHandlers(Node *child);
 	/**
 	* @brief Se encarga de cargar el archivo '.tmx' del mapa al programa,
 	* junto con sus componentes
