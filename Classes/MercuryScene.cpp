@@ -31,44 +31,36 @@ bool MercuryScene::init()
 		return false;
 	}
 
-	auto map = TMXTiledMap::create("maps/Pantallamercurio/Mercurio.tmx");
-	addChild(map, 0, 1);
-	setEventHandlers(map);
-	Size CC_UNUSED s = map->getContentSize();
-	CCLOG("ContentSize: %f, %f", s.width, s.height);
-
-	/*loadMap("maps/Pantallamercurio/Mercurio.tmx", "FondoPrincipal", "bg1", "bg2", "Rocas1", "Rocas2", "Meta", "Objetos");
-
-	//Se hace llamado al metodo 'cargarfondo'
+	loadMap("maps/PantallaMercurio/Mercurio.tmx", "Objetos", "Rocas2", "Rocas1", "bg1", "bg2", "FondoPrincipal", "Meta");
 	cargarfondo();
-
-	metaCheck(astronautaSprite->getPosition());
-	map->addChild(astronautaSprite, 1);
-	setEventHandlers();
-	
-	// Agrega el mapa a la pantalla
-	//this->addChild(tileMap, 0, 1);
-	// La posicion del mapa es establecida segun la posicion del sprite del Astronauta
-	Point View = setPointOfView(Point(astronautaSprite->getPositionX(), astronautaSprite->getPositionY()));
-	map->setPosition(CC_POINT_PIXELS_TO_POINTS(View)); */
-
+	tileMap->addChild(astronautaSprite, 1);
+	createCharacter("Animations/meteorito.png");
+	tileMap->addChild(Player1, 2);
+	//setIncrements();
+	//setTouchEnabled(true);
+	//setEvents();
+	//metaCheck(Player1->getPosition());
 	//setEventHandlers();
+	this->addChild(tileMap, -1, 1);
+	setPointOfView(Point(Player1->getPosition()));
+	log("x mapPosition %f", tileMap->getPosition().x);
+	log("x mapPosition %f", tileMap->getPosition().y);
+
 	return true;
 }
 
 void MercuryScene::cargarfondo()
 {
 	//carga el objeto del mapa
-	auto astronauta = objetos->getObject("Astronauta");
-	CCASSERT(!astronauta.empty(), "Astronauta object not found");
-	//saca las coordenadas del objeto en el tilemap
+	auto Fogata = objetos->getObject("Astronauta");
+	CCASSERT(!Fogata.empty(), "Fogata object not found");
+	//saco las coordenadas del objeto en el tilemap
 	//se hace la suma debido al error en cocos2d
-	float x = astronauta["x"].asFloat();
-	float y = astronauta["y"].asFloat();
-	//Crea el sprite y lo posiciona en la pantalla
-	astronautaSprite = Sprite::create("Animations/meteorito.png", Rect(9, 54, 4.250, 5.750));
+	float x = Fogata["x"].asFloat() + 315;
+	float y = Fogata["y"].asFloat() + 28;
+	//Crea el sprite y lo posiciona
+	astronautaSprite = Sprite::create("Animations/meteorito.png");
 	astronautaSprite->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
-
 }
 
 /*void MercuryScene::setEventHandlers()

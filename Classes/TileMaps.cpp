@@ -3,7 +3,7 @@
 USING_NS_CC;
 
 
-Point TileMaps::setPointOfView(Point elemento)
+void TileMaps::setPointOfView(Point elemento)
 {
 	auto winSize = Director::getInstance()->getWinSize();
 
@@ -15,12 +15,13 @@ Point TileMaps::setPointOfView(Point elemento)
 	auto actualPosition = Point(x, y);
 	auto centerOfView = Point(winSize.width / 2, winSize.height / 2);
 	auto viewPoint = centerOfView - actualPosition;
-	return viewPoint;
+
+	tileMap->setPosition(CC_POINT_PIXELS_TO_POINTS(viewPoint));
 
 
 }
 
-void TileMaps::setEventHandlers(Node *child)
+void TileMaps::setEventHandlers()
 {
 	//Create a "one by one" touch event listener (processes one touch at a time)
 	auto listener = EventListenerTouchOneByOne::create();
@@ -28,7 +29,7 @@ void TileMaps::setEventHandlers(Node *child)
 	listener->setSwallowTouches(true);
 
 	// Example of using a lambda expression to implement onTouchBegan event callback function
-	listener->onTouchBegan = [](Touch* touch, Event* event){
+	listener->onTouchBegan = [&](Touch* touch, Event* event){
 		// event->getCurrentTarget() returns the *listener's* sceneGraphPriority node.
 		auto target = static_cast<Sprite*>(event->getCurrentTarget());
 
@@ -41,6 +42,7 @@ void TileMaps::setEventHandlers(Node *child)
 		if (rect.containsPoint(locationInNode))
 		{
 			log("sprite began... x = %f, y = %f", locationInNode.x, locationInNode.y);
+			movePlayer(locationInNode);
 			return true;
 		}
 		return false;
@@ -58,35 +60,27 @@ void TileMaps::setEventHandlers(Node *child)
 		log("sprite onTouchesEnded.. ");
 		target->setOpacity(255);
 		//Reset zOrder and the display sequence will change
-
 	};
-	//auto listener1 = EventListenerKeyboard::create();
-	//listener1->onKeyPressed = CC_CALLBACK_2(CatchMe::onKeyPressed, this);
-	//listener1->onKeyReleased = CC_CALLBACK_2(CatchMe::onKeyReleased, this);
-
 	//Add listener
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, child);
-
-	//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), labelGameTitle);
-	//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), labelGameTitle);
-	//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1,labelGameTitle);
-
-
-
-
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, tileMap);
 }
 
 
 Point TileMaps::tileCoordForPosition(Point position)
 {
+
+	log("POSITIONX %f", position.x);
+	log("POSITIONY %f", position.y);
+
 	int x = position.x / tileMap->getTileSize().width;
 	int y = ((tileMap->getMapSize().height * tileMap->getTileSize().height) - position.y) / tileMap->getTileSize().height;
-
 
 	Size tileSize = tileMap->getTileSize();
 	Size mapSize = tileMap->getMapSize();
 
-	Point pos = position - tileMap->getPosition();
+	Point pos = position;
+	log("x mapposition %f", pos.x);
+	log("y mapposition %f", pos.y);
 	float halfMapWidth = tileMap->getMapSize().width * 0.5f;
 	float mapHeight = tileMap->getMapSize().height;
 	float tileWidth = tileMap->getTileSize().width;
@@ -102,17 +96,17 @@ Point TileMaps::tileCoordForPosition(Point position)
 	y = MAX(0, posY);
 	y = MIN(tileMap->getMapSize().height - 1, posY);
 
-
-	//CCLog("Tile Position %d ,%d",x,y);
+	log("Tile Position %d ,%d", x, y);
 	return Point(x, y);
 
 }
 
 std::string TileMaps::metaCheck(Point posicion)
 {
-	std::string resultado = "";
-	Point tileCoord = this->tileCoordForPosition(posicion);
+	std::string resultado = "Normal";
+	Point tileCoord = tileCoordForPosition(posicion);
 	int tileGid = meta->tileGIDAt(tileCoord);
+	log("tileGid %d", tileGid);
 	if (tileGid)
 	{
 		Value propiedades = tileMap->getPropertiesForGID(tileGid);
@@ -128,28 +122,105 @@ std::string TileMaps::metaCheck(Point posicion)
 	return resultado;
 }
 
-void TileMaps::loadMap(const std::string& mapTmx, const std::string& bgLayerName, const std::string& f1LayerName,
-	const std::string& f2LayerName, const std::string& f3LayerName,
-	const std::string& f4LayerName, const std::string& metaLayerName,
-	const std::string& objectGroupName)
+void TileMaps::loadMap(const std::string& mapTmx, const std::string& objectGroupName, const std::string& ambiente2, const std::string& ambiente1,
+	const std::string& f1LayerName, const std::string& f2LayerName, const std::string& bgLayerName, const std::string& metaLayerName)
 {
 	tileMap = TMXTiledMap::create(mapTmx);
 	CCAssert(tileMap != nullptr, "'mapTmx' map not found");
 	tileMap->setAnchorPoint(Point(0.0f, 0.0f));
-	background = tileMap->getLayer(bgLayerName);
-	CCAssert(background != nullptr, "'bgLayerName' not found");
+	objetos = tileMap->getObjectGroup(objectGroupName);
+	Rocas2 = tileMap->getLayer(ambiente2);
+	CCAssert(Rocas2 != nullptr, "'f1LayerName' not found");
+	Rocas1 = tileMap->getLayer(ambiente1);
+	CCAssert(Rocas1 != nullptr, "'f1LayerName' not found");
 	foreground1 = tileMap->getLayer(f1LayerName);
 	CCAssert(foreground1 != nullptr, "'f1LayerName' not found");
 	foreground2 = tileMap->getLayer(f2LayerName);
 	CCAssert(foreground2 != nullptr, "'f2LayerName' not found");
-
-	foreground3 = tileMap->getLayer(f3LayerName);
-	CCAssert(foreground3 != nullptr, "'f4LayerName' not found");
-	foreground4 = tileMap->getLayer(f4LayerName);
-	CCAssert(foreground4 != nullptr, "'f4LayerName' not found");
-
+	background = tileMap->getLayer(bgLayerName);
+	CCAssert(background != nullptr, "'bgLayerName' not found");
 	meta = tileMap->getLayer(metaLayerName);
 	CCAssert(meta != nullptr, "'metaLayerNAme' not found");
-	objetos = tileMap->getObjectGroup(objectGroupName);
-	CCAssert(objetos != nullptr, "'objetos' object group not found");
+	
+}
+
+void TileMaps::createCharacter(std::string imagen)
+{
+	auto PlayerObjeto = objetos->getObject("Astronauta");
+	CCASSERT(!PlayerObjeto.empty(), "PlayerInit object not found");
+	float x = PlayerObjeto["x"].asFloat() + 370;
+	float y = PlayerObjeto["y"].asFloat();
+	Player1 = Sprite::create(imagen);
+	Player1->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
+}
+
+
+
+void TileMaps::setIncrements()
+{
+	IncrementX = tileMap->getTileSize().width / 6;
+	IncrementY = tileMap->getTileSize().height / 6;
+}
+
+
+void TileMaps::movePlayer(Point placeToMove)
+{
+	Point playerPos = Player1->getPosition();
+	Point diff = (placeToMove - playerPos);
+	if (fabs(diff.x) > abs(diff.y)) {
+		if (diff.x > 0) {
+			playerPos.x += IncrementX;
+		}
+		else {
+			playerPos.x -= IncrementX;
+		}
+	}
+	else {
+		if (diff.y > 0) {
+			playerPos.y += IncrementY;
+		}
+		else {
+			playerPos.y -= IncrementY;
+		}
+	}
+
+	this->setPlayerPosition(playerPos);
+	this->setPointOfView(Player1->getPosition());
+}
+
+void TileMaps::setEvents()
+{
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
+
+	listener->onTouchBegan = CC_CALLBACK_2(TileMaps::onTouchBegan, this);
+
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, tileMap);
+
+}
+
+bool TileMaps::onTouchBegan(Touch *touch, Event *event)
+{
+	auto target = static_cast<Sprite*>(event->getCurrentTarget());
+
+	//Get the position of the current point relative to the button
+	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+	Size s = target->getContentSize();
+	Rect rect = Rect(0, 0, s.width, s.height);
+
+	//Check the click area
+	if (rect.containsPoint(locationInNode))
+	{
+		log("sprite began... x = %f, y = %f", locationInNode.x, locationInNode.y);
+		movePlayer(locationInNode);
+		return true;
+	}
+	return false;
+}
+
+
+void TileMaps::setPlayerPosition(Point position){
+	if (metaCheck(position) == "Normal"){
+		Player1->setPosition(Point(position));
+	}
 }
