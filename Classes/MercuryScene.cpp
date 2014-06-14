@@ -1,5 +1,6 @@
 #include "MercuryScene.h"
 #include <iostream>
+
 USING_NS_CC;
 
 MercuryScene::MercuryScene()
@@ -48,6 +49,14 @@ bool MercuryScene::init()
 	printf("x mapPosition %f", tileMap->getPosition().x);
 	printf("x mapPosition %f", tileMap->getPosition().y);
 
+
+	//Listener keyboard
+	auto keyboardListener = EventListenerKeyboard::create();
+	keyboardListener->onKeyPressed = CC_CALLBACK_2(MercuryScene::keyPressed, this);
+	keyboardListener->onKeyReleased = CC_CALLBACK_2(MercuryScene::keyReleased, this);
+	//EventDispatcher::getInstance()->addEventListenerWithSceneGraphPriority(listener, this); // use if your version is below cocos2d-x 3.0alpha.1
+	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this); 
+
 	return true;
 }
 
@@ -63,5 +72,37 @@ void MercuryScene::cargarfondo()
 	//Crea el sprite y lo posiciona
 	astronautaSprite = Sprite::create("Animations/meteorito.png");
 	astronautaSprite->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
+}
+
+void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
+{
+	//put this inside keyPressed or keyReleased
+	if (keyCode == EventKeyboard::KeyCode::KEY_W)
+	{
+		CCLog("W key was pressed");
+	}
+	if (keyCode == EventKeyboard::KeyCode::KEY_DOWN_ARROW)
+	{
+		CCLog("Flecha abajo");
+	//	returnGameMenu();
+		CC_CALLBACK_1(MercuryScene::returnGameMenu, this);
+	}
+}
+void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
+{
+
+}
+
+//Prueba
+#include "Ingresar.h" /*!< Inclusion de la biblioteca HelloWorldScene.h */
+
+/// Metodo que es invocado al ser presionado el boton atras.
+void MercuryScene::returnGameMenu(Ref* pSender)
+{
+
+	/// Crea la escena del menu principal
+	auto newScene = Ingresar::createScene();
+	/// Reemplaza la escena actual por la del menu principal. Tambien se le asigna una animación a la transcición de pantalla.
+	Director::getInstance()->replaceScene(CCTransitionSlideInL::create(0.75f, newScene));
 }
 
