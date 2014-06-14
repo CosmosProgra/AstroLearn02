@@ -50,13 +50,11 @@ bool MercuryScene::init()
 	printf("x mapPosition %f", tileMap->getPosition().y);
 
 
-	//Listener keyboard
-	auto keyboardListener = EventListenerKeyboard::create();
-	keyboardListener->onKeyPressed = CC_CALLBACK_2(MercuryScene::keyPressed, this);
-	keyboardListener->onKeyReleased = CC_CALLBACK_2(MercuryScene::keyReleased, this);
-	//EventDispatcher::getInstance()->addEventListenerWithSceneGraphPriority(listener, this); // use if your version is below cocos2d-x 3.0alpha.1
-	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this); 
+	auto listener = EventListenerKeyboard::create();
+	listener->onKeyPressed = CC_CALLBACK_2(MercuryScene::keyPressed, this);
+	listener->onKeyReleased = CC_CALLBACK_2(MercuryScene::keyReleased, this);
 
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 	return true;
 }
 
@@ -76,21 +74,30 @@ void MercuryScene::cargarfondo()
 
 void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
-	//put this inside keyPressed or keyReleased
 	if (keyCode == EventKeyboard::KeyCode::KEY_W)
 	{
+		Size visibleSize = Director::getInstance()->getVisibleSize();
+		Point origin = Director::getInstance()->getVisibleOrigin();
+		auto label = LabelTTF::create(" Hola :)", "Arial", 72);
+
+		// position the label on the center of the screen
+		label->setPosition(Point(origin.x + visibleSize.width / 2,
+			origin.y + visibleSize.height - label->getContentSize().height));
+
+		addChild(label, 5);
 		CCLog("W key was pressed");
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_DOWN_ARROW)
 	{
 		CCLog("Flecha abajo");
+
 	//	returnGameMenu();
 		CC_CALLBACK_1(MercuryScene::returnGameMenu, this);
 	}
 }
 void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
-
+	
 }
 
 //Prueba
