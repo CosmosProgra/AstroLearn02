@@ -88,7 +88,7 @@ void MercuryScene::onKeyHold(float interval){
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_RIGHT_ARROW) != heldKeys.end()){
 		// right pressed
 		CCLog("Flecha arriba");
-		Player1->setPosition(Player1->getPositionX()+5, 0.0);
+		Player1->setPosition(Player1->getPositionX()+5, Player1->getPositionY());
 		setPointOfView(Point(Player1->getPosition()));
 	}
 
@@ -141,7 +141,7 @@ void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d:
 	{
 
 		CCLog("Flecha arriba");
-		Player1->setPosition(Player1->getPositionX() + 5, Player1->getPositionX());
+		Player1->setPosition(Player1->getPositionX() + 5, Player1->getPositionY());
 		setPointOfView(Point(Player1->getPosition()));
 
 		CCLog("Flecha izquierda");
