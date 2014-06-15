@@ -74,8 +74,13 @@ void MercuryScene::cargarfondo()
 
 void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
-	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW)
+	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
+
+		CCLog("Flecha arriba");
+		Player1->setPosition(Player1->getPositionX() + 5, Player1->getPositionX());
+		setPointOfView(Point(Player1->getPosition()));
+
 		CCLog("Flecha izquierda");
 		Size visibleSize = Director::getInstance()->getVisibleSize();
 		Point origin = Director::getInstance()->getVisibleOrigin();
@@ -91,7 +96,7 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW)
 	{
 		CCLog("Flecha arriba");
-		Player1->setPosition(20, 20);
+		Player1->setPosition(Player1->getPositionX() + 5, 0.0);
 		setPointOfView(Point(Player1->getPosition()));
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
