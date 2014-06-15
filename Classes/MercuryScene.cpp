@@ -1,5 +1,6 @@
 #include "MercuryScene.h"
 #include <iostream>
+#include <algorithm>
 
 USING_NS_CC;
 
@@ -31,6 +32,7 @@ bool MercuryScene::init()
 	{
 		return false;
 	}
+	
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
@@ -49,11 +51,12 @@ bool MercuryScene::init()
 	printf("x mapPosition %f", tileMap->getPosition().x);
 	printf("x mapPosition %f", tileMap->getPosition().y);
 
+	
 
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyPressed = CC_CALLBACK_2(MercuryScene::keyPressed, this);
 	listener->onKeyReleased = CC_CALLBACK_2(MercuryScene::keyReleased, this);
-
+	this->schedule(schedule_selector(MercuryScene::onKeyHold));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 	return true;
 }
@@ -72,8 +75,68 @@ void MercuryScene::cargarfondo()
 	astronautaSprite->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
 }
 
+void MercuryScene::onKeyHold(float interval){
+	
+	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_UP_ARROW) != heldKeys.end()){
+		// up pressed
+	}
+
+	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_DOWN_ARROW) != heldKeys.end()){
+		// down pressed
+	}
+
+	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_RIGHT_ARROW) != heldKeys.end()){
+		// right pressed
+		CCLog("Flecha arriba");
+		Player1->setPosition(Player1->getPositionX()+5, 0.0);
+		setPointOfView(Point(Player1->getPosition()));
+	}
+
+	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_LEFT_ARROW) != heldKeys.end()){
+		// left pressed
+	}
+
+}
+
 void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
+	if (std::find(heldKeys.begin(), heldKeys.end(), keyCode) == heldKeys.end()){
+		heldKeys.push_back(keyCode);
+	}
+	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
+	{
+
+	/*	CCLog("Flecha arriba");
+		Player1->setPosition(Player1->getPositionX() + 5, Player1->getPositionX());
+		setPointOfView(Point(Player1->getPosition()));
+		*/
+		CCLog("Flecha izquierda");
+		Size visibleSize = Director::getInstance()->getVisibleSize();
+		Point origin = Director::getInstance()->getVisibleOrigin();
+		auto label = LabelTTF::create(" Hola :)", "Arial", 72);
+
+		// position the label on the center of the screen
+		label->setPosition(Point(origin.x + visibleSize.width / 2,
+			origin.y + visibleSize.height - label->getContentSize().height));
+
+		addChild(label, 5);
+		CCLog("W key was pressed");
+	}
+	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW)
+	{
+		CCLog("Flecha arriba");
+		Player1->setPosition(Player1->getPositionX() + 5, 0.0 - 5);
+		setPointOfView(Point(Player1->getPosition()));
+	}
+	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
+	{
+		CCLog("Flecha derecha");
+	}
+}
+void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
+{
+	heldKeys.erase(std::remove(heldKeys.begin(), heldKeys.end(), keyCode), heldKeys.end());
+
 	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
 
@@ -93,20 +156,6 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 		addChild(label, 5);
 		CCLog("W key was pressed");
 	}
-	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW)
-	{
-		CCLog("Flecha arriba");
-		Player1->setPosition(Player1->getPositionX() + 5, 0.0);
-		setPointOfView(Point(Player1->getPosition()));
-	}
-	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
-	{
-		CCLog("Flecha derecha");
-	}
-}
-void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
-{
-	
 }
 
 //Prueba
