@@ -74,8 +74,9 @@ void MercuryScene::cargarfondo()
 
 void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
-	if (keyCode == EventKeyboard::KeyCode::KEY_W)
+	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW)
 	{
+		CCLog("Flecha izquierda");
 		Size visibleSize = Director::getInstance()->getVisibleSize();
 		Point origin = Director::getInstance()->getVisibleOrigin();
 		auto label = LabelTTF::create(" Hola :)", "Arial", 72);
@@ -87,12 +88,13 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 		addChild(label, 5);
 		CCLog("W key was pressed");
 	}
-	if (keyCode == EventKeyboard::KeyCode::KEY_DOWN_ARROW)
+	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW)
 	{
-		CCLog("Flecha abajo");
-
-	//	returnGameMenu();
-		CC_CALLBACK_1(MercuryScene::returnGameMenu, this);
+		CCLog("Flecha arriba");
+	}
+	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
+	{
+		CCLog("Flecha derecha");
 	}
 }
 void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
