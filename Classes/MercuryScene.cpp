@@ -61,12 +61,12 @@ bool MercuryScene::init()
 void MercuryScene::cargarfondo()
 {
 	//carga el objeto del mapa
-	auto Fogata = objetos->getObject("Astronauta");
-	CCASSERT(!Fogata.empty(), "Astronauta object not found");
+	auto personaje = objetos->getObject("Astronauta");
+	CCASSERT(!personaje.empty(), "Astronauta object not found");
 	//saco las coordenadas del objeto en el tilemap
 	//se hace la suma debido al error en cocos2d
-	float x = Fogata["x"].asFloat() + 315;
-	float y = Fogata["y"].asFloat() + 28;
+	float x = personaje["x"].asFloat() + 315;
+	float y = personaje["y"].asFloat() + 28;
 	//Crea el sprite y lo posiciona
 	astronautaSprite = Sprite::create("Animations/meteorito.png");
 	astronautaSprite->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
@@ -91,6 +91,8 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW)
 	{
 		CCLog("Flecha arriba");
+		Player1->setPosition(20, 20);
+		setPointOfView(Point(Player1->getPosition()));
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
