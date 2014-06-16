@@ -90,17 +90,18 @@ void MercuryScene::onKeyHold(float interval){
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_RIGHT_ARROW) != heldKeys.end()){
 		// right pressed
 		CCLog("Flecha arriba");
-		Player1->setPosition(Player1->getPositionX()+5, Player1->getPositionY());
+		setPlayerPosition(Point(Player1->getPositionX() + 5, Player1->getPositionY()));
+		//Player1->setPosition(Player1->getPositionX()+5, Player1->getPositionY());
 		setPointOfView(Point(Player1->getPosition()));
 		Size visibleSize = Director::getInstance()->getVisibleSize();
 		Point origin = Director::getInstance()->getVisibleOrigin();
-		auto label = LabelTTF::create(metaCheck(Point(Player1->getPosition())), "Arial", 72);
+		/*auto label = LabelTTF::create(metaCheck(Point(Player1->getPosition())), "Arial", 72);
 
 		// position the label on the center of the screen
 		label->setPosition(Point(origin.x + visibleSize.width / 2,
 			origin.y + visibleSize.height - label->getContentSize().height));
 
-		addChild(label, 5);
+		addChild(label, 5);*/
 	}
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_LEFT_ARROW) != heldKeys.end()){

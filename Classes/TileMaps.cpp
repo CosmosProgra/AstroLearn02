@@ -73,49 +73,6 @@ void TileMaps::setEventHandlers()
 	//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1,labelGameTitle);
 
 
-	/*
-	//Create a "one by one" touch event listener (processes one touch at a time)
-	auto listener = EventListenerTouchOneByOne::create();
-	// When "swallow touches" is true, then returning 'true' from the onTouchBegan method will "swallow" the touch event, preventing other listeners from using it.
-	listener->setSwallowTouches(true);
-
-	// Example of using a lambda expression to implement onTouchBegan event callback function
-	listener->onTouchBegan = [&](Touch* touch, Event* event){
-		// event->getCurrentTarget() returns the *listener's* sceneGraphPriority node.
-		auto target = static_cast<Sprite*>(event->getCurrentTarget());
-
-		//Get the position of the current point relative to the button
-		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
-		Size s = target->getContentSize();
-		Rect rect = Rect(0, 0, s.width, s.height);
-
-		//Check the click area
-		if (rect.containsPoint(locationInNode))
-		{
-			log("sprite began... x = %f, y = %f", locationInNode.x, locationInNode.y);
-			movePlayer(locationInNode);
-			return true;
-		}
-		return false;
-	};
-	//Trigger when moving touch
-	listener->onTouchMoved = [](Touch* touch, Event* event){
-		auto target = static_cast<Sprite*>(event->getCurrentTarget());
-		//Move the position of current button sprite
-		target->setPosition(target->getPosition() + touch->getDelta());
-	};
-
-	//Process the touch end event
-	listener->onTouchEnded = [=](Touch* touch, Event* event){
-		auto target = static_cast<Sprite*>(event->getCurrentTarget());
-		log("sprite onTouchesEnded.. ");
-		target->setOpacity(255);
-		//Reset zOrder and the display sequence will change
-	};
-	//Add listener
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, tileMap);
-	*/
-
 }
 
 
@@ -123,6 +80,7 @@ Point TileMaps::tileCoordForPosition(Point position)
 	{
 	int x = position.x / tileMap->getTileSize().width;
 	int y = ((tileMap->getMapSize().height * tileMap->getTileSize().height) - position.y) / tileMap->getTileSize().height;
+
 	return ccp(x, y);
 /*	log("POSITIONX %f", position.x);
 	log("POSITIONY %f", position.y);
@@ -164,16 +122,42 @@ std::string TileMaps::metaCheck(Point posicion)
 	log("tileGid %d", tileGid);
 	if (tileGid)
 	{
-		Value propiedades = tileMap->getPropertiesForGID(tileGid);
+		
+		/*int i = tileGid;
+		std::string s;
+		std::stringstream out;
+		out << i;
+		s = out.str();
+
+		auto properties = tileMap->getPropertiesForGID(tileGid).asValueMap();
+		if (!properties.empty()) {
+			auto collision = properties["colision"].asString();
+
+			if ("True" == collision) {
+				resultado = "colision";
+			}
+
+		}
+	}
+
+
+	/*	Value propiedades = tileMap->getPropertiesForGID(tileGid);
 		auto propiedad = propiedades.asValueMap();
-		auto p = propiedad["colision"].asString();
+		auto p = propiedad[0].asString();
+
+		auto label = LabelTTF::create(propiedad["colision"].asString(), "Arial", 72);
+		// position the label on the center of the screen
+		label->setPosition(Point(origin.x + visibleSize.width / 2,
+			origin.y + visibleSize.height - label->getContentSize().height - 20));
+
+		addChild(label, 5);
 
 		if (p.compare("True") == 0)
 		{
 			log("colision");
 			resultado = "colision";
 		}
-	}
+	}*/
 	return resultado;
 }
 
@@ -274,8 +258,28 @@ bool TileMaps::onTouchBegan(Touch *touch, Event *event)
 }
 
 
-void TileMaps::setPlayerPosition(Point position){
-	if (metaCheck(position) == "Normal"){
-		Player1->setPosition(Point(position));
+void TileMaps::setPlayerPosition(Point position)
+{
+	Point tileCoord = this->tileCoordForPosition(position);
+	int tileGid = meta->getTileGIDAt(tileCoord);
+	if (tileGid) {
+		auto properties = tileMap->getPropertiesForGID(tileGid).asValueMap();
+		if (!properties.empty()) {
+			auto collision = properties["colision"].asString();
+			Size visibleSize = Director::getInstance()->getVisibleSize();
+			Point origin = Director::getInstance()->getVisibleOrigin();
+			auto label = LabelTTF::create("HEYY", "Arial", 72);
+			// position the label on the center of the screen
+			label->setPosition(Point(origin.x + visibleSize.width / 2,
+				origin.y + visibleSize.height - label->getContentSize().height - 20));
+
+			addChild(label, 5);
+			
+			if ("True" == collision) {
+				
+				return;
+			}
+		}
 	}
+	Player1->setPosition(position);
 }
