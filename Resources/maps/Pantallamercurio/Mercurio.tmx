@@ -80,7 +80,7 @@
  </tileset>
  <layer name="Meta" width="200" height="70">
   <properties>
-   <property name="colision" value="0"/>
+   <property name="colision" value="True"/>
   </properties>
   <data encoding="base64" compression="zlib">
    eJzt2EtuwjAUBdAM2f+maOcd0O4A2EHpACIRyYpI4uBPDD1HioRo8HuJfYlL1wEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvI/9rus+7sd/0l/vZ8VrHu5zzZqkO9zm6/t+DHLN4T7IXVijhbXZ9/JTsYdH95n2HW/zdQrm7pRx/sI1MT62Xpv963PFHsb3WU7addqlH7HjT+UjR50S1/VM3dR+WsrK1HzJdLy5NRT+7ffBOf17l9vxF3Gv167VqXOHmrFznTMfMVpag3P1t+7tlczlI3edmDFjz7vcsxIzVsq1PPv5rXMiH3mU3pvE1ipdd8rS71Gp/WyVk1fMx9KesKXn8zuZy+HwP//X6P3cea0xr2HWl/LR4npb00NLfb+jcVbOFZ5jvZLzegh6Xzv+ls+5lNryUdaa3xlyKvH9fUzIR8m+luq0MA5tW7v3rrU/L9FXifXc4n4RgNd0BSI5LGI=

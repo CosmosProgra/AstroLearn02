@@ -120,9 +120,11 @@ void TileMaps::setEventHandlers()
 
 
 Point TileMaps::tileCoordForPosition(Point position)
-{
-
-	log("POSITIONX %f", position.x);
+	{
+	int x = position.x / tileMap->getTileSize().width;
+	int y = ((tileMap->getMapSize().height * tileMap->getTileSize().height) - position.y) / tileMap->getTileSize().height;
+	return ccp(x, y);
+/*	log("POSITIONX %f", position.x);
 	log("POSITIONY %f", position.y);
 
 	int x = position.x / tileMap->getTileSize().width;
@@ -149,9 +151,9 @@ Point TileMaps::tileCoordForPosition(Point position)
 	y = MAX(0, posY);
 	y = MIN(tileMap->getMapSize().height - 1, posY);
 
-	log("Tile Position %d ,%d", x, y);
-	return Point(x, y);
-
+	log("Tile Position %d ,%d", x, y);*/
+	//return Point(x, y);
+	
 }
 
 std::string TileMaps::metaCheck(Point posicion)
@@ -166,7 +168,7 @@ std::string TileMaps::metaCheck(Point posicion)
 		auto propiedad = propiedades.asValueMap();
 		auto p = propiedad["colision"].asString();
 
-		if (p.compare("colision") == 0)
+		if (p.compare("True") == 0)
 		{
 			log("colision");
 			resultado = "colision";

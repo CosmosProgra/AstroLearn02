@@ -46,18 +46,20 @@ bool MercuryScene::init()
 	//setTouchEnabled(true);
 	//setEvents();
 	//metaCheck(Player1->getPosition());
+	//meta = tileMap->layerNamed("Meta");
+//	meta->setVisible(false);
 	this->addChild(tileMap, -1, 1);
 	setPointOfView(Point(Player1->getPosition()));
 	printf("x mapPosition %f", tileMap->getPosition().x);
 	printf("x mapPosition %f", tileMap->getPosition().y);
 
 	
+		auto listener = EventListenerKeyboard::create();
+		listener->onKeyPressed = CC_CALLBACK_2(MercuryScene::keyPressed, this);
+		listener->onKeyReleased = CC_CALLBACK_2(MercuryScene::keyReleased, this);
+		this->schedule(schedule_selector(MercuryScene::onKeyHold));
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
-	auto listener = EventListenerKeyboard::create();
-	listener->onKeyPressed = CC_CALLBACK_2(MercuryScene::keyPressed, this);
-	listener->onKeyReleased = CC_CALLBACK_2(MercuryScene::keyReleased, this);
-	this->schedule(schedule_selector(MercuryScene::onKeyHold));
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 	return true;
 }
 
