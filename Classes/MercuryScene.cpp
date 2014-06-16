@@ -1,6 +1,7 @@
 #include "MercuryScene.h"
 #include <iostream>
 #include <algorithm>
+#include <windows.h>
 
 USING_NS_CC;
 
@@ -40,7 +41,7 @@ bool MercuryScene::init()
 	cargarfondo();
 	setEventHandlers();
 	tileMap->addChild(astronautaSprite, 1);
-	createCharacter("maps/prueba.png");
+	createCharacter("maps/personajepequeno.png");
 	tileMap->addChild(Player1, 2);
 	//setIncrements();
 	//setTouchEnabled(true);
@@ -89,22 +90,23 @@ void MercuryScene::onKeyHold(float interval){
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_RIGHT_ARROW) != heldKeys.end()){
 		// right pressed
-		CCLog("Flecha arriba");
 		Player1->setPosition(Player1->getPositionX()+5, Player1->getPositionY());
 		setPointOfView(Point(Player1->getPosition()));
-		Size visibleSize = Director::getInstance()->getVisibleSize();
-		Point origin = Director::getInstance()->getVisibleOrigin();
-		auto label = LabelTTF::create(metaCheck(Point(Player1->getPosition())), "Arial", 72);
+		//Size visibleSize = Director::getInstance()->getVisibleSize();
+		//Point origin = Director::getInstance()->getVisibleOrigin();
+		//auto label = LabelTTF::create(metaCheck(Point(Player1->getPosition())), "Arial", 72);
 
 		// position the label on the center of the screen
-		label->setPosition(Point(origin.x + visibleSize.width / 2,
-			origin.y + visibleSize.height - label->getContentSize().height));
+		//label->setPosition(Point(origin.x + visibleSize.width / 2,
+			//origin.y + visibleSize.height - label->getContentSize().height));
 
-		addChild(label, 5);
+//		addChild(label, 5);
 	}
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_LEFT_ARROW) != heldKeys.end()){
 		// left pressed
+		Player1->setPosition(Player1->getPositionX() - 5, Player1->getPositionY());
+		setPointOfView(Point(Player1->getPosition()));
 	}
 
 }
@@ -117,6 +119,8 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
 
+		Player1->setPosition(Player1->getPositionX() + 5, Player1->getPositionY());
+		setPointOfView(Point(Player1->getPosition()));
 	/*	CCLog("Flecha arriba");
 		Player1->setPosition(Player1->getPositionX() + 5, Player1->getPositionX());
 		setPointOfView(Point(Player1->getPosition()));
@@ -136,13 +140,14 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW)
 	{
-		CCLog("Flecha arriba");
-		Player1->setPosition(Player1->getPositionX() + 5, 0.0 - 5);
-		setPointOfView(Point(Player1->getPosition()));
+	//	CCLog("Flecha arriba");
+	//	Player1->setPosition(Player1->getPositionX() + 5, 0.0 - 5);
+	//	setPointOfView(Point(Player1->getPosition()));
 	}
-	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
+	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW)
 	{
-		CCLog("Flecha derecha");
+		Player1->setPosition(Player1->getPositionX() - 5, Player1->getPositionY());
+		setPointOfView(Point(Player1->getPosition()));
 	}
 }
 void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)

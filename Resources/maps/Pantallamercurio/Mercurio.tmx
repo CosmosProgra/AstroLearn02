@@ -112,6 +112,6 @@
   </data>
  </layer>
  <objectgroup name="Objetos" width="200" height="70">
-  <object name="Astronauta" type="Player" x="320" y="1792" width="96" height="128"/>
+  <object name="Astronauta" type="Player" x="322" y="1754" width="128" height="160"/>
  </objectgroup>
 </map>
