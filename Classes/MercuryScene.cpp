@@ -92,6 +92,15 @@ void MercuryScene::onKeyHold(float interval){
 		CCLog("Flecha arriba");
 		Player1->setPosition(Player1->getPositionX()+5, Player1->getPositionY());
 		setPointOfView(Point(Player1->getPosition()));
+		Size visibleSize = Director::getInstance()->getVisibleSize();
+		Point origin = Director::getInstance()->getVisibleOrigin();
+		auto label = LabelTTF::create(metaCheck(Point(Player1->getPosition())), "Arial", 72);
+
+		// position the label on the center of the screen
+		label->setPosition(Point(origin.x + visibleSize.width / 2,
+			origin.y + visibleSize.height - label->getContentSize().height));
+
+		addChild(label, 5);
 	}
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_LEFT_ARROW) != heldKeys.end()){
@@ -111,11 +120,11 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	/*	CCLog("Flecha arriba");
 		Player1->setPosition(Player1->getPositionX() + 5, Player1->getPositionX());
 		setPointOfView(Point(Player1->getPosition()));
-		*/
+		
 		CCLog("Flecha izquierda");
 		Size visibleSize = Director::getInstance()->getVisibleSize();
 		Point origin = Director::getInstance()->getVisibleOrigin();
-		auto label = LabelTTF::create(" Hola :)", "Arial", 72);
+		auto label = LabelTTF::create(metaCheck(Point(Player1->getPosition())), "Arial", 72);
 
 		// position the label on the center of the screen
 		label->setPosition(Point(origin.x + visibleSize.width / 2,
@@ -123,6 +132,7 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 
 		addChild(label, 5);
 		CCLog("W key was pressed");
+		*/
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW)
 	{
@@ -142,21 +152,6 @@ void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d:
 	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
 
-		CCLog("Flecha arriba");
-		Player1->setPosition(Player1->getPositionX() + 5, Player1->getPositionY());
-		setPointOfView(Point(Player1->getPosition()));
-
-		CCLog("Flecha izquierda");
-		Size visibleSize = Director::getInstance()->getVisibleSize();
-		Point origin = Director::getInstance()->getVisibleOrigin();
-		auto label = LabelTTF::create(" Hola :)", "Arial", 72);
-
-		// position the label on the center of the screen
-		label->setPosition(Point(origin.x + visibleSize.width / 2,
-			origin.y + visibleSize.height - label->getContentSize().height));
-
-		addChild(label, 5);
-		CCLog("W key was pressed");
 	}
 }
 
