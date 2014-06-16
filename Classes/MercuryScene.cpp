@@ -40,7 +40,7 @@ bool MercuryScene::init()
 	cargarfondo();
 	setEventHandlers();
 	tileMap->addChild(astronautaSprite, 1);
-	createCharacter("maps/prueba.png");
+	createCharacter("maps/personajepequeno.png");
 	tileMap->addChild(Player1, 2);
 	//setIncrements();
 	//setTouchEnabled(true);
