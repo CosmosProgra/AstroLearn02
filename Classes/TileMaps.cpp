@@ -82,35 +82,7 @@ Point TileMaps::tileCoordForPosition(Point position)
 	int y = ((tileMap->getMapSize().height * tileMap->getTileSize().height) - position.y) / tileMap->getTileSize().height;
 
 	return ccp(x, y);
-/*	log("POSITIONX %f", position.x);
-	log("POSITIONY %f", position.y);
 
-	int x = position.x / tileMap->getTileSize().width;
-	int y = ((tileMap->getMapSize().height * tileMap->getTileSize().height) - position.y) / tileMap->getTileSize().height;
-
-	Size tileSize = tileMap->getTileSize();
-	Size mapSize = tileMap->getMapSize();
-
-	Point pos = position;
-	log("x mapposition %f", pos.x);
-	log("y mapposition %f", pos.y);
-	float halfMapWidth = tileMap->getMapSize().width * 0.5f;
-	float mapHeight = tileMap->getMapSize().height;
-	float tileWidth = tileMap->getTileSize().width;
-	float tileHeight = tileMap->getTileSize().height;
-	Point tilePosDiv = Point(pos.x / tileWidth, pos.y / tileHeight);
-	float inverseTileY = mapHeight - tilePosDiv.y;
-
-	float posX = (int)(inverseTileY + tilePosDiv.x - halfMapWidth);
-	float posY = (int)(inverseTileY - tilePosDiv.x + halfMapWidth);
-
-	x = MAX(0, posX);
-	x = MIN(tileMap->getMapSize().width - 1, posX);
-	y = MAX(0, posY);
-	y = MIN(tileMap->getMapSize().height - 1, posY);
-
-	log("Tile Position %d ,%d", x, y);*/
-	//return Point(x, y);
 	
 }
 
@@ -122,7 +94,7 @@ std::string TileMaps::metaCheck(Point posicion)
 	log("tileGid %d", tileGid);
 	if (tileGid)
 	{
-		
+	}
 		/*int i = tileGid;
 		std::string s;
 		std::stringstream out;
