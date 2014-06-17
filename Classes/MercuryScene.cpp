@@ -106,6 +106,9 @@ void MercuryScene::onKeyHold(float interval){
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_LEFT_ARROW) != heldKeys.end()){
 		// left pressed
+		setPlayerPosition(Point(Player1->getPositionX() - 5, Player1->getPositionY()));
+		//Player1->setPosition(Player1->getPositionX()+5, Player1->getPositionY());
+		setPointOfView(Point(Player1->getPosition()));
 	}
 
 }

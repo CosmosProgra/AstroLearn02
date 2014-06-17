@@ -240,12 +240,20 @@ void TileMaps::setPlayerPosition(Point position)
 			auto collision = properties["colision"].asString();
 			Size visibleSize = Director::getInstance()->getVisibleSize();
 			Point origin = Director::getInstance()->getVisibleOrigin();
-			auto label = LabelTTF::create("HEYY", "Arial", 72);
+			/*auto label = LabelTTF::create("HEYY", "Arial", 72);
+			// position the label on the center of the screen
+			label->setPosition(Point(origin.x + visibleSize.width / 2,
+				origin.y + visibleSize.height - label->getContentSize().height - 20));
+
+			addChild(label, 5);*/
+
+			auto label = LabelTTF::create(properties["colision"].asString(), "Arial", 72);
 			// position the label on the center of the screen
 			label->setPosition(Point(origin.x + visibleSize.width / 2,
 				origin.y + visibleSize.height - label->getContentSize().height - 20));
 
 			addChild(label, 5);
+
 			
 			if ("True" == collision) {
 				

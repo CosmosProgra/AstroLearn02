@@ -10,7 +10,7 @@
 class TileMaps : public cocos2d::Layer
 {
 protected:
-	cocos2d::TMXTiledMap* tileMap = nullptr;
+	cocos2d::TMXTiledMap* tileMap;
 	cocos2d::TMXLayer* meta;
 	cocos2d::TMXLayer* background;
 	cocos2d::TMXLayer* foreground1;
