@@ -4,8 +4,7 @@
 
 USING_NS_CC; /*!< Se incluye el espacio de nombres de cocos */ 
 
-/// Definicion del metodo de crear escena de HelloWorld
-/// El metodo retorna un objeto tipo scene
+
 Scene* HelloWorld::createScene()
 {
     // 'scene' is an autorelease object
@@ -39,13 +38,13 @@ bool HelloWorld::init()
     //    you may modify it.
 
     // add a "close" icon to exit the progress. it's an autorelease object
-	///Este codigo coloca en pantalla un boton para cerrar la ventana
+	//Este codigo coloca en pantalla un boton para cerrar la ventana
     auto closeItem = MenuItemImage::create(
                                            "CloseNormal.png",
                                            "CloseSelected.png",
                                            CC_CALLBACK_1(HelloWorld::menuCloseCallback, this)); /*!< Se llama al metodo que cierra el programa */ 
     
-	///Se coloca en pantalla el boton para cerrar el programa
+	//Se coloca en pantalla el boton para cerrar el programa
 	closeItem->setPosition(Point(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
                                 origin.y + closeItem->getContentSize().height/2));
 
@@ -56,25 +55,25 @@ bool HelloWorld::init()
 
    
     // add "HelloWorld" splash screen"
-	///Aqui se coloca un sprite que contiene la imagen de fondo de la pantalla
+	//Aqui se coloca un sprite que contiene la imagen de fondo de la pantalla
     auto sprite = Sprite::create("Fondos/principal.jpg");
 
     // position the sprite on the center of the screen
-	///Se coloca el sprite (imagen de fondo) en pantalla
+	//Se coloca el sprite (imagen de fondo) en pantalla
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
     // add the sprite as a child to this layer
-	///Se agrega el sprite a la capa que va a contener todos los elementos en pantalla, esto lo hara visible
+	//Se agrega el sprite a la capa que va a contener todos los elementos en pantalla, esto lo hara visible
     this->addChild(sprite, 0);
 	createGameMenu();
 
-	/// crea la imagen de la estrella
+	// crea la imagen de la estrella
 	auto estrella = Sprite::create("Estrella.png");
 
-	/// Establece la posición de la estrella en la pantalla.
+	// Establece la posición de la estrella en la pantalla.
 	estrella->setPosition(Point(visibleSize.width * 0.16f , origin.y + visibleSize.height * 0.44f));
 
-	///Agrega la estrella
+	//Agrega la estrella
 	this->addChild(estrella, 1);
 
 	Animaciones::rotar(estrella);
@@ -87,38 +86,38 @@ bool HelloWorld::init()
 }
 
 
-///Metodo que coloca los botones del metodo en pantalla y les proporciona funcionalidad
+//Metodo que coloca los botones del metodo en pantalla y les proporciona funcionalidad
 void HelloWorld::createGameMenu()
 {
 	//Se obtienen las medidas de la pantalla
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
-	/// Creación del boton ingresar
-	///Se coloca la imagen que llevara el boton cuando este y cuando no este oprimido, ademas del metodo que sera invocado cuando el boton sea presionado, el cual llama a la pantalla iniciarsesion
+	// Creación del boton ingresar
+	//Se coloca la imagen que llevara el boton cuando este y cuando no este oprimido, ademas del metodo que sera invocado cuando el boton sea presionado, el cual llama a la pantalla iniciarsesion
 	auto buttoningresar = MenuItemImage::create("botones/jugar.png", "botones/jugar_down.png", CC_CALLBACK_1(HelloWorld::Iniciarsesion, this));
-	///Se le da posicion en pantalla al boton ingresar
+	//Se le da posicion en pantalla al boton ingresar
 	buttoningresar->setPosition(Point(visibleSize.width / 2, origin.y + visibleSize.height * 0.33f));
 	//Se crea el boton
 	auto buttonStartMenu = Menu::create(buttoningresar, NULL);
 	buttonStartMenu->setPosition(Point::ZERO);
-	///Se agrega el boton a la capa en la cual se mostrara
+	//Se agrega el boton a la capa en la cual se mostrara
 	this->addChild(buttonStartMenu, 2);
 }
 
 
 #include "Ingresar.h" /*!< Inclusion de la biblioteca Ingresar.h */ //Original
-///Metodo que invoca el boton ingresar, abre una nueva pantalla
+//Metodo que invoca el boton ingresar, abre una nueva pantalla
 void HelloWorld::Iniciarsesion(Ref* pSender)
 {
-	///Crea la escena de Ingresar
+	//Crea la escena de Ingresar
 	auto newScene = Ingresar::createScene(); 	
-	///Reemplaza la escena actual por la escena de Ingresar
+	//Reemplaza la escena actual por la escena de Ingresar
 	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
 }
 
 
-///Metodo que termina la ejecucion del programa
+//Metodo que termina la ejecucion del programa
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
     Director::getInstance()->end();

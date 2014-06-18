@@ -4,33 +4,53 @@
 #include "cocos2d.h" /*!< Inclusion de cocos2d para poder utilizar sus metodos */
 
 
-/// Clase ingresar. Se utiliza para generar la pantalla con la que el usuario accesa a su cuenta.
+/**
+ * @brief Clase ingresar. Se utiliza para generar la pantalla con la que el usuario accesa a su cuenta.
+ *
+ */
 
 class Ingresar : public cocos2d::Layer /*!< Hereda de Layer. */ 
 {
 	
 public:
-	
-	// Metodo para crear la escena de la pantalla para ingresar.
+
+	/**
+	* @brief Metodo para crear la escena de la pantalla para ingresar.
+	* @return Scene*, para que se le puedan agregar los diferentes elementos.
+	*/
 	static cocos2d::Scene* createScene();
 
-	/// Retorna un booleano, se usa para generar los elementos que conforman la pantalla.
+	/**
+	* @brief metodo para generar los componentes que posee la pantalla principal.
+	* @return retorna true si el metodo logro generar los elementos y agregarlos a la capa.
+	*/
 	virtual bool init();
 
-	/// Se invoca cuando el jugador presiona el boton 'Atras' y se dirige a la pantalla principal.
+	/**
+	* @brief metodo para redirigir a la pantalla de principal, se invoca cuando el boton 'Atras' es presionado.
+	* @param cocos2d::Ref* pSender, puntero a la otra escena.
+	*/
 	void returnGameMenu(cocos2d::Ref* pSender);
 
-	///Se invoca cuando el jugador presiona 'Aceptar' y se dirige a la pantalla de Login
+	/**
+	* @brief metodo para redirigir a la pantalla de Login, se invoca cuando el boton 'Aceptar' es presionado.
+	* @param cocos2d::Ref* pSender, puntero a la otra escena.
+	*/
 	void login(cocos2d::Ref* pSender);
 
-	/// Se invoca cuando el jugador presiona el boton '+' para crear un nuevo avatar(jugador)
+	/**
+	* @brief metodo para redirigir a la pantalla para crear un nuevo avatar, se invoca cuando el boton '+' es presionado.
+	* @param cocos2d::Ref* pSender, puntero a la otra escena.
+	*/
 	void registrar(cocos2d::Ref* pSender);
 
 	/// Implementa the "static create()" metodo manual.
 	CREATE_FUNC(Ingresar);
 
 private:
-	/// Crea los botones necesarios para enlazar la pantalla con las otras.
+	/**
+	* @brief metodo para colocar los botones en la pantalla Ingresar y que puedar generar un enlace con las otras pantallas.
+	*/
 	void createMenu();
 };
 
