@@ -81,7 +81,7 @@ Point TileMaps::tileCoordForPosition(Point position)
 	int x = position.x / tileMap->getTileSize().width;
 	int y = ((tileMap->getMapSize().height * tileMap->getTileSize().height) - position.y) / tileMap->getTileSize().height;
 
-	return ccp(x, y);
+	return Point(x, y);
 
 	
 }
@@ -94,8 +94,7 @@ std::string TileMaps::metaCheck(Point posicion)
 	log("tileGid %d", tileGid);
 	if (tileGid)
 	{
-	}
-		/*int i = tileGid;
+		int i = tileGid;
 		std::string s;
 		std::stringstream out;
 		out << i;
@@ -103,33 +102,19 @@ std::string TileMaps::metaCheck(Point posicion)
 
 		auto properties = tileMap->getPropertiesForGID(tileGid).asValueMap();
 		if (!properties.empty()) {
-			auto collision = properties["colision"].asString();
+			auto collision = properties["colision"].asBool();
 
-			if ("True" == collision) {
+			if (collision) {
 				resultado = "colision";
+				auto label = LabelTTF::create(properties["colision"].asString(), "Arial", 72);
+				// position the label on the center of the screen
+				label->setPosition(Point(0,0));
+
+				addChild(label, 5);
 			}
 
 		}
 	}
-
-
-	/*	Value propiedades = tileMap->getPropertiesForGID(tileGid);
-		auto propiedad = propiedades.asValueMap();
-		auto p = propiedad[0].asString();
-
-		auto label = LabelTTF::create(propiedad["colision"].asString(), "Arial", 72);
-		// position the label on the center of the screen
-		label->setPosition(Point(origin.x + visibleSize.width / 2,
-			origin.y + visibleSize.height - label->getContentSize().height - 20));
-
-		addChild(label, 5);
-
-		if (p.compare("True") == 0)
-		{
-			log("colision");
-			resultado = "colision";
-		}
-	}*/
 	return resultado;
 }
 
@@ -167,14 +152,14 @@ void TileMaps::createCharacter(std::string imagen)
 
 
 
-void TileMaps::setIncrements()
+/*void TileMaps::setIncrements()
 {
 	IncrementX = tileMap->getTileSize().width / 6;
 	IncrementY = tileMap->getTileSize().height / 6;
-}
+}*/
 
 
-void TileMaps::movePlayer(Point placeToMove)
+/*void TileMaps::movePlayer(Point placeToMove)
 {
 	Point playerPos = Player1->getPosition();
 	Point diff = (placeToMove - playerPos);
@@ -197,7 +182,7 @@ void TileMaps::movePlayer(Point placeToMove)
 
 	this->setPlayerPosition(playerPos);
 	this->setPointOfView(Player1->getPosition());
-}
+}*/
 
 void TileMaps::setEvents()
 {
@@ -210,7 +195,7 @@ void TileMaps::setEvents()
 
 }
 
-bool TileMaps::onTouchBegan(Touch *touch, Event *event)
+/*bool TileMaps::onTouchBegan(Touch *touch, Event *event)
 {
 	auto target = static_cast<Sprite*>(event->getCurrentTarget());
 
@@ -227,39 +212,11 @@ bool TileMaps::onTouchBegan(Touch *touch, Event *event)
 		return true;
 	}
 	return false;
-}
+}*/
 
 
-void TileMaps::setPlayerPosition(Point position)
+/*void TileMaps::setPlayerPosition(Point position)
 {
-	Point tileCoord = this->tileCoordForPosition(position);
-	int tileGid = meta->getTileGIDAt(tileCoord);
-	if (tileGid) {
-		auto properties = tileMap->getPropertiesForGID(tileGid).asValueMap();
-		if (!properties.empty()) {
-			auto collision = properties["colision"].asString();
-			Size visibleSize = Director::getInstance()->getVisibleSize();
-			Point origin = Director::getInstance()->getVisibleOrigin();
-			/*auto label = LabelTTF::create("HEYY", "Arial", 72);
-			// position the label on the center of the screen
-			label->setPosition(Point(origin.x + visibleSize.width / 2,
-				origin.y + visibleSize.height - label->getContentSize().height - 20));
-
-			addChild(label, 5);*/
-
-			auto label = LabelTTF::create(properties["colision"].asString(), "Arial", 72);
-			// position the label on the center of the screen
-			label->setPosition(Point(origin.x + visibleSize.width / 2,
-				origin.y + visibleSize.height - label->getContentSize().height - 20));
-
-			addChild(label, 5);
-
-			
-			if ("True" == collision) {
-				
-				return;
-			}
-		}
-	}
-	Player1->setPosition(position);
-}
+	if (metaCheck(position) == "Normal"){
+		Player1->setPosition(Point(position));
+}*/

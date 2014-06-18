@@ -68,6 +68,46 @@
     <property name="Obstáculo" value="True"/>
    </properties>
   </tile>
+  <tile id="138">
+   <properties>
+    <property name="colision" value="true"/>
+   </properties>
+  </tile>
+  <tile id="153">
+   <properties>
+    <property name="colision" value="true"/>
+   </properties>
+  </tile>
+  <tile id="155">
+   <properties>
+    <property name="colision" value="true"/>
+   </properties>
+  </tile>
+  <tile id="157">
+   <properties>
+    <property name="colision" value="true"/>
+   </properties>
+  </tile>
+  <tile id="170">
+   <properties>
+    <property name="colision" value="true"/>
+   </properties>
+  </tile>
+  <tile id="173">
+   <properties>
+    <property name="colision" value="true"/>
+   </properties>
+  </tile>
+  <tile id="174">
+   <properties>
+    <property name="colision" value="true"/>
+   </properties>
+  </tile>
+  <tile id="187">
+   <properties>
+    <property name="colision" value="true"/>
+   </properties>
+  </tile>
  </tileset>
  <tileset firstgid="2667" name="b10009" tilewidth="32" tileheight="32">
   <image source="asteroids/large/b10009.png" width="320" height="240"/>
@@ -83,7 +123,7 @@
    <property name="colision" value="True"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2EtuwjAUBdAM2f+maOcd0O4A2EHpACIRyYpI4uBPDD1HioRo8HuJfYlL1wEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvI/9rus+7sd/0l/vZ8VrHu5zzZqkO9zm6/t+DHLN4T7IXVijhbXZ9/JTsYdH95n2HW/zdQrm7pRx/sI1MT62Xpv963PFHsb3WU7addqlH7HjT+UjR50S1/VM3dR+WsrK1HzJdLy5NRT+7ffBOf17l9vxF3Gv167VqXOHmrFznTMfMVpag3P1t+7tlczlI3edmDFjz7vcsxIzVsq1PPv5rXMiH3mU3pvE1ipdd8rS71Gp/WyVk1fMx9KesKXn8zuZy+HwP//X6P3cea0xr2HWl/LR4npb00NLfb+jcVbOFZ5jvZLzegh6Xzv+ls+5lNryUdaa3xlyKvH9fUzIR8m+luq0MA5tW7v3rrU/L9FXifXc4n4RgNd0BSI5LGI=
+   eJzt2EFSgzAUAFCWeCZv4FQv4Fgv0HuqN7BX8AitC8tYZhAhgCSQ1vdm/qaF/JDklzRFAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwPV7Kori9+Y7/5PX03G/lcvnqcV4yJ/PdneZsc466TmLNYb0mNq2oPntYsB7bvwHVMz+dYynv5e9xJn+7jvUba+0+drRdx/2C66Pqx7YnnhfqR8pxJq6P8me0561aM+1r2jGm/b7aqGMox1Ceoeeqo682toE+xBAa4+Y47zPac+3LcDAstIaa3x06rqk+O57ic8RYT12rfdceAjUypZ2pxraT0xoM5V+7b5ckVB+x84xpc+x1x3N9jmlrzrP89f6160R9xBFrTzQ3V+q8fZrnDlPvHWOtOrnE+hjaE+b0fr4moTrs+j/RvieGJea1eb43VB85rrcpfcip39codO6Q6j1WSTmvzXPGqe2v+Z6bk1t9pDXlnCGmFL/fuxn1kbJfQ3lyaIe8Td17L7U/T9GvFOs5x/0iAJfpC5Kp/UU=
   </data>
  </layer>
  <layer name="FondoPrincipal" width="200" height="70">

@@ -89,26 +89,46 @@ void MercuryScene::onKeyHold(float interval){
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_RIGHT_ARROW) != heldKeys.end()){
 		// right pressed
-		CCLog("Flecha arriba");
-		setPlayerPosition(Point(Player1->getPositionX() + 5, Player1->getPositionY()));
-		//Player1->setPosition(Player1->getPositionX()+5, Player1->getPositionY());
-		setPointOfView(Point(Player1->getPosition()));
-		Size visibleSize = Director::getInstance()->getVisibleSize();
-		Point origin = Director::getInstance()->getVisibleOrigin();
-		/*auto label = LabelTTF::create(metaCheck(Point(Player1->getPosition())), "Arial", 72);
 
-		// position the label on the center of the screen
-		label->setPosition(Point(origin.x + visibleSize.width / 2,
-			origin.y + visibleSize.height - label->getContentSize().height));
+		if (metaCheck(Point(Player1->getPositionX() + 5, Player1->getPositionY())) == "Normal")
+		{
+			Player1->setPosition(Point(Player1->getPositionX() + 5, Player1->getPositionY()));
+			setPointOfView(Point(Player1->getPosition()));
+		}
+		else
+		{
+			Size visibleSize = Director::getInstance()->getVisibleSize();
+			Point origin = Director::getInstance()->getVisibleOrigin();
+			auto label = LabelTTF::create("Colision", "Arial", 72);
 
-		addChild(label, 5);*/
+			// position the label on the center of the screen
+			label->setPosition(Point(origin.x + visibleSize.width / 2,
+				origin.y + visibleSize.height - label->getContentSize().height));
+
+			addChild(label, 5);
+		}
 	}
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_LEFT_ARROW) != heldKeys.end()){
 		// left pressed
-		setPlayerPosition(Point(Player1->getPositionX() - 5, Player1->getPositionY()));
-		//Player1->setPosition(Player1->getPositionX()+5, Player1->getPositionY());
-		setPointOfView(Point(Player1->getPosition()));
+
+		if (metaCheck(Point(Player1->getPositionX() - 5, Player1->getPositionY())) == "Normal")
+		{
+			Player1->setPosition(Point(Player1->getPositionX() - 5, Player1->getPositionY()));
+			setPointOfView(Point(Player1->getPosition()));
+		}
+		else
+		{
+			Size visibleSize = Director::getInstance()->getVisibleSize();
+			Point origin = Director::getInstance()->getVisibleOrigin();
+			auto label = LabelTTF::create("Colision", "Arial", 72);
+
+			// position the label on the center of the screen
+			label->setPosition(Point(origin.x + visibleSize.width / 2,
+				origin.y + visibleSize.height - label->getContentSize().height));
+
+			addChild(label, 5);
+		}
 	}
 
 }
@@ -120,33 +140,47 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
+		if (metaCheck(Point(Player1->getPositionX() + 5, Player1->getPositionY())) == "Normal")
+		{
+			Player1->setPosition(Point(Player1->getPositionX() + 5, Player1->getPositionY()));
+			setPointOfView(Point(Player1->getPosition()));
+		}
+		else
+		{
+			Size visibleSize = Director::getInstance()->getVisibleSize();
+			Point origin = Director::getInstance()->getVisibleOrigin();
+			auto label = LabelTTF::create("Colision", "Arial", 72);
 
-	/*	CCLog("Flecha arriba");
-		Player1->setPosition(Player1->getPositionX() + 5, Player1->getPositionX());
-		setPointOfView(Point(Player1->getPosition()));
-		
-		CCLog("Flecha izquierda");
-		Size visibleSize = Director::getInstance()->getVisibleSize();
-		Point origin = Director::getInstance()->getVisibleOrigin();
-		auto label = LabelTTF::create(metaCheck(Point(Player1->getPosition())), "Arial", 72);
+			// position the label on the center of the screen
+			label->setPosition(Point(origin.x + visibleSize.width / 2,
+				origin.y + visibleSize.height - label->getContentSize().height));
 
-		// position the label on the center of the screen
-		label->setPosition(Point(origin.x + visibleSize.width / 2,
-			origin.y + visibleSize.height - label->getContentSize().height));
-
-		addChild(label, 5);
-		CCLog("W key was pressed");
-		*/
+			addChild(label, 5);
+		}
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW)
 	{
 		CCLog("Flecha arriba");
-		Player1->setPosition(Player1->getPositionX() + 5, 0.0 - 5);
-		setPointOfView(Point(Player1->getPosition()));
 	}
-	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
+	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW)
 	{
-		CCLog("Flecha derecha");
+		if (metaCheck(Point(Player1->getPositionX() - 5, Player1->getPositionY())) == "Normal")
+		{
+			Player1->setPosition(Point(Player1->getPositionX() - 5, Player1->getPositionY()));
+			setPointOfView(Point(Player1->getPosition()));
+		}
+		else
+		{
+			Size visibleSize = Director::getInstance()->getVisibleSize();
+			Point origin = Director::getInstance()->getVisibleOrigin();
+			auto label = LabelTTF::create("Colision", "Arial", 72);
+
+			// position the label on the center of the screen
+			label->setPosition(Point(origin.x + visibleSize.width / 2,
+				origin.y + visibleSize.height - label->getContentSize().height));
+
+			addChild(label, 5);
+		}
 	}
 }
 void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)

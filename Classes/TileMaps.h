@@ -71,18 +71,18 @@ protected:
 	* @brief Determina que pasa con el jugador en la posicion a donde se quiere mover
 	*
 	*/
-	void setPlayerPosition(cocos2d::Point position);
+	//void setPlayerPosition(cocos2d::Point position);
 
 	/**
 	* @brief Toma el tama;o del mapa actual y determina cuanto es lo apropiado que se mueva el pernaje del jugador
 	*/
-	void setIncrements();
+	//void setIncrements();
 	/**
 	* @brief Determina a donde el jugador se quiere mover
 	* @param placeToMove es el punto donde se toco la pantalla
 	*/
-	void movePlayer(cocos2d::Point placeToMove);
+	//void movePlayer(cocos2d::Point placeToMove);
 	void setEvents();
-	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
+	//virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
 };
 #endif // MAP_H
