@@ -40,8 +40,11 @@ bool MercuryScene::init()
 	cargarfondo();
 	setEventHandlers();
 	tileMap->addChild(astronautaSprite, 1);
-	createCharacter("maps/personajepequeno.png");
-	tileMap->addChild(Player1, 2);
+
+
+	loadSpritesheet();
+
+	
 	//setIncrements();
 	//setTouchEnabled(true);
 	//setEvents();
@@ -63,6 +66,47 @@ bool MercuryScene::init()
 	return true;
 }
 
+
+
+ValueMap PlayerObjeto;
+SpriteFrameCache* cache;
+
+
+void MercuryScene::loadSpritesheet()
+{
+	PlayerObjeto = objetos->getObject("Astronauta");
+	float x = PlayerObjeto["x"].asFloat() + 10;
+	float y = PlayerObjeto["y"].asFloat() + 60;
+	
+	SpriteBatchNode* spritebatch = SpriteBatchNode::create("/maps/animation/Spritesheet/Astronaut.png");
+
+	cache = SpriteFrameCache::getInstance();
+	cache->addSpriteFramesWithFile("/maps/animation/Spritesheet/Astronaut.plist");
+
+	Player1 = Sprite::createWithSpriteFrameName("0000008.png");
+
+	Player1->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
+
+	spritebatch->addChild(Player1,2);
+	addChild(spritebatch);
+}
+
+
+void MercuryScene::AnimateSpritesheet()
+{
+	Vector<SpriteFrame*> spriteFrame(15);
+	char str[100] = { 0 };
+	for (int i = 10; i < 30; i++)
+	{
+		sprintf(str, "00000%d.png", i++);
+		SpriteFrame* frame = cache->getSpriteFrameByName(str);
+		spriteFrame.pushBack(frame);		
+	}
+	Animation* animation = Animation::createWithSpriteFrames(spriteFrame, 0.05f);
+	Player1->runAction(RepeatForever::create(Animate::create(animation)));
+}
+
+
 void MercuryScene::cargarfondo()
 {
 	//carga el objeto del mapa
@@ -81,18 +125,36 @@ void MercuryScene::onKeyHold(float interval){
 	
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_UP_ARROW) != heldKeys.end()){
 		// up pressed
+
+		if (metaCheck(Point(Player1->getPositionX(), Player1->getPositionY()+5)) == "Normal")
+		{
+			Player1->setPosition(Point(Player1->getPositionX(), Player1->getPositionY()+5));
+			setPointOfView(Point(Player1->getPosition()));
+		
+
+		}
+		else
+		{
+			Size visibleSize = Director::getInstance()->getVisibleSize();
+			Point origin = Director::getInstance()->getVisibleOrigin();
+			auto label = LabelTTF::create("Colision", "Arial", 72);
+
+			// position the label on the center of the screen
+			label->setPosition(Point(origin.x + visibleSize.width / 2,
+				origin.y + visibleSize.height - label->getContentSize().height));
+
+			addChild(label, 5);
+		}
+
+
 	}
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_DOWN_ARROW) != heldKeys.end()){
 		// down pressed
-	}
 
-	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_RIGHT_ARROW) != heldKeys.end()){
-		// right pressed
-
-		if (metaCheck(Point(Player1->getPositionX() + 5, Player1->getPositionY())) == "Normal")
+		if (metaCheck(Point(Player1->getPositionX(), Player1->getPositionY()-5)) == "Normal")
 		{
-			Player1->setPosition(Point(Player1->getPositionX() + 5, Player1->getPositionY()));
+			Player1->setPosition(Point(Player1->getPositionX(), Player1->getPositionY()-5));
 			setPointOfView(Point(Player1->getPosition()));
 		}
 		else
@@ -107,15 +169,38 @@ void MercuryScene::onKeyHold(float interval){
 
 			addChild(label, 5);
 		}
+
+	}
+
+	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_RIGHT_ARROW) != heldKeys.end()){
+		// right pressed
+		
+		if (metaCheck(Point(Player1->getPositionX() + 5, Player1->getPositionY())) == "Normal")
+		{
+			Player1->setPosition(Point(Player1->getPositionX() + 5, Player1->getPositionY()));
+			setPointOfView(Point(Player1->getPosition()));			
+		}
+		else
+		{
+			Size visibleSize = Director::getInstance()->getVisibleSize();
+			Point origin = Director::getInstance()->getVisibleOrigin();
+			auto label = LabelTTF::create("Colision", "Arial", 72);
+
+			// position the label on the center of the screen
+			label->setPosition(Point(origin.x + visibleSize.width / 2,
+				origin.y + visibleSize.height - label->getContentSize().height));
+			addChild(label, 5);
+
+		}
 	}
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_LEFT_ARROW) != heldKeys.end()){
 		// left pressed
-
+		
 		if (metaCheck(Point(Player1->getPositionX() - 5, Player1->getPositionY())) == "Normal")
 		{
 			Player1->setPosition(Point(Player1->getPositionX() - 5, Player1->getPositionY()));
-			setPointOfView(Point(Player1->getPosition()));
+			setPointOfView(Point(Player1->getPosition()));		
 		}
 		else
 		{
@@ -140,10 +225,11 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
+		AnimateSpritesheet();
 		if (metaCheck(Point(Player1->getPositionX() + 5, Player1->getPositionY())) == "Normal")
 		{
 			Player1->setPosition(Point(Player1->getPositionX() + 5, Player1->getPositionY()));
-			setPointOfView(Point(Player1->getPosition()));
+			setPointOfView(Point(Player1->getPosition()));			
 		}
 		else
 		{
@@ -161,13 +247,17 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW)
 	{
 		CCLog("Flecha arriba");
+		Player1->setPosition(Point(Player1->getPositionX(), Player1->getPositionY()+5));
+
+
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW)
 	{
+		AnimateSpritesheet();
 		if (metaCheck(Point(Player1->getPositionX() - 5, Player1->getPositionY())) == "Normal")
 		{
 			Player1->setPosition(Point(Player1->getPositionX() - 5, Player1->getPositionY()));
-			setPointOfView(Point(Player1->getPosition()));
+			setPointOfView(Point(Player1->getPosition()));			
 		}
 		else
 		{
@@ -183,14 +273,21 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 		}
 	}
 }
+
 void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
 	heldKeys.erase(std::remove(heldKeys.begin(), heldKeys.end(), keyCode), heldKeys.end());
 
 	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
-
+		Player1->stopAllActions();
 	}
+	
+	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW)
+	{
+		Player1->stopAllActions();
+	}
+
 }
 
 //Prueba
