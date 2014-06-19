@@ -108,6 +108,11 @@
     <property name="colision" value="true"/>
    </properties>
   </tile>
+  <tile id="411">
+   <properties>
+    <property name="colision" value="true"/>
+   </properties>
+  </tile>
  </tileset>
  <tileset firstgid="2667" name="b10009" tilewidth="32" tileheight="32">
   <image source="asteroids/large/b10009.png" width="320" height="240"/>
@@ -123,7 +128,7 @@
    <property name="colision" value="True"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2EFSgzAUAFCWeCZv4FQv4Fgv0HuqN7BX8AitC8tYZhAhgCSQ1vdm/qaF/JDklzRFAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwPV7Kori9+Y7/5PX03G/lcvnqcV4yJ/PdneZsc466TmLNYb0mNq2oPntYsB7bvwHVMz+dYynv5e9xJn+7jvUba+0+drRdx/2C66Pqx7YnnhfqR8pxJq6P8me0561aM+1r2jGm/b7aqGMox1Ceoeeqo682toE+xBAa4+Y47zPac+3LcDAstIaa3x06rqk+O57ic8RYT12rfdceAjUypZ2pxraT0xoM5V+7b5ckVB+x84xpc+x1x3N9jmlrzrP89f6160R9xBFrTzQ3V+q8fZrnDlPvHWOtOrnE+hjaE+b0fr4moTrs+j/RvieGJea1eb43VB85rrcpfcip39codO6Q6j1WSTmvzXPGqe2v+Z6bk1t9pDXlnCGmFL/fuxn1kbJfQ3lyaIe8Td17L7U/T9GvFOs5x/0iAJfpC5Kp/UU=
+   eJzt2FtSwjAUANB+IltyB051A4y4Afap7sC1iB/Skc7U2kcCSSh4zkw+KG1uXheSVhUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwO14XVXV/d1P+U/eDv1+X5WL145zyZic7+EwZ/WxtHmSag7bNVH3SnPtqWA+9n8Dmj4/H0spH6u/48zy1Ovfn3cD6zfV2t0M1N2Wx4Lro2nHdqS8FGpHznEmnSY//pTevDVrZvC+TgmKMZEfdUCMuThBfVuP58Z2og0pTI1xf5yXIuV8XKMUfZwaq+53nwP7tOba/lC+AvZwsXMydm8Tcyw/YuqJFVrPktbgVPxLt62E3HOfegxD10zofftjfobUdU5fTn3+0nkiP9LVU+o/OGQflivumO57h9hnQ2NfIk+uMT9C10fo2YAwU+M7dJ7oP5O6Dbl03+/N5ccSzySxe/C58wGnGztr15nP2jnX46bXh6W0KzTuqfvYmOvEiXnPkFKO3+/dGfmRs11zcXLUIz9uS+zeu9Q5Lke7cuTdEveLAFynbx93g2g=
   </data>
  </layer>
  <layer name="FondoPrincipal" width="200" height="70">
