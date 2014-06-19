@@ -79,9 +79,8 @@ void TileMaps::setEventHandlers()
 Point TileMaps::tileCoordForPosition(Point position)
 	{
 	int x = position.x / tileMap->getTileSize().width;
-	int y = ((tileMap->getMapSize().height * tileMap->getTileSize().height) - position.y) / tileMap->getTileSize().height;
-
-	return Point(x, y);
+	int y = ((tileMap->getMapSize().height * tileMap->getTileSize().height) - position.y+5) / tileMap->getTileSize().height;
+	return ccp(x, y);
 
 	
 }
@@ -94,11 +93,7 @@ std::string TileMaps::metaCheck(Point posicion)
 	log("tileGid %d", tileGid);
 	if (tileGid)
 	{
-		int i = tileGid;
-		std::string s;
-		std::stringstream out;
-		out << i;
-		s = out.str();
+
 
 		auto properties = tileMap->getPropertiesForGID(tileGid).asValueMap();
 		if (!properties.empty()) {
@@ -108,7 +103,7 @@ std::string TileMaps::metaCheck(Point posicion)
 				resultado = "colision";
 				auto label = LabelTTF::create(properties["colision"].asString(), "Arial", 72);
 				// position the label on the center of the screen
-				label->setPosition(Point(0,0));
+				label->setPosition(Point(0, 0));
 
 				addChild(label, 5);
 			}
@@ -156,10 +151,10 @@ void TileMaps::createCharacter(std::string imagen)
 {
 	IncrementX = tileMap->getTileSize().width / 6;
 	IncrementY = tileMap->getTileSize().height / 6;
-}*/
+}
 
 
-/*void TileMaps::movePlayer(Point placeToMove)
+void TileMaps::movePlayer(Point placeToMove)
 {
 	Point playerPos = Player1->getPosition();
 	Point diff = (placeToMove - playerPos);
@@ -212,11 +207,11 @@ void TileMaps::setEvents()
 		return true;
 	}
 	return false;
-}*/
+}
 
 
-/*void TileMaps::setPlayerPosition(Point position)
-{
+void TileMaps::setPlayerPosition(Point position){
 	if (metaCheck(position) == "Normal"){
 		Player1->setPosition(Point(position));
+	}
 }*/

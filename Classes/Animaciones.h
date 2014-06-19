@@ -26,7 +26,7 @@ public:
 	* @param const cocos2d::Point& position indica el punto en el layer donde se quiere llegar.
 	*/
 	static void moverDerecha(cocos2d::Node *child, const cocos2d::Point& position);
-	
+
 	/**
 	* @brief metodo para mover a la izquierda un objeto añadido como un nodo hijo.
 	* @param Node*child, puntero que se señala al objeto que se quiere animar.

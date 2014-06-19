@@ -25,12 +25,6 @@ public:
 	void keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
 	void keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
 	void onKeyHold(float interval);
-
-
-	void loadSpritesheet();
-	void AnimateSpritesheet();
-
-
 	// implement the "static create()" method manually
 	CREATE_FUNC(MercuryScene);
 

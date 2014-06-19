@@ -8,7 +8,7 @@
 
 #include "cocos2d.h" /*!< Inclusion de cocos2d para poder utilizar sus metodos */
 
-class HelloWorld : public cocos2d::Layer /*!< Hereda de Layer. */ 
+class HelloWorld : public cocos2d::Layer /*!< Hereda de Layer. */
 {
 public:
 
@@ -16,14 +16,14 @@ public:
 	* @brief Metodo crea la escena de la pantalla principal.
 	* @return Scene*, para que se le puedan agregar los diferentes elementos.
 	*/
-    static cocos2d::Scene* createScene();
+	static cocos2d::Scene* createScene();
 
 	/**
 	* @brief metodo para generar los componentes que posee la pantalla principal.
 	* @return retorna true si el metodo logro generar los elementos y agregarlos a la capa.
 	*/
-    // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
-    virtual bool init();  
+	// Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
+	virtual bool init();
 
 	/**
 	* @brief metodo para redirigir a la pantalla de ingresar, se invoca cuando el boton 'ingresar' es presionado.
@@ -35,18 +35,18 @@ public:
 	* @brief metodo para terminar la ejecucion del programa.
 	* @param cocos2d::Ref* pSender, puntero a la otra escena.
 	*/
-    // a selector callback, metodo que termina el programa
-    void menuCloseCallback(cocos2d::Ref* pSender);
-    
-    // implement the "static create()" method manually
-    CREATE_FUNC(HelloWorld);
+	// a selector callback, metodo que termina el programa
+	void menuCloseCallback(cocos2d::Ref* pSender);
+
+	// implement the "static create()" method manually
+	CREATE_FUNC(HelloWorld);
 
 private:
 
 	/**
 	* @brief metodo para colocar los botones en la pantalla principal
 	*/
-	void createGameMenu(); 
+	void createGameMenu();
 };
 
 #endif // __HELLOWORLD_SCENE_H__

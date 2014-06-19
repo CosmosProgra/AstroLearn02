@@ -1,6 +1,7 @@
 #include "MercuryScene.h"
 #include <iostream>
 #include <algorithm>
+#include <windows.h>
 
 USING_NS_CC;
 
@@ -37,20 +38,9 @@ bool MercuryScene::init()
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
 	loadMap("maps/PantallaMercurio/Mercurio.tmx", "Objetos", "Rocas2", "Rocas1", "bg1", "bg2", "FondoPrincipal", "Meta");
-	cargarfondo();
 	setEventHandlers();
-	tileMap->addChild(astronautaSprite, 1);
-
-
-	loadSpritesheet();
-
-	
-	//setIncrements();
-	//setTouchEnabled(true);
-	//setEvents();
-	//metaCheck(Player1->getPosition());
-	//meta = tileMap->layerNamed("Meta");
-//	meta->setVisible(false);
+	createCharacter("maps/personajepequeno.png");
+	tileMap->addChild(Player1, 2);
 	this->addChild(tileMap, -1, 1);
 	setPointOfView(Point(Player1->getPosition()));
 	printf("x mapPosition %f", tileMap->getPosition().x);
@@ -67,70 +57,16 @@ bool MercuryScene::init()
 }
 
 
-
-ValueMap PlayerObjeto;
-SpriteFrameCache* cache;
-
-
-void MercuryScene::loadSpritesheet()
-{
-	PlayerObjeto = objetos->getObject("Astronauta");
-	float x = PlayerObjeto["x"].asFloat() + 60;
-	float y = PlayerObjeto["y"].asFloat() + 30;
-	
-	SpriteBatchNode* spritebatch = SpriteBatchNode::create("/maps/animation/Spritesheet/Astronaut.png");
-
-	cache = SpriteFrameCache::getInstance();
-	cache->addSpriteFramesWithFile("/maps/animation/Spritesheet/Astronaut.plist");
-
-	Player1 = Sprite::createWithSpriteFrameName("0000008.png");
-
-	Player1->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
-
-	spritebatch->addChild(Player1,2);
-	addChild(spritebatch);
-}
-
-
-void MercuryScene::AnimateSpritesheet()
-{
-	Vector<SpriteFrame*> spriteFrame(15);
-	char str[100] = { 0 };
-	for (int i = 10; i < 30; i++)
-	{
-		sprintf(str, "00000%d.png", i++);
-		SpriteFrame* frame = cache->getSpriteFrameByName(str);
-		spriteFrame.pushBack(frame);		
-	}
-	Animation* animation = Animation::createWithSpriteFrames(spriteFrame, 0.05f);
-	Player1->runAction(RepeatForever::create(Animate::create(animation)));
-}
-
-
-void MercuryScene::cargarfondo()
-{
-	//carga el objeto del mapa
-	auto personaje = objetos->getObject("Astronauta");
-	CCASSERT(!personaje.empty(), "Astronauta object not found");
-	//saco las coordenadas del objeto en el tilemap
-	//se hace la suma debido al error en cocos2d
-	float x = personaje["x"].asFloat() + 315;
-	float y = personaje["y"].asFloat() + 28;
-	//Crea el sprite y lo posiciona
-	astronautaSprite = Sprite::create("Animations/meteorito.png");
-	astronautaSprite->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
-}
-
 void MercuryScene::onKeyHold(float interval){
-	
+
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_UP_ARROW) != heldKeys.end()){
 		// up pressed
 
-		if (metaCheck(Point(Player1->getPositionX(), Player1->getPositionY()+5)) == "Normal")
+		if (metaCheck(Point(Player1->getPositionX(), Player1->getPositionY() + 5)) == "Normal")
 		{
-			Player1->setPosition(Point(Player1->getPositionX(), Player1->getPositionY()+5));
+			Player1->setPosition(Point(Player1->getPositionX(), Player1->getPositionY() + 5));
 			setPointOfView(Point(Player1->getPosition()));
-		
+
 
 		}
 		else
@@ -152,9 +88,9 @@ void MercuryScene::onKeyHold(float interval){
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_DOWN_ARROW) != heldKeys.end()){
 		// down pressed
 
-		if (metaCheck(Point(Player1->getPositionX(), Player1->getPositionY()-5)) == "Normal")
+		if (metaCheck(Point(Player1->getPositionX(), Player1->getPositionY() - 5)) == "Normal")
 		{
-			Player1->setPosition(Point(Player1->getPositionX(), Player1->getPositionY()-5));
+			Player1->setPosition(Point(Player1->getPositionX(), Player1->getPositionY() - 5));
 			setPointOfView(Point(Player1->getPosition()));
 		}
 		else
@@ -174,11 +110,11 @@ void MercuryScene::onKeyHold(float interval){
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_RIGHT_ARROW) != heldKeys.end()){
 		// right pressed
-		
+
 		if (metaCheck(Point(Player1->getPositionX() + 5, Player1->getPositionY())) == "Normal")
 		{
 			Player1->setPosition(Point(Player1->getPositionX() + 5, Player1->getPositionY()));
-			setPointOfView(Point(Player1->getPosition()));			
+			setPointOfView(Point(Player1->getPosition()));
 		}
 		else
 		{
@@ -196,11 +132,11 @@ void MercuryScene::onKeyHold(float interval){
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_LEFT_ARROW) != heldKeys.end()){
 		// left pressed
-		
+
 		if (metaCheck(Point(Player1->getPositionX() - 5, Player1->getPositionY())) == "Normal")
 		{
 			Player1->setPosition(Point(Player1->getPositionX() - 5, Player1->getPositionY()));
-			setPointOfView(Point(Player1->getPosition()));		
+			setPointOfView(Point(Player1->getPosition()));
 		}
 		else
 		{
@@ -225,11 +161,11 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
-		AnimateSpritesheet();
+
 		if (metaCheck(Point(Player1->getPositionX() + 5, Player1->getPositionY())) == "Normal")
 		{
 			Player1->setPosition(Point(Player1->getPositionX() + 5, Player1->getPositionY()));
-			setPointOfView(Point(Player1->getPosition()));			
+			setPointOfView(Point(Player1->getPosition()));
 		}
 		else
 		{
@@ -247,17 +183,16 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW)
 	{
 		CCLog("Flecha arriba");
-		Player1->setPosition(Point(Player1->getPositionX(), Player1->getPositionY()+5));
+		Player1->setPosition(Point(Player1->getPositionX(), Player1->getPositionY() + 5));
 
 
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW)
 	{
-		AnimateSpritesheet();
 		if (metaCheck(Point(Player1->getPositionX() - 5, Player1->getPositionY())) == "Normal")
 		{
 			Player1->setPosition(Point(Player1->getPositionX() - 5, Player1->getPositionY()));
-			setPointOfView(Point(Player1->getPosition()));			
+			setPointOfView(Point(Player1->getPosition()));
 		}
 		else
 		{
@@ -282,7 +217,7 @@ void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d:
 	{
 		Player1->stopAllActions();
 	}
-	
+
 	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW)
 	{
 		Player1->stopAllActions();

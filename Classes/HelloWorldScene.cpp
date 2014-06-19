@@ -2,87 +2,87 @@
 #include <SimpleAudioEngine.h> /*!< Se incluye la biblioteca para poder colocar sonido de fondo */ 
 #include "Animaciones.h"
 
-USING_NS_CC; /*!< Se incluye el espacio de nombres de cocos */ 
+USING_NS_CC; /*!< Se incluye el espacio de nombres de cocos */
 
 
 Scene* HelloWorld::createScene()
 {
-    // 'scene' is an autorelease object
-    auto scene = Scene::create(); /*!< Se crea la escena */ 
-    
-    // 'layer' is an autorelease object
-    auto layer = HelloWorld::create(); /*!< Se crea la capa */ 
+	// 'scene' is an autorelease object
+	auto scene = Scene::create(); /*!< Se crea la escena */
 
-    // add layer as a child to scene
-    scene->addChild(layer); /*!< Se agrega a la escena la capa que va a contener los elementos en pantalla */ 
+	// 'layer' is an autorelease object
+	auto layer = HelloWorld::create(); /*!< Se crea la capa */
 
-    // return the scene
-    return scene;
+	// add layer as a child to scene
+	scene->addChild(layer); /*!< Se agrega a la escena la capa que va a contener los elementos en pantalla */
+
+	// return the scene
+	return scene;
 }
 
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
-    //////////////////////////////
-    // 1. super init first
-    if ( !Layer::init() )
-    {
-        return false;
-    }
-    
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Point origin = Director::getInstance()->getVisibleOrigin();
+	//////////////////////////////
+	// 1. super init first
+	if (!Layer::init())
+	{
+		return false;
+	}
 
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Point origin = Director::getInstance()->getVisibleOrigin();
 
-    // add a "close" icon to exit the progress. it's an autorelease object
+	/////////////////////////////
+	// 2. add a menu item with "X" image, which is clicked to quit the program
+	//    you may modify it.
+
+	// add a "close" icon to exit the progress. it's an autorelease object
 	//Este codigo coloca en pantalla un boton para cerrar la ventana
-    auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this)); /*!< Se llama al metodo que cierra el programa */ 
-    
+	auto closeItem = MenuItemImage::create(
+		"CloseNormal.png",
+		"CloseSelected.png",
+		CC_CALLBACK_1(HelloWorld::menuCloseCallback, this)); /*!< Se llama al metodo que cierra el programa */
+
 	//Se coloca en pantalla el boton para cerrar el programa
-	closeItem->setPosition(Point(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
-                                origin.y + closeItem->getContentSize().height/2));
+	closeItem->setPosition(Point(origin.x + visibleSize.width - closeItem->getContentSize().width / 2,
+		origin.y + closeItem->getContentSize().height / 2));
 
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Point::ZERO);
-    this->addChild(menu, 1);
+	// create menu, it's an autorelease object
+	auto menu = Menu::create(closeItem, NULL);
+	menu->setPosition(Point::ZERO);
+	this->addChild(menu, 1);
 
-   
-    // add "HelloWorld" splash screen"
+
+	// add "HelloWorld" splash screen"
 	//Aqui se coloca un sprite que contiene la imagen de fondo de la pantalla
-    auto sprite = Sprite::create("Fondos/principal.jpg");
+	auto sprite = Sprite::create("Fondos/principal.jpg");
 
-    // position the sprite on the center of the screen
+	// position the sprite on the center of the screen
 	//Se coloca el sprite (imagen de fondo) en pantalla
-    sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+	sprite->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 
-    // add the sprite as a child to this layer
+	// add the sprite as a child to this layer
 	//Se agrega el sprite a la capa que va a contener todos los elementos en pantalla, esto lo hara visible
-    this->addChild(sprite, 0);
+	this->addChild(sprite, 0);
 	createGameMenu();
 
 	// crea la imagen de la estrella
 	auto estrella = Sprite::create("Estrella.png");
 
 	// Establece la posición de la estrella en la pantalla.
-	estrella->setPosition(Point(visibleSize.width * 0.16f , origin.y + visibleSize.height * 0.44f));
+	estrella->setPosition(Point(visibleSize.width * 0.16f, origin.y + visibleSize.height * 0.44f));
 
 	//Agrega la estrella
 	this->addChild(estrella, 1);
 
 	Animaciones::rotar(estrella);
-	
+
 	// Reproducir la musica del menu principal
 	auto sound = CocosDenshion::SimpleAudioEngine::getInstance();
 	sound->stopBackgroundMusic();
 	sound->playBackgroundMusic("Music/Thrust Sequence_0.mp3", true);
-    return true;
+	return true;
 }
 
 
@@ -111,7 +111,7 @@ void HelloWorld::createGameMenu()
 void HelloWorld::Iniciarsesion(Ref* pSender)
 {
 	//Crea la escena de Ingresar
-	auto newScene = Ingresar::createScene(); 	
+	auto newScene = Ingresar::createScene();
 	//Reemplaza la escena actual por la escena de Ingresar
 	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
 }
@@ -120,9 +120,9 @@ void HelloWorld::Iniciarsesion(Ref* pSender)
 //Metodo que termina la ejecucion del programa
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
-    Director::getInstance()->end();
+	Director::getInstance()->end();
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
+	exit(0);
 #endif
 }
