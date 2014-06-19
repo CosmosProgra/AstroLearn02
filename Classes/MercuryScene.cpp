@@ -75,8 +75,8 @@ SpriteFrameCache* cache;
 void MercuryScene::loadSpritesheet()
 {
 	PlayerObjeto = objetos->getObject("Astronauta");
-	float x = PlayerObjeto["x"].asFloat() + 10;
-	float y = PlayerObjeto["y"].asFloat() + 60;
+	float x = PlayerObjeto["x"].asFloat() + 60;
+	float y = PlayerObjeto["y"].asFloat() + 30;
 	
 	SpriteBatchNode* spritebatch = SpriteBatchNode::create("/maps/animation/Spritesheet/Astronaut.png");
 
