@@ -143,6 +143,8 @@ void TileMaps::createCharacter(std::string imagen)
 	float y = PlayerObjeto["y"].asFloat() + 60;
 	Player1 = Sprite::create(imagen);
 	Player1->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
+	Player1->setAnchorPoint(Point(0.9f,0.0f));
+
 }
 
 

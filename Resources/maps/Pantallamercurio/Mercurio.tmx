@@ -139,7 +139,7 @@
    <property name="colision" value="True"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt3EFOwzAQBdAsG67EDVDFDbgB90RcCVgAYuUCbpN4PI7ynjSryJo6zlftRTJNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAkO98N0ZBhmvPYnYu5AMAGJE9CwDAMvZPAABAK84XAAC3s3cCAIBcL6dpup9/ak+cI2J4d6r0MP++B6+n7F9FlloGjpCPyzk+/5GPx539l9COfHg/mf/JR//x2Xl8s1+8mXy0H3/tWd7S8whrMhL56D8+Mx+9vokTWb3nWevxNC+v3vdiiyPmI8J5LivKknxE25KPVv2jyUcbl/mIyoh8lP2jyUcb32f+96/6CD77y0fZP9oe87FmTVqvTRb5KPvXro1wxllzj+RjPfko+9euyccx8zHKPEfIR61Hq/oEJrfPBg==
+   eJzt20tOwzAUBdAMa7bEDlDVHbCD7rNiS8CgRQgJ9+M29TfKOdIb2i9OchV7kGkCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA/rYvYxT0cO997J0L+QAARmTfAgAwj/0TAABQivMFAMDj7J0AAKCvw2aaXsNvLYlzRB3+n4q9hcv1f2x6XxW9pN7/NeTjfH37K/nYLexbQjny4R9lbpOP/PFz5+idx0/7xYfJR/748znuvcs5PdfwTEYiH/njn/l+tOx3bfzSq+U6Uz3ew/xqfS9yrDEfNWxDXLXMyUdtOfko1V8+8vuV6p2cN7TJiHzE/eUjv1+p3ik/Z/6vU31XPvvLR9xfPi7HPvNMSj+bXuQj7n9rrlHON39ztLo/8iEf//svIR8t7498jLPOEfKR6lGqjgnO3BA=
   </data>
  </layer>
  <layer name="FondoPrincipal" width="200" height="70">
