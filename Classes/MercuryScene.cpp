@@ -47,15 +47,12 @@ bool MercuryScene::init()
 	printf("x mapPosition %f", tileMap->getPosition().y);
     auto listener = EventListenerKeyboard::create();
 
-		cocos2d::Sprite* ptr = playerOne->PlayerSprite;
-	while (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY())) == "Normal")
+	cocos2d::Sprite* ptr = playerOne->PlayerSprite;
+	while (metaCheck(Point(ptr->getPositionX()+1, ptr->getPositionY()-1)) == "Normal")
 	{
-		ptr->setPosition(Point(ptr->getPositionX() + 2, playerOne->PlayerSprite->getPositionY() - 5));
-		setPointOfView(Point(ptr->getPositionX() + 2, playerOne->PlayerSprite->getPositionY() - 5));
+		ptr->setPosition(Point(ptr->getPositionX() + 0.5, playerOne->PlayerSprite->getPositionY() - 0.5));
 		setPointOfView(Point(ptr->getPosition()));
 	}
-
-	setPointOfView(Point(ptr->getPosition()));
 
 	listener->onKeyPressed = CC_CALLBACK_2(MercuryScene::keyPressed, this);
 	listener->onKeyReleased = CC_CALLBACK_2(MercuryScene::keyReleased, this);
@@ -275,7 +272,7 @@ void MercuryScene::gravedad()
 {
 
 	cocos2d::Sprite* ptr = playerOne->PlayerSprite;
-	if (metaCheck(Point(ptr->getPositionX() + 0.5, ptr->getPositionY() - 0.5)) == "Normal")
+	if (metaCheck(Point(ptr->getPositionX() + 1, ptr->getPositionY() - 1)) == "Normal")
 	{
 		animacion.mover(ptr, 0.5f, Point(ptr->getPositionX() + 0.5, playerOne->PlayerSprite->getPositionY() - 0.5));
 		//
