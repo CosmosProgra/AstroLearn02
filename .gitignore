@@ -61,5 +61,4 @@ Debug.win32/
 Release.win32/
 /AstroLearn02
 /Documentacion
-/proj.win32/*.vcxproj
-/proj.win32/*.filters
+
