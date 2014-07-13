@@ -69,6 +69,15 @@ bool MercuryScene::init()
 
 void MercuryScene::onKeyHold(float interval){
 
+	/*cocos2d::Sprite* ptr = playerOne->PlayerSprite;
+	if (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY() - 5)) == "Normal")
+	{
+		animacion.mover(ptr, 2.0f, Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5.f));
+		//
+		setPointOfView(Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5));
+	}*/
+	gravedad();
+
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_UP_ARROW) != heldKeys.end()){
 		// up pressed
 
@@ -166,7 +175,15 @@ void MercuryScene::onKeyHold(float interval){
 
 void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
-	
+	/*cocos2d::Sprite* ptr = playerOne->PlayerSprite;
+	if (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY() - 5)) == "Normal")
+	{
+		animacion.mover(ptr, 2.0f, Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5.f));
+		//
+		setPointOfView(Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5));
+	}*/
+
+	gravedad();
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), keyCode) == heldKeys.end()){
 		heldKeys.push_back(keyCode);
@@ -226,6 +243,15 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 
 void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
+	/*cocos2d::Sprite* ptr = playerOne->PlayerSprite;
+	if (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY() - 5)) == "Normal")
+	{
+		animacion.mover(ptr, 2.0f, Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5.f));
+		//
+		setPointOfView(Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5));
+	}*/
+
+	gravedad();
 
 	heldKeys.erase(std::remove(heldKeys.begin(), heldKeys.end(), keyCode), heldKeys.end());
 
@@ -239,6 +265,8 @@ void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d:
 		playerOne->PlayerSprite->stopAllActions();
 	}
 
+	
+
 }
 
 
@@ -247,16 +275,15 @@ void MercuryScene::gravedad()
 {
 
 	cocos2d::Sprite* ptr = playerOne->PlayerSprite;
-	while (metaCheck(Point(ptr->getPositionX() + 2, ptr->getPositionY() - 5)) == "Normal")
+	if (metaCheck(Point(ptr->getPositionX() + 0.5, ptr->getPositionY() - 0.5)) == "Normal")
 	{
-		animacion.mover(ptr, 2.0f, Point(ptr->getPositionX() + 2, playerOne->PlayerSprite->getPositionY() - 5));
+		animacion.mover(ptr, 0.5f, Point(ptr->getPositionX() + 0.5, playerOne->PlayerSprite->getPositionY() - 0.5));
 		//
-		setPointOfView(Point(ptr->getPositionX() + 2, playerOne->PlayerSprite->getPositionY() - 5));
+		//setPointOfView(Point(ptr->getPositionX() + 1, playerOne->PlayerSprite->getPositionY() - 1));
+		setPointOfView(Point(ptr->getPosition()));
 	}
 
 	setPointOfView(Point(ptr->getPosition()));
-
-
 
 }
 
