@@ -3,7 +3,7 @@
 USING_NS_CC;
 
 
-void Animaciones::rotar(Node *child)
+void Animaciones::rotar(Node *child) const
 {
 	RotateBy* rotar = RotateBy::create(2.5f, 220.0f, 220.0f);
 
@@ -15,23 +15,31 @@ void Animaciones::rotar(Node *child)
 
 }
 
-// Mover a la derecha un objeto del layer hasta un punto en especifico
-void Animaciones::moverDerecha(cocos2d::Node *child, const Point& position)
+void Animaciones::mover(cocos2d::Node *child, float duration, const Point& position) const
 {
-	MoveTo* mover = MoveTo::create(2.5f, position);
+	MoveTo* mover = MoveTo::create(duration, position);
 
-	auto repeatAnimation = RepeatForever::create(mover);
+	child->runAction(mover);
 
-	child->runAction(repeatAnimation);
 }
 
-// Mover a la izquierda un objeto del layer hasta un punto en especifico
-void Animaciones::moverIzquierda(cocos2d::Node *child, const Point& position)
+LabelTTF* Animaciones::tituloAnimado(const std::string& string, const std::string& fontName, float fontSize,
+	const Size &dimensions, TextHAlignment hAlignment,
+	TextVAlignment vAlignment)
 {
-	MoveTo* mover = MoveTo::create(2.5f, position);
+	LabelTTF* titulo = LabelTTF::create(string,fontName,fontSize,dimensions,hAlignment,vAlignment);
 
-	auto repeatAnimation = RepeatForever::create(mover);
+	int inicio = rand() % 256;
+	int final = rand() % 256;
+	titulo->setColor(Color3B(inicio, (inicio + final), final));
 
-	child->runAction(repeatAnimation);
+	int azar = rand() % 3;
+	int size = rand() % int(fontSize) + azar;
+	titulo->setFontSize(size);
+
+	return titulo;
 }
+
+
+
 

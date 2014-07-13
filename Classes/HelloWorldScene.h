@@ -7,10 +7,13 @@
 */
 
 #include "cocos2d.h" /*!< Inclusion de cocos2d para poder utilizar sus metodos */
+#include "Animaciones.h"
 
 class HelloWorld : public cocos2d::Layer /*!< Hereda de Layer. */
 {
 public:
+
+	Animaciones animacion;
 
 	/**
 	* @brief Metodo crea la escena de la pantalla principal.

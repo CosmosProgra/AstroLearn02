@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "TileMaps.h"
+#include "Animaciones.h"
 
 /// Crea la pantalla del nivel de Mercurio
 class MercuryScene :public TileMaps
@@ -16,6 +17,7 @@ public:
 protected:
 	// Hace referencia al sprite utilizado para personaje del juego (Astronauta)
 	cocos2d::Sprite* astronautaSprite;
+	Animaciones animacion;
 
 public:
 	// Metodo Init
@@ -25,6 +27,9 @@ public:
 	void keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
 	void keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
 	void onKeyHold(float interval);
+
+	void gravedad();
+
 	// implement the "static create()" method manually
 	CREATE_FUNC(MercuryScene);
 

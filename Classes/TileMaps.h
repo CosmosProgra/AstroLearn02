@@ -2,10 +2,13 @@
 #define MAP_H
 
 #include "cocos2d.h"
-
+#include "Player.h"
 /**
 @brief Clase base para todos los mapas del juego
 */
+
+struct Player;
+
 
 class TileMaps : public cocos2d::Layer
 {
@@ -18,7 +21,8 @@ protected:
 	cocos2d::TMXLayer* Rocas1;
 	cocos2d::TMXLayer* Rocas2;
 	cocos2d::TMXObjectGroup* objetos;
-	cocos2d::Sprite* Player1;
+	//cocos2d::Sprite* Player1;
+	Player* playerOne;
 	int IncrementX;
 	int IncrementY;
 protected:

@@ -137,49 +137,17 @@ void TileMaps::loadMap(const std::string& mapTmx, const std::string& objectGroup
 
 void TileMaps::createCharacter(std::string imagen)
 {
+	playerOne = new Player();
 	auto PlayerObjeto = objetos->getObject("Astronauta");
 	CCASSERT(!PlayerObjeto.empty(), "PlayerInit object not found");
 	float x = PlayerObjeto["x"].asFloat() + 10 ;
 	float y = PlayerObjeto["y"].asFloat() + 60;
-	Player1 = Sprite::create(imagen);
-	Player1->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
-	Player1->setAnchorPoint(Point(0.9f,0.0f));
+	playerOne->PlayerSprite = Sprite::create(imagen);
+	playerOne->PlayerSprite->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
+	playerOne->PlayerSprite->setAnchorPoint(Point(0.9f, 0.0f));
 
 }
 
-
-
-/*void TileMaps::setIncrements()
-{
-	IncrementX = tileMap->getTileSize().width / 6;
-	IncrementY = tileMap->getTileSize().height / 6;
-}
-
-
-void TileMaps::movePlayer(Point placeToMove)
-{
-	Point playerPos = Player1->getPosition();
-	Point diff = (placeToMove - playerPos);
-	if (fabs(diff.x) > abs(diff.y)) {
-		if (diff.x > 0) {
-			playerPos.x += IncrementX;
-		}
-		else {
-			playerPos.x -= IncrementX;
-		}
-	}
-	else {
-		if (diff.y > 0) {
-			playerPos.y += IncrementY;
-		}
-		else {
-			playerPos.y -= IncrementY;
-		}
-	}
-
-	this->setPlayerPosition(playerPos);
-	this->setPointOfView(Player1->getPosition());
-}*/
 
 void TileMaps::setEvents()
 {
@@ -192,28 +160,3 @@ void TileMaps::setEvents()
 
 }
 
-/*bool TileMaps::onTouchBegan(Touch *touch, Event *event)
-{
-	auto target = static_cast<Sprite*>(event->getCurrentTarget());
-
-	//Get the position of the current point relative to the button
-	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
-	Size s = target->getContentSize();
-	Rect rect = Rect(0, 0, s.width, s.height);
-
-	//Check the click area
-	if (rect.containsPoint(locationInNode))
-	{
-		log("sprite began... x = %f, y = %f", locationInNode.x, locationInNode.y);
-		movePlayer(locationInNode);
-		return true;
-	}
-	return false;
-}
-
-
-void TileMaps::setPlayerPosition(Point position){
-	if (metaCheck(position) == "Normal"){
-		Player1->setPosition(Point(position));
-	}
-}*/

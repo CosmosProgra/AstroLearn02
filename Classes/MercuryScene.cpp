@@ -40,18 +40,28 @@ bool MercuryScene::init()
 	loadMap("maps/PantallaMercurio/Mercurio.tmx", "Objetos", "Rocas2", "Rocas1", "bg1", "bg2", "FondoPrincipal", "Meta");
 	setEventHandlers();
 	createCharacter("maps/personajepequeno.png");
-	tileMap->addChild(Player1, 2);
+	tileMap->addChild(playerOne->PlayerSprite, 2);
 	this->addChild(tileMap, -1, 1);
-	setPointOfView(Point(Player1->getPosition()));
+	setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 	printf("x mapPosition %f", tileMap->getPosition().x);
 	printf("x mapPosition %f", tileMap->getPosition().y);
+    auto listener = EventListenerKeyboard::create();
 
-	
-		auto listener = EventListenerKeyboard::create();
-		listener->onKeyPressed = CC_CALLBACK_2(MercuryScene::keyPressed, this);
-		listener->onKeyReleased = CC_CALLBACK_2(MercuryScene::keyReleased, this);
-		this->schedule(schedule_selector(MercuryScene::onKeyHold));
-		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+		cocos2d::Sprite* ptr = playerOne->PlayerSprite;
+	while (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY())) == "Normal")
+	{
+		ptr->setPosition(Point(ptr->getPositionX() + 2, playerOne->PlayerSprite->getPositionY() - 5));
+		setPointOfView(Point(ptr->getPositionX() + 2, playerOne->PlayerSprite->getPositionY() - 5));
+		setPointOfView(Point(ptr->getPosition()));
+	}
+
+	setPointOfView(Point(ptr->getPosition()));
+
+	listener->onKeyPressed = CC_CALLBACK_2(MercuryScene::keyPressed, this);
+	listener->onKeyReleased = CC_CALLBACK_2(MercuryScene::keyReleased, this);
+	this->schedule(schedule_selector(MercuryScene::onKeyHold));
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
 
 	return true;
 }
@@ -62,10 +72,10 @@ void MercuryScene::onKeyHold(float interval){
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_UP_ARROW) != heldKeys.end()){
 		// up pressed
 
-		if (metaCheck(Point(Player1->getPositionX(), Player1->getPositionY() + 5)) == "Normal")
+		/*if (metaCheck(Point(playerOne->PlayerSprite->getPositionX(), playerOne->PlayerSprite->getPositionY() + 5)) == "Normal")
 		{
-			Player1->setPosition(Point(Player1->getPositionX(), Player1->getPositionY() + 5));
-			setPointOfView(Point(Player1->getPosition()));
+			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX(), playerOne->PlayerSprite->getPositionY() + 5));
+			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 
 
 		}
@@ -80,7 +90,7 @@ void MercuryScene::onKeyHold(float interval){
 				origin.y + visibleSize.height - label->getContentSize().height));
 
 			addChild(label, 5);
-		}
+		}*/
 
 
 	}
@@ -88,10 +98,10 @@ void MercuryScene::onKeyHold(float interval){
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_DOWN_ARROW) != heldKeys.end()){
 		// down pressed
 
-		if (metaCheck(Point(Player1->getPositionX(), Player1->getPositionY() - 5)) == "Normal")
+		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5)) == "Normal")
 		{
-			Player1->setPosition(Point(Player1->getPositionX(), Player1->getPositionY() - 5));
-			setPointOfView(Point(Player1->getPosition()));
+			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5));
+			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 		}
 		else
 		{
@@ -111,10 +121,10 @@ void MercuryScene::onKeyHold(float interval){
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_RIGHT_ARROW) != heldKeys.end()){
 		// right pressed
 
-		if (metaCheck(Point(Player1->getPositionX() + 5, Player1->getPositionY())) == "Normal")
+		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY())) == "Normal")
 		{
-			Player1->setPosition(Point(Player1->getPositionX() + 5, Player1->getPositionY()));
-			setPointOfView(Point(Player1->getPosition()));
+			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY()));
+			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 		}
 		else
 		{
@@ -133,10 +143,10 @@ void MercuryScene::onKeyHold(float interval){
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_LEFT_ARROW) != heldKeys.end()){
 		// left pressed
 
-		if (metaCheck(Point(Player1->getPositionX() - 5, Player1->getPositionY())) == "Normal")
+		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY())) == "Normal")
 		{
-			Player1->setPosition(Point(Player1->getPositionX() - 5, Player1->getPositionY()));
-			setPointOfView(Point(Player1->getPosition()));
+			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY()));
+			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 		}
 		else
 		{
@@ -156,16 +166,18 @@ void MercuryScene::onKeyHold(float interval){
 
 void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
+	
+
 	if (std::find(heldKeys.begin(), heldKeys.end(), keyCode) == heldKeys.end()){
 		heldKeys.push_back(keyCode);
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
 
-		if (metaCheck(Point(Player1->getPositionX() + 5, Player1->getPositionY())) == "Normal")
+		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY())) == "Normal")
 		{
-			Player1->setPosition(Point(Player1->getPositionX() + 5, Player1->getPositionY()));
-			setPointOfView(Point(Player1->getPosition()));
+			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY()));
+			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 		}
 		else
 		{
@@ -182,17 +194,20 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW)
 	{
-		CCLog("Flecha arriba");
-		Player1->setPosition(Point(Player1->getPositionX(), Player1->getPositionY() + 5));
+		cocos2d::Sprite* ptr = playerOne->PlayerSprite;
+		animacion.mover(ptr, 2.0f, Point((ptr->getPositionX()+150.0f), (ptr->getPositionY() + 100.0f)));
+		///ptr->setPosition(Point(ptr->getPositionX()+5, playerOne->PlayerSprite->getPositionY() + 200));
+		//setPointOfView(Point(ptr->getPosition()));
+		setPointOfView(Point((ptr->getPositionX() + 150.0f), (ptr->getPositionY() + 100.0f)));
 
 
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW)
 	{
-		if (metaCheck(Point(Player1->getPositionX() - 5, Player1->getPositionY())) == "Normal")
+		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY())) == "Normal")
 		{
-			Player1->setPosition(Point(Player1->getPositionX() - 5, Player1->getPositionY()));
-			setPointOfView(Point(Player1->getPosition()));
+			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY()));
+			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 		}
 		else
 		{
@@ -211,19 +226,40 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 
 void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
+
 	heldKeys.erase(std::remove(heldKeys.begin(), heldKeys.end(), keyCode), heldKeys.end());
 
 	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
-		Player1->stopAllActions();
+		playerOne->PlayerSprite->stopAllActions();
 	}
 
 	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW)
 	{
-		Player1->stopAllActions();
+		playerOne->PlayerSprite->stopAllActions();
 	}
 
 }
+
+
+//Inicio de construccion de metodo para la gravedad
+void MercuryScene::gravedad()
+{
+
+	cocos2d::Sprite* ptr = playerOne->PlayerSprite;
+	while (metaCheck(Point(ptr->getPositionX() + 2, ptr->getPositionY() - 5)) == "Normal")
+	{
+		animacion.mover(ptr, 2.0f, Point(ptr->getPositionX() + 2, playerOne->PlayerSprite->getPositionY() - 5));
+		//
+		setPointOfView(Point(ptr->getPositionX() + 2, playerOne->PlayerSprite->getPositionY() - 5));
+	}
+
+	setPointOfView(Point(ptr->getPosition()));
+
+
+
+}
+
 
 //Prueba
 #include "Ingresar.h" /*!< Inclusion de la biblioteca HelloWorldScene.h */

@@ -76,7 +76,8 @@ bool HelloWorld::init()
 	//Agrega la estrella
 	this->addChild(estrella, 1);
 
-	Animaciones::rotar(estrella);
+	animacion.rotar(estrella);
+
 
 	// Reproducir la musica del menu principal
 	auto sound = CocosDenshion::SimpleAudioEngine::getInstance();

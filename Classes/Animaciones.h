@@ -6,7 +6,7 @@
 *
 */
 
-#include "cocos2d.h" /*!< Inclusion de cocos2d para poder utilizar sus metodos */
+#include <cocos2d.h> /*!< Inclusion de cocos2d para poder utilizar sus metodos */
 
 class Animaciones : public cocos2d::LabelTTF /*!< Hereda de Layer. */
 
@@ -18,22 +18,13 @@ public:
 	* @param Node*child, puntero que se señala al objeto que se quiere animar.
 	* @return bool.
 	*/
-	static void rotar(cocos2d::Node *child);
+	void rotar(cocos2d::Node *child) const;
 
-	/**
-	* @brief metodo para mover a la derecha un objeto añadido como un nodo hijo.
-	* @param Node*child, puntero que se señala al objeto que se quiere animar.
-	* @param const cocos2d::Point& position indica el punto en el layer donde se quiere llegar.
-	*/
-	static void moverDerecha(cocos2d::Node *child, const cocos2d::Point& position);
+	void mover(cocos2d::Node *child, float duration, const cocos2d::Point& position) const;
 
-	/**
-	* @brief metodo para mover a la izquierda un objeto añadido como un nodo hijo.
-	* @param Node*child, puntero que se señala al objeto que se quiere animar.
-	* @param const cocos2d::Point& position indica el punto en el layer donde se quiere llegar.
-	*/
-	static void moverIzquierda(cocos2d::Node *child, const cocos2d::Point& position);
-
+	LabelTTF* tituloAnimado(const std::string& string, const std::string& fontName, float fontSize,
+		const cocos2d::Size& dimensions = cocos2d::Size::ZERO, cocos2d::TextHAlignment hAlignment = cocos2d::TextHAlignment::CENTER,
+		cocos2d::TextVAlignment vAlignment = cocos2d::TextVAlignment::TOP);
 
 };
 
