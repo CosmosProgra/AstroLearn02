@@ -38,9 +38,16 @@ bool MercuryScene::init()
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
 	loadMap("maps/PantallaMercurio/Mercurio.tmx", "Objetos", "Rocas2", "Rocas1", "bg1", "bg2", "FondoPrincipal", "Meta");
-	setEventHandlers();
+	setEventHandlers();	
 	createCharacter("maps/personajepequeno.png");
 	tileMap->addChild(playerOne->PlayerSprite, 2);
+	
+
+
+	// loadSpritesheet();
+
+
+
 	this->addChild(tileMap, -1, 1);
 	setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 	printf("x mapPosition %f", tileMap->getPosition().x);
@@ -50,7 +57,7 @@ bool MercuryScene::init()
 	cocos2d::Sprite* ptr = playerOne->PlayerSprite;
 	while (metaCheck(Point(ptr->getPositionX()+1, ptr->getPositionY()-1)) == "Normal")
 	{
-		ptr->setPosition(Point(ptr->getPositionX() + 0.5, playerOne->PlayerSprite->getPositionY() - 0.5));
+		ptr->setPosition(Point(ptr->getPositionX() + 0.5, ptr->getPositionY() - 0.5));
 		setPointOfView(Point(ptr->getPosition()));
 	}
 
@@ -62,6 +69,59 @@ bool MercuryScene::init()
 
 	return true;
 }
+
+
+
+
+
+/*
+
+
+SpriteFrameCache* cache;
+
+void MercuryScene::loadSpritesheet()
+{
+	playerOne = new Player();
+	auto PlayerObjeto = objetos->getObject("Astronauta");
+	float x = PlayerObjeto["x"].asFloat() + 10;
+	float y = PlayerObjeto["y"].asFloat() + 60;
+
+	SpriteBatchNode* spritebatch = SpriteBatchNode::create("/maps/animation/Spritesheet/Astronaut.png");
+
+	cache = SpriteFrameCache::getInstance();
+	cache->addSpriteFramesWithFile("/maps/animation/Spritesheet/Astronaut.plist");
+
+	playerOne->PlayerSprite = Sprite::createWithSpriteFrameName("0000008.png");
+
+	playerOne->PlayerSprite->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
+
+	playerOne->PlayerSprite->setAnchorPoint(Point(0.9f, 0.0f));
+
+	spritebatch->addChild(playerOne->PlayerSprite, 2);
+
+	addChild(spritebatch);
+}
+
+
+void MercuryScene::AnimateSpritesheet()
+{
+	Vector<SpriteFrame*> spriteFrame(15);
+	char str[100] = { 0 };
+	for (int i = 10; i < 30; i++)
+	{
+		sprintf(str, "00000%d.png", i++);
+		SpriteFrame* frame = cache->getSpriteFrameByName(str);
+		spriteFrame.pushBack(frame);
+	}
+	Animation* animation = Animation::createWithSpriteFrames(spriteFrame, 0.05f);
+	playerOne->PlayerSprite->runAction(RepeatForever::create(Animate::create(animation)));
+}
+
+
+*/
+
+
+
 
 
 void MercuryScene::onKeyHold(float interval){
@@ -188,6 +248,11 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
 
+
+	//	AnimateSpritesheet();
+
+
+
 		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY())) == "Normal")
 		{
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY()));
@@ -218,6 +283,11 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW)
 	{
+
+
+	//	AnimateSpritesheet();
+
+
 		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY())) == "Normal")
 		{
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY()));
