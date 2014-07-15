@@ -55,9 +55,13 @@ bool MercuryScene::init()
     auto listener = EventListenerKeyboard::create();
 
 	cocos2d::Sprite* ptr = playerOne->PlayerSprite;
-	while (metaCheck(Point(ptr->getPositionX()+1, ptr->getPositionY()-1)) == "Normal")
+	while (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY()-3)) == "Normal")
 	{
+<<<<<<< HEAD
 		ptr->setPosition(Point(ptr->getPositionX() + 0.5, ptr->getPositionY() - 0.5));
+=======
+		ptr->setPosition(Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 1.5));
+>>>>>>> 18e72883a33349b322532b95562d3aa51c5d4a2a
 		setPointOfView(Point(ptr->getPosition()));
 	}
 
@@ -126,37 +130,11 @@ void MercuryScene::AnimateSpritesheet()
 
 void MercuryScene::onKeyHold(float interval){
 
-	/*cocos2d::Sprite* ptr = playerOne->PlayerSprite;
-	if (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY() - 5)) == "Normal")
-	{
-		animacion.mover(ptr, 2.0f, Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5.f));
-		//
-		setPointOfView(Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5));
-	}*/
+
 	gravedad();
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_UP_ARROW) != heldKeys.end()){
 		// up pressed
-
-		/*if (metaCheck(Point(playerOne->PlayerSprite->getPositionX(), playerOne->PlayerSprite->getPositionY() + 5)) == "Normal")
-		{
-			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX(), playerOne->PlayerSprite->getPositionY() + 5));
-			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
-
-
-		}
-		else
-		{
-			Size visibleSize = Director::getInstance()->getVisibleSize();
-			Point origin = Director::getInstance()->getVisibleOrigin();
-			auto label = LabelTTF::create("Colision", "Arial", 72);
-
-			// position the label on the center of the screen
-			label->setPosition(Point(origin.x + visibleSize.width / 2,
-				origin.y + visibleSize.height - label->getContentSize().height));
-
-			addChild(label, 5);
-		}*/
 
 
 	}
@@ -164,33 +142,20 @@ void MercuryScene::onKeyHold(float interval){
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_DOWN_ARROW) != heldKeys.end()){
 		// down pressed
 
-		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5)) == "Normal")
-		{
-			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5));
-			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
-		}
-		else
-		{
-			Size visibleSize = Director::getInstance()->getVisibleSize();
-			Point origin = Director::getInstance()->getVisibleOrigin();
-			auto label = LabelTTF::create("Colision", "Arial", 72);
-
-			// position the label on the center of the screen
-			label->setPosition(Point(origin.x + visibleSize.width / 2,
-				origin.y + visibleSize.height - label->getContentSize().height));
-
-			addChild(label, 5);
-		}
+		
 
 	}
 
-	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_RIGHT_ARROW) != heldKeys.end()){
+	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_RIGHT_ARROW) != heldKeys.end() ){
 		// right pressed
 
-		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY())) == "Normal")
+		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() + 4, playerOne->PlayerSprite->getPositionY())) == "Normal")
 		{
-			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY()));
+			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 3, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
+
+			gravedad();
+	
 		}
 		else
 		{
@@ -206,13 +171,15 @@ void MercuryScene::onKeyHold(float interval){
 		}
 	}
 
-	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_LEFT_ARROW) != heldKeys.end()){
+	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_LEFT_ARROW) != heldKeys.end() ){
 		// left pressed
 
-		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY())) == "Normal")
+		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() - 4, playerOne->PlayerSprite->getPositionY())) == "Normal")
 		{
-			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY()));
+			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 3, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
+
+			gravedad();
 		}
 		else
 		{
@@ -232,13 +199,6 @@ void MercuryScene::onKeyHold(float interval){
 
 void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
-	/*cocos2d::Sprite* ptr = playerOne->PlayerSprite;
-	if (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY() - 5)) == "Normal")
-	{
-		animacion.mover(ptr, 2.0f, Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5.f));
-		//
-		setPointOfView(Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5));
-	}*/
 
 	gravedad();
 
@@ -247,6 +207,7 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
+<<<<<<< HEAD
 
 
 	//	AnimateSpritesheet();
@@ -270,19 +231,22 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 
 			addChild(label, 5);
 		}
+=======
+		
+>>>>>>> 18e72883a33349b322532b95562d3aa51c5d4a2a
 	}
-	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW)
+
+	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW && metaCheck(Point(playerOne->PlayerSprite->getPositionX(), playerOne->PlayerSprite->getPositionY()-3.5)) != "Normal")
 	{
 		cocos2d::Sprite* ptr = playerOne->PlayerSprite;
-		animacion.mover(ptr, 2.0f, Point((ptr->getPositionX()+150.0f), (ptr->getPositionY() + 100.0f)));
-		///ptr->setPosition(Point(ptr->getPositionX()+5, playerOne->PlayerSprite->getPositionY() + 200));
-		//setPointOfView(Point(ptr->getPosition()));
-		setPointOfView(Point((ptr->getPositionX() + 150.0f), (ptr->getPositionY() + 100.0f)));
+		animacion.mover(ptr, 1.5f, Point((ptr->getPositionX()), (ptr->getPositionY() + 200.0f)));
+		setPointOfView(Point((ptr->getPositionX() + 150.0f), (ptr->getPositionY() + 200.0f)));
 
 
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW)
 	{
+<<<<<<< HEAD
 
 
 	//	AnimateSpritesheet();
@@ -305,19 +269,15 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 
 			addChild(label, 5);
 		}
+=======
+		
+>>>>>>> 18e72883a33349b322532b95562d3aa51c5d4a2a
 	}
 }
 
 void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
-	/*cocos2d::Sprite* ptr = playerOne->PlayerSprite;
-	if (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY() - 5)) == "Normal")
-	{
-		animacion.mover(ptr, 2.0f, Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5.f));
-		//
-		setPointOfView(Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 5));
-	}*/
-
+	
 	gravedad();
 
 	heldKeys.erase(std::remove(heldKeys.begin(), heldKeys.end(), keyCode), heldKeys.end());
@@ -342,11 +302,9 @@ void MercuryScene::gravedad()
 {
 
 	cocos2d::Sprite* ptr = playerOne->PlayerSprite;
-	if (metaCheck(Point(ptr->getPositionX() + 1, ptr->getPositionY() - 1)) == "Normal")
+	if (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY() - 3.5)) == "Normal")
 	{
-		animacion.mover(ptr, 0.5f, Point(ptr->getPositionX() + 0.5, playerOne->PlayerSprite->getPositionY() - 0.5));
-		//
-		//setPointOfView(Point(ptr->getPositionX() + 1, playerOne->PlayerSprite->getPositionY() - 1));
+		animacion.mover(ptr, 0.01f, Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 1.0));
 		setPointOfView(Point(ptr->getPosition()));
 	}
 
