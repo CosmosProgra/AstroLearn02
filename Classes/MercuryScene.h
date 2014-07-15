@@ -36,6 +36,21 @@ public:
 protected:
 	/// Metodo para cargar el objeto 'Astronauta' del Tilemap de Mercurio(fondo.tmx)
 	void cargarfondo();
+
+
+
+
+public:
+
+	void loadSpritesheet();
+
+	void AnimateSpritesheet();
+
+
+
+
+
+
 };
 
 #endif
