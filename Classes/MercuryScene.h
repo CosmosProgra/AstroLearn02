@@ -5,6 +5,7 @@
 #include "TileMaps.h"
 #include "Animaciones.h"
 
+
 /// Crea la pantalla del nivel de Mercurio
 class MercuryScene :public TileMaps
 {
@@ -45,7 +46,10 @@ protected:
 	///Metodo de prueba!!
 	/// Se encarga de cargar las monedas dentro del juego
 	void loadStars();
+	///Se encarga de verificar la recoleccion de estrellas
+	void verificarrecoleccion();
 	std::vector<cocos2d::Sprite*> stars;
+
 
 public:
 
