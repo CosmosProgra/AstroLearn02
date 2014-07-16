@@ -149,6 +149,49 @@ void TileMaps::createCharacter(std::string imagen)
 }
 
 
+
+void TileMaps::createCharacterAnimation()
+{
+	/*
+	 Size visibleSize = Director::getInstance()->getVisibleSize();
+	 Point origin = Director::getInstance()->getVisibleOrigin();
+
+	playerOne = new Player();
+	auto PlayerObjeto = objetos->getObject("Astronauta");
+
+	float x = PlayerObjeto["x"].asFloat() + 10;
+	float y = PlayerObjeto["y"].asFloat() + 60;
+		
+	playerOne->PlayerSprite = Sprite::create("/maps/animation/0000008.png");
+	
+	playerOne->PlayerSprite->setPosition(CC_POINT_PIXELS_TO_POINTS(Point(x, y)));
+
+	playerOne->PlayerSprite->setAnchorPoint(Point(0.9f, 0.0f));
+
+	addChild(playerOne->PlayerSprite, 0);
+		
+	// Hacer una animacion con el titulo del juego cambiando su imagen (textura) en el tiempo
+	auto animation = Animation::create();
+	for (int i = 10; i < 30; ++i)
+		animation->addSpriteFrameWithFile(String::createWithFormat("/maps/animation/00000%i.png", i)->getCString());
+
+	// Y luego regresarla a su estado inicial
+	for (int i = 30 ; i >= 10; --i)
+		animation->addSpriteFrameWithFile(String::createWithFormat("/maps/animation/00000%i.png", i)->getCString());
+
+	// Indicarle que muestre cada una de las imagenes que la componen por 0.1333 segundos
+	animation->setDelayPerUnit(0.1333f);
+
+	// Lo anterior construye una unica animacion, repetirla siempre y cuando la pantalla de
+	// menu del juego este visible
+	auto repeatAnimation = RepeatForever::create(Animate::create(animation));
+	playerOne->PlayerSprite->runAction(repeatAnimation);
+	*/
+}
+
+
+
+
 void TileMaps::setEvents()
 {
 	auto listener = EventListenerTouchOneByOne::create();

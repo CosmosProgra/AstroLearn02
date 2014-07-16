@@ -71,6 +71,18 @@ protected:
 	*
 	*/
 	void createCharacter(std::string imagen);
+
+
+
+	/**
+	* @brief Se encarga de cargar, animar y posicionar el personaje
+	* @param imagen ruta y nombre de la imagen que se va usar para el personaje
+	*
+	*/
+	void createCharacterAnimation();
+
+
+
 	/**
 	* @brief Determina que pasa con el jugador en la posicion a donde se quiere mover
 	*
