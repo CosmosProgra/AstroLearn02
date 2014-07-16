@@ -12,8 +12,8 @@ struct Player
 	friend class MercuryScene;
 protected:
 	cocos2d::Sprite* PlayerSprite;
-	int points = 0;
-	bool colision = false;
+	int points;
+	bool colision;
 public:
 	Player();
 	~Player();

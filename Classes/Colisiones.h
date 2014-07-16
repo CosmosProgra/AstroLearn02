@@ -10,8 +10,6 @@ USING_NS_CC;
 class Colisiones
 {
 public:
-	/// Do not make instances of this class
-	Colisiones() = delete;
 	/// @brief Returns true if there is a collision between sprites @a node1 and @a node2
 	/// @details Determines if the two images collides calculating a circle around them
 	/// @param node1 The first sprite

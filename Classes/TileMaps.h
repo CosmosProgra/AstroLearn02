@@ -66,6 +66,7 @@ protected:
 	virtual void loadMap(const std::string& mapTmx, const std::string& objectGroupName, const std::string& ambiente2, const std::string& ambiente1,
 		const std::string& f1LayerName, const std::string& f2LayerName, const std::string& bgLayerName, const std::string& metaLayerName);
 	/**
+
 	* @brief Se encarga de cargar y posicionar el personaje
 	* @param imagen ruta y nombre de la imagen que se va usar para el personaje
 	*

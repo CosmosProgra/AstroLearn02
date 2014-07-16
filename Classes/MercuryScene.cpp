@@ -49,7 +49,7 @@ bool MercuryScene::init()
 	 tileMap->addChild(playerOne->PlayerSprite, 2);
 	
 
-	this->addChild(tileMap, -1, 1);
+	this->addChild(tileMap, -1, 1); 
 	setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 	printf("x mapPosition %f", tileMap->getPosition().x);
 	printf("x mapPosition %f", tileMap->getPosition().y);
@@ -71,11 +71,18 @@ bool MercuryScene::init()
 	this->schedule(schedule_selector(MercuryScene::onKeyHold));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
-	//loadStars();
+	loadStars();
+	schedule(schedule_selector(MercuryScene::updateColision));
 	return true;
 }
 
 
+
+void MercuryScene::updateColision(float df)
+{
+
+	verificarrecoleccion();
+}
 
 void MercuryScene::onKeyHold(float interval){
 	
@@ -271,6 +278,17 @@ void MercuryScene::loadStars()
 		stars.push_back(star);
 		tileMap->addChild(star, 4);
 	}
+}
+
+void MercuryScene::marcadores()
+{
+
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Point origin = Director::getInstance()->getVisibleOrigin();
+	marcador = LabelTTF::create("0000","fonts/04B.ttf",25);
+	marcador->setPosition(Point(origin.x + visibleSize.width-marcador->getContentSize().width,
+									origin.y + visibleSize.height-marcador->getContentSize().height));
+	addChild(marcador,4);
 }
 
 
