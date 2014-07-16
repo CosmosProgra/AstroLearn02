@@ -10,8 +10,8 @@ class MercuryScene :public TileMaps
 {
 	//Variables de prueba para las estrellas de puntaje
 	static const size_t starsNumber = 60;
-	static const size_t maxCoorderX = 6400;
-	static const size_t groundCoorderY = 163;
+	static const size_t maxCoorderX = 6368;
+	static const size_t groundCoorderY = 1088;
 
 public:
 

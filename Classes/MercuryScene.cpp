@@ -179,7 +179,7 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 
 	}
 
-	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW && metaCheck(Point(playerOne->PlayerSprite->getPositionX(), playerOne->PlayerSprite->getPositionY()-3.5)) != "Normal")
+	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW && metaCheck(Point(playerOne->PlayerSprite->getPositionX(), playerOne->PlayerSprite->getPositionY()-3.8)) != "Normal")
 	{
 		cocos2d::Sprite* ptr = playerOne->PlayerSprite;
 		animacion.mover(ptr, 1.5f, Point((ptr->getPositionX()), (ptr->getPositionY() + 200.0f)));
@@ -243,9 +243,9 @@ void MercuryScene::gravedad()
 {
 
 	cocos2d::Sprite* ptr = playerOne->PlayerSprite;
-	if (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY() - 3.5)) == "Normal")
+	if (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY() - 3.8)) == "Normal")
 	{
-		animacion.mover(ptr, 0.01f, Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 1.0));
+		animacion.mover(ptr, 0.0001f, Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 1.0));
 		setPointOfView(Point(ptr->getPosition()));
 	}
 
@@ -266,7 +266,13 @@ void MercuryScene::loadStars()
 		auto repeatAnimation = RepeatForever::create(Animate::create(animation));
 		star->runAction(repeatAnimation);
 		star->setAnchorPoint(Point(0.0f, 0.0f));
-		star->setPosition(rand() % maxCoorderX, rand() % 100 + groundCoorderY);
+		int posiciony = rand() % groundCoorderY;
+		if (posiciony < 224)
+		{
+			posiciony = 250;
+		}
+
+		star->setPosition(rand() % maxCoorderX, posiciony);
 		stars.push_back(star);
 		tileMap->addChild(star, 4);
 	}
