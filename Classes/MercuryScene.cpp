@@ -70,7 +70,7 @@ bool MercuryScene::init()
 	this->schedule(schedule_selector(MercuryScene::onKeyHold));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
-
+	loadStars();
 	return true;
 }
 
@@ -310,6 +310,25 @@ void MercuryScene::gravedad()
 
 	setPointOfView(Point(ptr->getPosition()));
 
+}
+
+//Metodo de prueba para cargar estrellas en pantalla
+void MercuryScene::loadStars()
+{
+
+	for (size_t i = 0; i <= starsNumber; ++i){
+		Sprite* star = Sprite::create("Animations/coins.png", Rect(0, 0, 40, 40));
+		auto animation = Animation::create();
+		for (int i = 0; i < 4; ++i)
+			animation->addSpriteFrame(SpriteFrame::create("Animations/coins.png", Rect(0, i * 43, 40, 40)));
+		animation->setDelayPerUnit(0.1333f);
+		auto repeatAnimation = RepeatForever::create(Animate::create(animation));
+		star->runAction(repeatAnimation);
+		star->setAnchorPoint(Point(0.0f, 0.0f));
+		star->setPosition(rand() % maxCoorderX, rand() % 100 + groundCoorderY);
+		stars.push_back(star);
+		tileMap->addChild(star, 4);
+	}
 }
 
 

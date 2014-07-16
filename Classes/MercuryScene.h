@@ -8,6 +8,11 @@
 /// Crea la pantalla del nivel de Mercurio
 class MercuryScene :public TileMaps
 {
+	//Variables de prueba para las estrellas de puntaje
+	static const size_t starsNumber = 60;
+	static const size_t maxCoorderX = 6400;
+	static const size_t groundCoorderY = 163;
+
 public:
 
 	MercuryScene();
@@ -37,19 +42,16 @@ protected:
 	/// Metodo para cargar el objeto 'Astronauta' del Tilemap de Mercurio(fondo.tmx)
 	void cargarfondo();
 
-
-
+	///Metodo de prueba!!
+	/// Se encarga de cargar las monedas dentro del juego
+	void loadStars();
+	std::vector<cocos2d::Sprite*> stars;
 
 public:
 
 	void loadSpritesheet();
 
 	void AnimateSpritesheet();
-
-
-
-
-
 
 };
 
