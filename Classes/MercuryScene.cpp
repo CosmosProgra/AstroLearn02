@@ -71,7 +71,7 @@ bool MercuryScene::init()
 	this->schedule(schedule_selector(MercuryScene::onKeyHold));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
-	//loadStars();
+	loadStars();
 	return true;
 }
 
