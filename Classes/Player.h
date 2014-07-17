@@ -10,6 +10,8 @@ struct Player
 {
 	friend class TileMaps;
 	friend class MercuryScene;
+	friend class VenusScene;
+
 protected:
 	cocos2d::Sprite* PlayerSprite;
 	int points;
