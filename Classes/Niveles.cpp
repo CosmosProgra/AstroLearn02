@@ -45,7 +45,7 @@ bool Niveles::init()
 	/// Se utiliza para reproducir la musica cuando se cambia a esta pantalla (niveles).
 	auto sound = CocosDenshion::SimpleAudioEngine::getInstance();
 	sound->stopBackgroundMusic();
-	sound->playBackgroundMusic("Music/cancion4.mp3", true);
+	sound->playBackgroundMusic("Music/spacelifeNo14.mp3", true);
 
     return true;
 }
