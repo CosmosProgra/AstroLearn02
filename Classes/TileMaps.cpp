@@ -93,15 +93,17 @@ std::string TileMaps::metaCheck(Point posicion)
 	log("tileGid %d", tileGid);
 	if (tileGid)
 	{
-
-
 		auto properties = tileMap->getPropertiesForGID(tileGid).asValueMap();
 		if (!properties.empty()) {
-			auto collision = properties["colision"].asBool();
 
+			auto damage = properties["damage"].asBool();
+			auto collision = properties["colision"].asBool();
 			if (collision) {
 				resultado = "colision";
-
+			}
+			else if (damage)
+			{
+				resultado = "damage";
 			}
 
 		}
