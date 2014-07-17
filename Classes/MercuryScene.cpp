@@ -118,6 +118,13 @@ void MercuryScene::onKeyHold(float interval){
 			gravedad();
 	
 		}
+		else if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() + 4, playerOne->PlayerSprite->getPositionY())) == "damage")
+		{
+			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 3, playerOne->PlayerSprite->getPositionY()));
+			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
+			gravedad();
+			init();
+		}
 	}
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_LEFT_ARROW) != heldKeys.end() )
@@ -130,6 +137,14 @@ void MercuryScene::onKeyHold(float interval){
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 
 			gravedad();
+		}
+		else if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() - 4, playerOne->PlayerSprite->getPositionY())) == "damage")
+		{
+			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 3, playerOne->PlayerSprite->getPositionY()));
+			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
+
+			gravedad();
+			init();
 		}
 	}
 
@@ -151,6 +166,12 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 		}
+		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY())) == "daaage")
+		{
+			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY()));
+			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
+			init();
+		}
 	}
 
 	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW && metaCheck(Point(playerOne->PlayerSprite->getPositionX(), playerOne->PlayerSprite->getPositionY()-3.8)) != "Normal")
@@ -168,6 +189,12 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 		{
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
+		}
+		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY())) == "damage")
+		{
+			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY()));
+			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
+			init();
 		}
 	}
 }
@@ -204,6 +231,12 @@ void MercuryScene::gravedad()
 
 	setPointOfView(Point(ptr->getPosition()));
 
+	if (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY() - 3.8)) == "damage")
+	{
+		animacion.mover(ptr, 0.0001f, Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 1.0));
+		setPointOfView(Point(ptr->getPosition()));
+		init();
+	}
 }
 
 ///Metodo de prueba para cargar estrellas en pantalla
@@ -247,6 +280,7 @@ void MercuryScene::verificarrecoleccion()
 			tileMap->removeChild(stars[i]);
 			stars.erase(stars.begin() + i);
 			playerOne->points = playerOne->points + 50;
+
 		}
 	}
 }
@@ -255,6 +289,8 @@ void MercuryScene::actualizarmarcador()
 {
 	std::string puntaje = std::to_string(playerOne->points);
 	marcador->setString("Puntaje: " + puntaje);
+
+	
 }
 
 //Metodo de prueba para cargar estrellas en pantalla
