@@ -5,6 +5,7 @@
 #include  "CCParticleSystemQuad.h"
 #include <string>
 
+
 USING_NS_CC;
 
 VenusScene::VenusScene()
@@ -48,9 +49,8 @@ bool VenusScene::init()
 
 
 	 tileMap->addChild(playerOne->PlayerSprite, 2);
-	
-	 crearParticulaFuego(Point(2200,120));
 
+	 crearParticulaFuego(Point(2200,120));
 
 	this->addChild(tileMap, -1, 1);
 	setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
@@ -84,8 +84,6 @@ bool VenusScene::init()
 void VenusScene::onKeyHold(float interval){
 	
 	gravedad();
-
-
 
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_UP_ARROW) != heldKeys.end()){
@@ -154,7 +152,6 @@ void VenusScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Ev
 {
 
 	gravedad();
-
 
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), keyCode) == heldKeys.end()){

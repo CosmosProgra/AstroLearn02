@@ -29,7 +29,6 @@ public:
 	// Metodo Init
 	virtual bool init();
 	std::vector<cocos2d::EventKeyboard::KeyCode> heldKeys;
-	void returnGameMenu(cocos2d::Ref* pSender);
 	void keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
 	void keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
 	void onKeyHold(float interval);
@@ -44,16 +43,21 @@ protected:
 	void cargarfondo();
 
 	///Metodo de prueba!!
-	/// Se encarga de cargar las monedas dentro del juego
+	/// Se encarga de cargar las estrellas dentro del juego
 	void loadStars();
 	///Se encarga de verificar la recoleccion de estrellas
 	void verificarrecoleccion();
+	void actualizarmarcador();
+	/// Se encarga de cargar los propulsores dentro del juego
+	void cargarPropulsores();
+	///Se encarga de verificar el contacto con los propulsores
+	void verificarContacto();
 	///Actualizar
     void updateColision(float df);
 	void marcadores();
 	std::vector<cocos2d::Sprite*> stars;
+	std::vector<cocos2d::Sprite*> propulsores;
 	cocos2d::LabelTTF* marcador;
-
 
 public:
 

@@ -36,10 +36,10 @@ public:
 
 	void gravedad();
 
+
 	void crearParticulaFuego(const cocos2d::Point& position);
 
 	bool detectarParticula(const cocos2d::Point& position);
-
 	// implement the "static create()" method manually
 	CREATE_FUNC(VenusScene);
 
