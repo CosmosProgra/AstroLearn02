@@ -121,12 +121,15 @@ void MercuryScene::onKeyHold(float interval){
 			aplicarGravedad();
 	
 		}
-		else if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() + 4, playerOne->PlayerSprite->getPositionY())) == "damage")
+		else if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() , playerOne->PlayerSprite->getPositionY()-3)) == "damage")
 		{
+			///Crea la escena de Mercurio
+	auto newScene = MercuryScene::createScene();
+	///Reemplaza la escena actual por la escena de Mercurio
+	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 3, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 			aplicarGravedad();
-			init();
 		}
 	}
 
@@ -148,7 +151,6 @@ void MercuryScene::onKeyHold(float interval){
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 
 			aplicarGravedad();
-			init();
 		}
 
 	}
@@ -280,12 +282,12 @@ void MercuryScene::actualizarmarcador()
 //Metodo de prueba para cargar estrellas en pantalla
 void MercuryScene::cargarPropulsores()
 {
+	
+	int coordX[]={43, 53, 130, 67, 76, 84, 92};	
+	int coordY[]={60, 56,  62, 52, 49, 45, 42};
+	int maxY = 69;
 
-	size_t coordX[]{42, 52, 129, 66, 75, 83, 91};	
-	size_t coordY[]{60, 56,  62, 52, 49, 45, 42};
-	size_t maxY = 69;
-
-	for (size_t i = 0; i <= sizeof(coordX); i++)
+	for (int i = 0; i <= sizeof(coordX); i++)
 	{
 		Sprite* propulsor = Sprite::create("Animations/Propulsores.png");
 		propulsor->setAnchorPoint(Point(0.0f, 0.0f));
@@ -293,18 +295,19 @@ void MercuryScene::cargarPropulsores()
 		propulsores.push_back(propulsor);
 		tileMap->addChild(propulsor, 4);
 	}
+	
 }
 
 void MercuryScene::verificarContacto()
 {
-	for (size_t i = 0; i < propulsores.size(); ++i)
+	for (int i = 0; i < propulsores.size(); ++i)
 	{
 		if (Colisiones::collides(playerOne->PlayerSprite, propulsores[i]))
 		{
 			tileMap->removeChild(propulsores[i]);
 			propulsores.erase(propulsores.begin() + i);
-			animacion.mover(playerOne->PlayerSprite, 1.5f, Point((playerOne->PlayerSprite->getPositionX()), (playerOne->PlayerSprite->getPositionY() + 350.0f)));
-			setPointOfView(Point((playerOne->PlayerSprite->getPositionX() + 150.0f), (playerOne->PlayerSprite->getPositionY() + 350.0f)));
+			animacion.mover(playerOne->PlayerSprite, 1.5f, Point((playerOne->PlayerSprite->getPositionX()), (playerOne->PlayerSprite->getPositionY() + 355.0f)));
+			setPointOfView(Point((playerOne->PlayerSprite->getPositionX() + 150.0f), (playerOne->PlayerSprite->getPositionY() + 355.0f)));
 		}
 	}
 }
@@ -325,10 +328,10 @@ void MercuryScene::cambioDeNivel()
 void MercuryScene::cargarNave()
 {
 	nave = Sprite::create("maps/PantallaMercurio/nave.png");
-	//nave->setAnchorPoint(Point(0.0f, 0.0f));
+	nave->setAnchorPoint(Point(0.0f, 0.0f));
 	size_t maxY = 69;
-	//nave->setPosition((194 * 32), (maxY - 66) * 32);
-	nave->setPosition((34 * 32), (maxY - 60) * 32);
+	nave->setPosition((194 * 32), (maxY - 66) * 32);
+	//nave->setPosition((34 * 32), (maxY - 60) * 32);
 	tileMap->addChild(nave, 4);
 }
 

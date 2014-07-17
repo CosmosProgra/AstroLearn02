@@ -75,11 +75,27 @@ bool VenusScene::init()
 	this->schedule(schedule_selector(VenusScene::onKeyHold));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
+	//Carga de las estrellas de puntaje
 	loadStars();
-	cargarPropulsores();
+	//Etiqueta en pantalla del marcador
+	marcadores();
+    cargarPropulsores();
+	cargarNave();
+	//Método para verificar las distintas colisiones, en este caso, de estrellas para actualizar el puntaje
+	schedule(schedule_selector(VenusScene::updateColision));
+
+	
 	return true;
 }
 
+///Método que verifica las distintas colisiones
+void VenusScene::updateColision(float df)
+{
+	contactoNave();
+	verificarContacto();
+	verificarrecoleccion();
+	actualizarmarcador();
+}
 
 
 void VenusScene::onKeyHold(float interval){
@@ -248,6 +264,40 @@ void VenusScene::loadStars()
 		tileMap->addChild(star, 4);
 	}
 }
+
+///Método que carga la etiqueta del marcador inicial en pantalla
+void VenusScene::marcadores()
+{
+	playerOne->points = 0;
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Point origin = Director::getInstance()->getVisibleOrigin();
+	marcador = LabelTTF::create("Puntaje: 0 ","Arial",25);
+	marcador->setPosition(Point(origin.x + visibleSize.width / 2,
+		origin.y + visibleSize.height - marcador->getContentSize().height));
+	addChild(marcador,4);
+}
+
+///Método que verifica la obtención de estrellas del jugador
+void VenusScene::verificarrecoleccion()
+{
+	for (size_t i = 0; i < stars.size(); ++i)
+	{
+		if (Colisiones::collides(playerOne->PlayerSprite, stars[i]))
+		{
+			tileMap->removeChild(stars[i]);
+			stars.erase(stars.begin() + i);
+			playerOne->points = playerOne->points + 50;
+		}
+	}
+}
+
+void VenusScene::actualizarmarcador()
+{
+	std::string puntaje = std::to_string(playerOne->points);
+	marcador->setString("Puntaje: " + puntaje);
+}
+
+
 void VenusScene::crearParticulaFuego(const cocos2d::Point& position)
 {
 
@@ -263,7 +313,7 @@ void VenusScene::crearParticulaFuego(const cocos2d::Point& position)
 //Metodo de prueba para cargar estrellas en pantalla
 void VenusScene::cargarPropulsores()
 {
-
+/*
 	size_t coordX[]{61};
 	size_t coordY[]{55};
 	size_t maxY = 69;
@@ -276,6 +326,7 @@ void VenusScene::cargarPropulsores()
 		propulsores.push_back(propulsor);
 		tileMap->addChild(propulsor, 4);
 	}
+	*/
 }
 
 void VenusScene::verificarContacto()
@@ -292,7 +343,6 @@ void VenusScene::verificarContacto()
 	}
 }
 	
-
 
 
 #include "VenusScene.h"

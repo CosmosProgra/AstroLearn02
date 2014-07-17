@@ -34,7 +34,7 @@ protected:
 	Animaciones animacion;
 
 	/// Crea una particula de fuego.
-	cocos2d::CCParticleSystemQuad*  emitter = nullptr;
+	cocos2d::CCParticleSystemQuad*  emitter;
 
 public:
 	///vector para guardar el resultado de apretar una tecla.
@@ -102,8 +102,6 @@ protected:
 	///Se encarga de verificar el contacto con los propulsores
 	void verificarContacto();
 
-
-
 	cocos2d::Sprite* nave;
 
 	///Se encarga de cambiar la escena por la de Venus
@@ -113,6 +111,18 @@ protected:
 	///Se encarga de cargar la nave dentro del juego
 	void contactoNave();
 
+	///Se encarga de verificar la recoleccion de estrellas
+	void verificarrecoleccion();
+	void actualizarmarcador();
+
+	
+
+	///Actualizar
+    void updateColision(float df);
+
+	void marcadores();
+
+	cocos2d::LabelTTF* marcador;
 
 public:
 
