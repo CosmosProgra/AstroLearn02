@@ -101,11 +101,7 @@ std::string TileMaps::metaCheck(Point posicion)
 
 			if (collision) {
 				resultado = "colision";
-				auto label = LabelTTF::create(properties["colision"].asString(), "Arial", 72);
-				// position the label on the center of the screen
-				label->setPosition(Point(0, 0));
 
-				addChild(label, 5);
 			}
 
 		}

@@ -191,16 +191,16 @@ void Niveles::Mercurio(Ref* pSender)
 
 ////Venus
 
-//#include "VenusScene.h"
+#include "VenusScene.h"
 void Niveles::Venus(Ref* pSender)
 {
 
-	/*
+	
 	///Crea la escena de Venus
 	auto newScene = VenusScene::createScene();
 	///Reemplaza la escena actual por la escena de Venus
 	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
-	*/
+	
 	
 }
 

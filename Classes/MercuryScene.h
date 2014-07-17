@@ -48,7 +48,11 @@ protected:
 	void loadStars();
 	///Se encarga de verificar la recoleccion de estrellas
 	void verificarrecoleccion();
+	///Actualizar
+    void updateColision(float df);
+	void marcadores();
 	std::vector<cocos2d::Sprite*> stars;
+	cocos2d::LabelTTF* marcador;
 
 
 public:
