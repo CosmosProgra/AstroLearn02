@@ -267,13 +267,7 @@ void VenusScene::loadStars()
 {
 
 	for (size_t i = 0; i <= starsNumber; ++i){
-		Sprite* star = Sprite::create("Animations/coins.png", Rect(0, 0, 40, 40));
-		auto animation = Animation::create();
-		for (int i = 0; i < 4; ++i)
-			animation->addSpriteFrame(SpriteFrame::create("Animations/coins.png", Rect(0, i * 43, 40, 40)));
-		animation->setDelayPerUnit(0.1333f);
-		auto repeatAnimation = RepeatForever::create(Animate::create(animation));
-		star->runAction(repeatAnimation);
+		Sprite* star = Sprite::create("Animations/Estrella.png");
 		star->setAnchorPoint(Point(0.0f, 0.0f));
 		int posiciony = rand() % groundCoorderY;
 		if (posiciony < 224)
@@ -284,9 +278,8 @@ void VenusScene::loadStars()
 		star->setPosition(rand() % maxCoorderX, posiciony);
 		stars.push_back(star);
 		tileMap->addChild(star, 4);
-	} 
+	}
 }
-
 void VenusScene::crearParticulaFuego(const cocos2d::Point& position)
 {
 
