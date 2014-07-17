@@ -96,7 +96,7 @@ void MercuryScene::updateColision(float df)
 ///Metodo para jugabilidad del juego con las teclas presionadas
 void MercuryScene::onKeyHold(float interval){
 	
-	gravedad();
+	aplicarGravedad();
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_UP_ARROW) != heldKeys.end()){
 		// up pressed
@@ -115,14 +115,14 @@ void MercuryScene::onKeyHold(float interval){
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 3, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 
-			gravedad();
+			aplicarGravedad();
 	
 		}
 		else if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() + 4, playerOne->PlayerSprite->getPositionY())) == "damage")
 		{
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 3, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
-			gravedad();
+			aplicarGravedad();
 			init();
 		}
 	}
@@ -136,14 +136,14 @@ void MercuryScene::onKeyHold(float interval){
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 3, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 
-			gravedad();
+			aplicarGravedad();
 		}
 		else if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() - 4, playerOne->PlayerSprite->getPositionY())) == "damage")
 		{
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 3, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 
-			gravedad();
+			aplicarGravedad();
 			init();
 		}
 	}
@@ -153,7 +153,7 @@ void MercuryScene::onKeyHold(float interval){
 ///Método para Teclas presionadas
 void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
-	gravedad();
+	aplicarGravedad();
 	if (std::find(heldKeys.begin(), heldKeys.end(), keyCode) == heldKeys.end()){
 		heldKeys.push_back(keyCode);
 	}
@@ -202,7 +202,7 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 ///Método para cuando se suelta la tecla
 void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
-	gravedad();
+	aplicarGravedad();
 
 	heldKeys.erase(std::remove(heldKeys.begin(), heldKeys.end(), keyCode), heldKeys.end());
 
@@ -218,8 +218,8 @@ void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d:
 }
 
 
-///Inicio de construccion de metodo para la gravedad, este trae hacia abajo al jugador
-void MercuryScene::gravedad()
+///Inicio de construccion de metodo para la aplicarGravedad, este trae hacia abajo al jugador
+void MercuryScene::aplicarGravedad()
 {
 
 	cocos2d::Sprite* ptr = playerOne->PlayerSprite;

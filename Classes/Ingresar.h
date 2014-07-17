@@ -11,7 +11,7 @@ class Ingresar : public cocos2d::Layer /*!< Hereda de Layer. */
 	
 public:
 	
-	// Metodo para crear la escena de la pantalla para ingresar.
+	/// Metodo para crear la escena de la pantalla para ingresar.
 	static cocos2d::Scene* createScene();
 
 	/// Retorna un booleano, se usa para generar los elementos que conforman la pantalla.

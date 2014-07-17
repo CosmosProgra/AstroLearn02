@@ -83,7 +83,7 @@ bool VenusScene::init()
 
 void VenusScene::onKeyHold(float interval){
 	
-	gravedad();
+	aplicarGravedad();
 
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_UP_ARROW) != heldKeys.end()){
@@ -105,21 +105,10 @@ void VenusScene::onKeyHold(float interval){
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 3, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 
-			gravedad();
+			aplicarGravedad();
 	
 		}
-		else
-		{
-			Size visibleSize = Director::getInstance()->getVisibleSize();
-			Point origin = Director::getInstance()->getVisibleOrigin();
-			auto label = LabelTTF::create("Colision", "Arial", 72);
-
-			// position the label on the center of the screen
-			label->setPosition(Point(origin.x + visibleSize.width / 2,
-				origin.y + visibleSize.height - label->getContentSize().height));
-			addChild(label, 5);
-
-		}
+		
 	}
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), EventKeyboard::KeyCode::KEY_LEFT_ARROW) != heldKeys.end() ){
@@ -130,20 +119,9 @@ void VenusScene::onKeyHold(float interval){
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 3, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 
-			gravedad();
+			aplicarGravedad();
 		}
-		else
-		{
-			Size visibleSize = Director::getInstance()->getVisibleSize();
-			Point origin = Director::getInstance()->getVisibleOrigin();
-			auto label = LabelTTF::create("Colision", "Arial", 72);
-
-			// position the label on the center of the screen
-			label->setPosition(Point(origin.x + visibleSize.width / 2,
-				origin.y + visibleSize.height - label->getContentSize().height));
-
-			addChild(label, 5);
-		}
+		
 	}
 
 }
@@ -151,7 +129,7 @@ void VenusScene::onKeyHold(float interval){
 void VenusScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
 
-	gravedad();
+	aplicarGravedad();
 
 
 	if (std::find(heldKeys.begin(), heldKeys.end(), keyCode) == heldKeys.end()){
@@ -207,18 +185,7 @@ void VenusScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Ev
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 		}
-		else
-		{
-			Size visibleSize = Director::getInstance()->getVisibleSize();
-			Point origin = Director::getInstance()->getVisibleOrigin();
-			auto label = LabelTTF::create("Colision", "Arial", 72);
-
-			// position the label on the center of the screen
-			label->setPosition(Point(origin.x + visibleSize.width / 2,
-				origin.y + visibleSize.height - label->getContentSize().height));
-
-			addChild(label, 5);
-		}
+		
 
 	}
 }
@@ -227,7 +194,7 @@ void VenusScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Ev
 void VenusScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
 	
-	gravedad();
+	aplicarGravedad();
 
 
 	heldKeys.erase(std::remove(heldKeys.begin(), heldKeys.end(), keyCode), heldKeys.end());
@@ -247,8 +214,8 @@ void VenusScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::E
 }
 
 
-//Inicio de construccion de metodo para la gravedad
-void VenusScene::gravedad()
+//Inicio de construccion de metodo para la aplicarGravedad
+void VenusScene::aplicarGravedad()
 {
 
 	cocos2d::Sprite* ptr = playerOne->PlayerSprite;

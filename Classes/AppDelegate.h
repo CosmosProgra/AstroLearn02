@@ -11,14 +11,14 @@ The reason for implement as private inheritance is to hide some interface call b
 class  AppDelegate : private cocos2d::Application
 {
 public:
-	///
-	///Método constructor de la clase
-    ///
+	//
+	//Método constructor de la clase
+    //
 	AppDelegate();
 	
-	///
-	///Método destructor de la clase
-    ///
+	//
+	//Método destructor de la clase
+    //
 	virtual ~AppDelegate();
 
     /**

@@ -3,17 +3,17 @@
 
 USING_NS_CC;
 
-///Constructor de la clase AppDelegate
+//Constructor de la clase AppDelegate
 AppDelegate::AppDelegate() {
 
 }
 
-///Destructor de la clase AppDelegate
+//Destructor de la clase AppDelegate
 AppDelegate::~AppDelegate() 
 {
 }
 
-///Metodo que se ejecuta cuando la aplicacion termino de cargarse
+//Metodo que se ejecuta cuando la aplicacion termino de cargarse
 bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
     auto director = Director::getInstance();

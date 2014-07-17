@@ -103,9 +103,19 @@ std::string TileMaps::metaCheck(Point posicion)
 			}
 			else if (damage)
 			{
-				resultado = "damage";
-			}
 
+				resultado = "damage";
+
+
+				Size visibleSize = Director::getInstance()->getVisibleSize();
+				Point origin = Director::getInstance()->getVisibleOrigin();
+				auto label = LabelTTF::create("NOOO", "Arial", 72);
+
+				// position the label on the center of the screen
+				label->setPosition(Point(origin.x + visibleSize.width / 2,
+					origin.y + visibleSize.height - label->getContentSize().height));
+				addChild(label, 5);
+			}
 		}
 	}
 	return resultado;

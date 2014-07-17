@@ -21,19 +21,46 @@ public:
 	static cocos2d::Scene* createScene();
 
 protected:
-	// Hace referencia al sprite utilizado para personaje del juego (Astronauta)
+	/// Hace referencia al sprite utilizado para personaje del juego (Astronauta)
 	cocos2d::Sprite* astronautaSprite;
-	Animaciones animacion;
 
+	/// Para poder hacer que el personaje se mueva hacia arriba o abajo
+	Animaciones animacion;
 public:
-	// Metodo Init
-	virtual bool init();
+	///vector para guardar el resultado de apretar una tecla.
 	std::vector<cocos2d::EventKeyboard::KeyCode> heldKeys;
+
+	/**
+	* @brief metodo para generar los componentes que posee la pantalla principal.
+	* @return retorna true si el metodo logro generar los elementos y agregarlos a la capa.
+	*/
+	virtual bool init();
+
+
+	/**
+	* @brief metodo para enviar a otra pantalla
+	*/
+	void returnGameMenu(cocos2d::Ref* pSender);
+
+	/**
+	* @brief metodo para realizar ciertas acciones cuando las teclas son presionadas.
+	*/
 	void keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
+
+	/**
+	* @brief metodo para realizar ciertas acciones cuando las teclas son soltadas.
+	*/
 	void keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
+
+	/**
+	* @brief metodo para realizar ciertas acciones cuando las teclas son presiondas y se mantienen así.
+	*/
 	void onKeyHold(float interval);
 
-	void gravedad();
+	/**
+	* @brief metodo atraer el personaje hacia abajo.
+	*/
+	void aplicarGravedad();
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(MercuryScene);
@@ -61,10 +88,15 @@ protected:
 
 public:
 
+	/**
+	* @brief metodo para cargar las imagenes de la animacion del personaje
+	*/
 	void loadSpritesheet();
 
+	/**
+	* @brief metodo para animcar al personaje
+	*/
 	void AnimateSpritesheet();
-
 };
 
 #endif
