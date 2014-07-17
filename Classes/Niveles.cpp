@@ -194,7 +194,6 @@ void Niveles::Mercurio(Ref* pSender)
 #include "VenusScene.h"
 void Niveles::Venus(Ref* pSender)
 {
-
 	
 	///Crea la escena de Venus
 	auto newScene = VenusScene::createScene();
