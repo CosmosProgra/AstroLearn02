@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "TileMaps.h"
 #include "Animaciones.h"
+#include "Colisiones.h"
 
 /**
 * @brief clase para generar la pantalla de Venus.
@@ -91,6 +92,27 @@ protected:
 
 	///vector que posee las imaganes de las estrellas
 	std::vector<cocos2d::Sprite*> stars;
+
+	///Vector que posee las imagenes de los propulsores
+	std::vector<cocos2d::Sprite*> propulsores;
+
+	/// Se encarga de cargar los propulsores dentro del juego
+	void cargarPropulsores();
+
+	///Se encarga de verificar el contacto con los propulsores
+	void verificarContacto();
+
+
+
+	cocos2d::Sprite* nave;
+
+	///Se encarga de cambiar la escena por la de Venus
+	void cambioDeNivel();
+	/// Carga la imagen de la nave en la pantalla
+	void cargarNave();
+	///Se encarga de cargar la nave dentro del juego
+	void contactoNave();
+
 
 public:
 

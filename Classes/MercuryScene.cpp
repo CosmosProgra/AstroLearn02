@@ -82,7 +82,7 @@ bool MercuryScene::init()
 	//Método para verificar las distintas colisiones, en este caso, de estrellas para actualizar el puntaje
 	schedule(schedule_selector(MercuryScene::updateColision));
 
-	finalDeNivel();
+	cargarNave();
 
 	return true;
 }
@@ -90,6 +90,7 @@ bool MercuryScene::init()
 ///Método que verifica las distintas colisiones
 void MercuryScene::updateColision(float df)
 {
+	contactoNave();
 	verificarContacto();
 	verificarrecoleccion();
 	actualizarmarcador();
@@ -320,18 +321,22 @@ void MercuryScene::cambioDeNivel()
 	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
 }
 
-void MercuryScene::finalDeNivel()
-{
-	size_t maxY = 69;
-	Sprite* nave = Sprite::create("maps/PantallaMercurio/nave.png");
-	nave->setAnchorPoint(Point(0.0f, 0.0f));
-	//nave->setPosition((194 * 32), (maxY - 66) * 32);
 
+void MercuryScene::cargarNave()
+{
+	nave = Sprite::create("maps/PantallaMercurio/nave.png");
+	//nave->setAnchorPoint(Point(0.0f, 0.0f));
+	size_t maxY = 69;
+	//nave->setPosition((194 * 32), (maxY - 66) * 32);
 	nave->setPosition((34 * 32), (maxY - 60) * 32);
 	tileMap->addChild(nave, 4);
+}
+
+void MercuryScene::contactoNave()
+{	
 	if (Colisiones::collides(playerOne->PlayerSprite, nave))
 	{
-		tileMap->removeChild(playerOne->PlayerSprite);
+		//tileMap->removeChild(playerOne->PlayerSprite);
 		cambioDeNivel();
 	}
 }

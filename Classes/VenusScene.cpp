@@ -76,6 +76,7 @@ bool VenusScene::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
 	loadStars();
+	cargarPropulsores();
 	return true;
 }
 
@@ -259,6 +260,66 @@ void VenusScene::crearParticulaFuego(const cocos2d::Point& position)
 
 
 
-	
+//Metodo de prueba para cargar estrellas en pantalla
+void VenusScene::cargarPropulsores()
+{
+
+	size_t coordX[]{61};
+	size_t coordY[]{55};
+	size_t maxY = 69;
+
+	for (size_t i = 0; i <= sizeof(coordX); i++)
+	{
+		Sprite* propulsor = Sprite::create("Animations/Propulsores.png");
+		propulsor->setAnchorPoint(Point(0.0f, 0.0f));
+		propulsor->setPosition((coordX[i] * 32), (maxY - coordY[i]) * 32);
+		propulsores.push_back(propulsor);
+		tileMap->addChild(propulsor, 4);
+	}
+}
+
+void VenusScene::verificarContacto()
+{
+	for (size_t i = 0; i < propulsores.size(); ++i)
+	{
+		if (Colisiones::collides(playerOne->PlayerSprite, propulsores[i]))
+		{
+			tileMap->removeChild(propulsores[i]);
+			propulsores.erase(propulsores.begin() + i);
+			animacion.mover(playerOne->PlayerSprite, 1.5f, Point((playerOne->PlayerSprite->getPositionX()), (playerOne->PlayerSprite->getPositionY() + 350.0f)));
+			setPointOfView(Point((playerOne->PlayerSprite->getPositionX() + 150.0f), (playerOne->PlayerSprite->getPositionY() + 350.0f)));
+		}
+	}
+}
 	
 
+
+
+#include "VenusScene.h"
+void VenusScene::cambioDeNivel()
+{
+	///Crea la escena de Venus
+	auto newScene = VenusScene::createScene();
+	///Reemplaza la escena actual por la escena de Venus
+	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
+}
+
+
+void VenusScene::cargarNave()
+{
+	nave = Sprite::create("maps/PantallaMercurio/nave.png");
+	//nave->setAnchorPoint(Point(0.0f, 0.0f));
+	size_t maxY = 69;
+	//nave->setPosition((194 * 32), (maxY - 66) * 32);
+	nave->setPosition((183 * 32), (maxY - 58) * 32);
+	tileMap->addChild(nave, 4);
+}
+
+void VenusScene::contactoNave()
+{
+	if (Colisiones::collides(playerOne->PlayerSprite, nave))
+	{
+		//tileMap->removeChild(playerOne->PlayerSprite);
+		cambioDeNivel();
+	}
+}

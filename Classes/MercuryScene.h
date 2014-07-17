@@ -80,24 +80,41 @@ protected:
 	///Se encarga de verificar el contacto con los propulsores
 	void verificarContacto();
 	
-	///Se encarga de cargar la nave dentro del juego
-	void finalDeNivel();
+
+	cocos2d::Sprite* nave;
+
 	///Se encarga de cambiar la escena por la de Venus
 	void cambioDeNivel();
+
+	void cargarNave();
+	///Se encarga de cargar la nave dentro del juego
+	void contactoNave();
+	
 
 
 	///Actualizar
     void updateColision(float df);
+
 	void marcadores();
+
+	///vector que posee las imaganes de las estrellas
 	std::vector<cocos2d::Sprite*> stars;
+
+	///Vector que posee las imagenes de los propulsores
 	std::vector<cocos2d::Sprite*> propulsores;
 	cocos2d::LabelTTF* marcador;
 
 
 
 public:
+	/**
+	* @brief metodo para cargar las imagenes de la animacion del personaje
+	*/
 	void loadSpritesheet();
 
+	/**
+	* @brief metodo para animcar al personaje
+	*/
 	void AnimateSpritesheet();
 };
 
