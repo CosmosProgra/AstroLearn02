@@ -82,6 +82,8 @@ bool MercuryScene::init()
 	//Método para verificar las distintas colisiones, en este caso, de estrellas para actualizar el puntaje
 	schedule(schedule_selector(MercuryScene::updateColision));
 
+	finalDeNivel();
+
 	return true;
 }
 
@@ -138,6 +140,7 @@ void MercuryScene::onKeyHold(float interval){
 
 			aplicarGravedad();
 		}
+
 		else if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() - 4, playerOne->PlayerSprite->getPositionY())) == "damage")
 		{
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 3, playerOne->PlayerSprite->getPositionY()));
@@ -146,6 +149,7 @@ void MercuryScene::onKeyHold(float interval){
 			aplicarGravedad();
 			init();
 		}
+
 	}
 
 }
@@ -166,12 +170,6 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 		}
-		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY())) == "daaage")
-		{
-			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() + 5, playerOne->PlayerSprite->getPositionY()));
-			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
-			init();
-		}
 	}
 
 	if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW && metaCheck(Point(playerOne->PlayerSprite->getPositionX(), playerOne->PlayerSprite->getPositionY()-3.8)) != "Normal")
@@ -189,12 +187,6 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 		{
 			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY()));
 			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
-		}
-		if (metaCheck(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY())) == "damage")
-		{
-			playerOne->PlayerSprite->setPosition(Point(playerOne->PlayerSprite->getPositionX() - 5, playerOne->PlayerSprite->getPositionY()));
-			setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
-			init();
 		}
 	}
 }
@@ -231,12 +223,6 @@ void MercuryScene::aplicarGravedad()
 
 	setPointOfView(Point(ptr->getPosition()));
 
-	if (metaCheck(Point(ptr->getPositionX(), ptr->getPositionY() - 3.8)) == "damage")
-	{
-		animacion.mover(ptr, 0.0001f, Point(ptr->getPositionX(), playerOne->PlayerSprite->getPositionY() - 1.0));
-		setPointOfView(Point(ptr->getPosition()));
-		init();
-	}
 }
 
 ///Metodo de prueba para cargar estrellas en pantalla
@@ -280,7 +266,6 @@ void MercuryScene::verificarrecoleccion()
 			tileMap->removeChild(stars[i]);
 			stars.erase(stars.begin() + i);
 			playerOne->points = playerOne->points + 50;
-
 		}
 	}
 }
@@ -289,16 +274,14 @@ void MercuryScene::actualizarmarcador()
 {
 	std::string puntaje = std::to_string(playerOne->points);
 	marcador->setString("Puntaje: " + puntaje);
-
-	
 }
 
 //Metodo de prueba para cargar estrellas en pantalla
 void MercuryScene::cargarPropulsores()
 {
 
-	size_t coordX[]{42, 52, 129};	
-	size_t coordY[]{60, 56, 62};
+	size_t coordX[]{42, 52, 129, 66, 75, 83, 91};	
+	size_t coordY[]{60, 56,  62, 52, 49, 45, 42};
 	size_t maxY = 69;
 
 	for (size_t i = 0; i <= sizeof(coordX); i++)
@@ -322,5 +305,33 @@ void MercuryScene::verificarContacto()
 			animacion.mover(playerOne->PlayerSprite, 1.5f, Point((playerOne->PlayerSprite->getPositionX()), (playerOne->PlayerSprite->getPositionY() + 350.0f)));
 			setPointOfView(Point((playerOne->PlayerSprite->getPositionX() + 150.0f), (playerOne->PlayerSprite->getPositionY() + 350.0f)));
 		}
+	}
+}
+
+
+
+
+#include "VenusScene.h"
+void MercuryScene::cambioDeNivel()
+{
+	///Crea la escena de Venus
+	auto newScene = VenusScene::createScene();
+	///Reemplaza la escena actual por la escena de Venus
+	Director::getInstance()->replaceScene(CCTransitionSlideInR::create(0.75f, newScene));
+}
+
+void MercuryScene::finalDeNivel()
+{
+	size_t maxY = 69;
+	Sprite* nave = Sprite::create("maps/PantallaMercurio/nave.png");
+	nave->setAnchorPoint(Point(0.0f, 0.0f));
+	//nave->setPosition((194 * 32), (maxY - 66) * 32);
+
+	nave->setPosition((34 * 32), (maxY - 60) * 32);
+	tileMap->addChild(nave, 4);
+	if (Colisiones::collides(playerOne->PlayerSprite, nave))
+	{
+		tileMap->removeChild(playerOne->PlayerSprite);
+		cambioDeNivel();
 	}
 }
