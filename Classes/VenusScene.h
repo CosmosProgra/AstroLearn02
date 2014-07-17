@@ -1,13 +1,12 @@
-#ifndef MERCURYSCENE_H
-#define MERCURYSCENE_H
+#ifndef VenusScene_H
+#define VenusScene_H
 
 #include "cocos2d.h"
 #include "TileMaps.h"
 #include "Animaciones.h"
 
-
 /// Crea la pantalla del nivel de Mercurio
-class MercuryScene :public TileMaps
+class VenusScene :public TileMaps
 {
 	//Variables de prueba para las estrellas de puntaje
 	static const size_t starsNumber = 60;
@@ -16,7 +15,7 @@ class MercuryScene :public TileMaps
 
 public:
 
-	MercuryScene();
+	VenusScene();
 	// Aquí se genera la escena de Mercurio
 	static cocos2d::Scene* createScene();
 
@@ -37,33 +36,16 @@ public:
 	void gravedad();
 
 	// implement the "static create()" method manually
-	CREATE_FUNC(MercuryScene);
+	CREATE_FUNC(VenusScene);
 
 protected:
 	/// Metodo para cargar el objeto 'Astronauta' del Tilemap de Mercurio(fondo.tmx)
 	void cargarfondo();
 
 	///Metodo de prueba!!
-	/// Se encarga de cargar las estrellas dentro del juego
+	/// Se encarga de cargar las monedas dentro del juego
 	void loadStars();
-	///Se encarga de verificar la recoleccion de estrellas
-	void verificarrecoleccion();
-
-	/// Se encarga de cargar los propulsores dentro del juego
-	void cargarPropulsores();
-	///Se encarga de verificar el contacto con los propulsores
-	void verificarContacto();
-
-	
-
-
-	///Actualizar
-    void updateColision(float df);
-	void marcadores();
 	std::vector<cocos2d::Sprite*> stars;
-	std::vector<cocos2d::Sprite*> propulsores;
-	cocos2d::LabelTTF* marcador;
-
 
 public:
 

@@ -1,23 +1,22 @@
-#include "MercuryScene.h"
-#include "Colisiones.h"
+#include "VenusScene.h"
 #include <iostream>
 #include <algorithm>
 #include <windows.h>
 
 USING_NS_CC;
 
-MercuryScene::MercuryScene()
+VenusScene::VenusScene()
 {
 	//Constructor
 }
 
-cocos2d::Scene *MercuryScene::createScene()
+cocos2d::Scene *VenusScene::createScene()
 {
 	// 'scene' is an autorelease object
 	auto scene = Scene::create();
 
 	// 'layer' is an autorelease object
-	auto layer = MercuryScene::create();
+	auto layer = VenusScene::create();
 
 	// add layer as a child to scene
 	scene->addChild(layer);
@@ -26,7 +25,7 @@ cocos2d::Scene *MercuryScene::createScene()
 	return scene;
 }
 
-bool MercuryScene::init()
+bool VenusScene::init()
 {
 	//////////////////////////////
 	// 1. super init first
@@ -38,9 +37,9 @@ bool MercuryScene::init()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
-	loadMap("maps/PantallaMercurio/Mercurio.tmx", "Objetos", "Rocas2", "Rocas1", "bg1", "bg2", "FondoPrincipal", "Meta");
+	loadMap("maps/PantallaMercurio/Venus.tmx", "Objetos", "Rocas2", "Rocas1", "bg1", "bg2", "FondoPrincipal", "Meta");
 	setEventHandlers();	
-
+	
 	createCharacter("maps/personajepequeno.png");
 
 	//createCharacterAnimation();
@@ -49,7 +48,7 @@ bool MercuryScene::init()
 	 tileMap->addChild(playerOne->PlayerSprite, 2);
 	
 
-	this->addChild(tileMap, -1, 1); 
+	this->addChild(tileMap, -1, 1);
 	setPointOfView(Point(playerOne->PlayerSprite->getPosition()));
 	printf("x mapPosition %f", tileMap->getPosition().x);
 	printf("x mapPosition %f", tileMap->getPosition().y);
@@ -66,28 +65,18 @@ bool MercuryScene::init()
 		setPointOfView(Point(ptr->getPosition()));
 	}
 
-	listener->onKeyPressed = CC_CALLBACK_2(MercuryScene::keyPressed, this);
-	listener->onKeyReleased = CC_CALLBACK_2(MercuryScene::keyReleased, this);
-	this->schedule(schedule_selector(MercuryScene::onKeyHold));
+	listener->onKeyPressed = CC_CALLBACK_2(VenusScene::keyPressed, this);
+	listener->onKeyReleased = CC_CALLBACK_2(VenusScene::keyReleased, this);
+	this->schedule(schedule_selector(VenusScene::onKeyHold));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
 	loadStars();
-	cargarPropulsores();
-
-	schedule(schedule_selector(MercuryScene::updateColision));
-
 	return true;
 }
 
 
 
-void MercuryScene::updateColision(float df)
-{
-	verificarContacto();
-	verificarrecoleccion();
-}
-
-void MercuryScene::onKeyHold(float interval){
+void VenusScene::onKeyHold(float interval){
 	
 	gravedad();
 
@@ -153,7 +142,7 @@ void MercuryScene::onKeyHold(float interval){
 
 }
 
-void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
+void VenusScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
 
 	gravedad();
@@ -227,7 +216,8 @@ void MercuryScene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 	}
 }
 
-void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
+	
+void VenusScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
 	
 	gravedad();
@@ -250,7 +240,7 @@ void MercuryScene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d:
 
 
 //Inicio de construccion de metodo para la gravedad
-void MercuryScene::gravedad()
+void VenusScene::gravedad()
 {
 
 	cocos2d::Sprite* ptr = playerOne->PlayerSprite;
@@ -265,11 +255,17 @@ void MercuryScene::gravedad()
 }
 
 //Metodo de prueba para cargar estrellas en pantalla
-void MercuryScene::loadStars()
+void VenusScene::loadStars()
 {
 
 	for (size_t i = 0; i <= starsNumber; ++i){
-		Sprite* star = Sprite::create("Animations/Estrella.png");
+		Sprite* star = Sprite::create("Animations/coins.png", Rect(0, 0, 40, 40));
+		auto animation = Animation::create();
+		for (int i = 0; i < 4; ++i)
+			animation->addSpriteFrame(SpriteFrame::create("Animations/coins.png", Rect(0, i * 43, 40, 40)));
+		animation->setDelayPerUnit(0.1333f);
+		auto repeatAnimation = RepeatForever::create(Animate::create(animation));
+		star->runAction(repeatAnimation);
 		star->setAnchorPoint(Point(0.0f, 0.0f));
 		int posiciony = rand() % groundCoorderY;
 		if (posiciony < 224)
@@ -280,80 +276,5 @@ void MercuryScene::loadStars()
 		star->setPosition(rand() % maxCoorderX, posiciony);
 		stars.push_back(star);
 		tileMap->addChild(star, 4);
-	}
-}
-
-void MercuryScene::marcadores()
-{
-
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Point origin = Director::getInstance()->getVisibleOrigin();
-	marcador = LabelTTF::create("0000","fonts/04B.ttf",25);
-	marcador->setPosition(Point(origin.x + visibleSize.width-marcador->getContentSize().width,
-									origin.y + visibleSize.height-marcador->getContentSize().height));
-	addChild(marcador,4);
-}
-
-
-void MercuryScene::verificarrecoleccion()
-{
-	for (size_t i = 0; i < stars.size(); ++i)
-	{
-		if (Colisiones::collides(playerOne->PlayerSprite, stars[i]))
-		{
-			tileMap->removeChild(stars[i]);
-			stars.erase(stars.begin() + i);
-			playerOne->points = playerOne->points + 100;
-		}
-	}
-}
-
-//Prueba
-#include "Ingresar.h" /*!< Inclusion de la biblioteca HelloWorldScene.h */
-
-/// Metodo que es invocado al ser presionado el boton atras.
-void MercuryScene::returnGameMenu(Ref* pSender)
-{
-
-	/// Crea la escena del menu principal
-	auto newScene = Ingresar::createScene();
-	/// Reemplaza la escena actual por la del menu principal. Tambien se le asigna una animación a la transcición de pantalla.
-	Director::getInstance()->replaceScene(CCTransitionSlideInL::create(0.75f, newScene));
-}
-
-
-
-
-
-//Metodo de prueba para cargar estrellas en pantalla
-void MercuryScene::cargarPropulsores()
-{
-
-	size_t coordX[]{42, 52, 129};	
-	size_t coordY[]{60, 56, 62};
-	size_t maxY = 69;
-
-	for (size_t i = 0; i <= sizeof(coordX); i++)
-	{
-		Sprite* propulsor = Sprite::create("Animations/Propulsores.png");
-		propulsor->setAnchorPoint(Point(0.0f, 0.0f));
-		propulsor->setPosition((coordX[i] * 32), (maxY - coordY[i]) * 32);
-		propulsores.push_back(propulsor);
-		tileMap->addChild(propulsor, 4);
-	}
-
-}
-
-void MercuryScene::verificarContacto()
-{
-	for (size_t i = 0; i < propulsores.size(); ++i)
-	{
-		if (Colisiones::collides(playerOne->PlayerSprite, propulsores[i]))
-		{
-			tileMap->removeChild(propulsores[i]);
-			propulsores.erase(propulsores.begin() + i);
-			animacion.mover(playerOne->PlayerSprite, 1.5f, Point((playerOne->PlayerSprite->getPositionX()), (playerOne->PlayerSprite->getPositionY() + 350.0f)));
-			setPointOfView(Point((playerOne->PlayerSprite->getPositionX() + 150.0f), (playerOne->PlayerSprite->getPositionY() + 350.0f)));
-		}
-	}
+	} 
 }
